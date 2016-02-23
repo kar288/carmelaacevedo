@@ -1,0 +1,4172 @@
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: background.png
+2942x1250 pixels, 4x8 bits/pixel, RGB+alpha
+Input IDAT size = 2080471 bytes
+Input file size = 2083622 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 2032533
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 1880799
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2		IDAT size = 1806982
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 1724861
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 1724861
+
+Output IDAT size = 1724861 bytes (355610 bytes decrease)
+Output file size = 1724976 bytes (358646 bytes = 17.21% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: favicon.png
+104x245 pixels, 4x8 bits/pixel, RGB+alpha
+Input IDAT size = 24432 bytes
+Input file size = 24547 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 22205
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 22205
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 22205
+
+Output IDAT size = 22205 bytes (2227 bytes decrease)
+Output file size = 22320 bytes (2227 bytes = 9.07% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: grumblr-thumbnail-bw.png
+450x450 pixels, 4x8 bits/pixel, RGB+alpha
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 46988 bytes
+Input file size = 62402 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 20037
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 19757
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 19400
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5		IDAT size = 19275
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 1  f = 5		IDAT size = 19275
+
+Output IDAT size = 19275 bytes (27713 bytes decrease)
+Output file size = 34689 bytes (27713 bytes = 44.41% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: grumblr-thumbnail.png
+450x450 pixels, 4x8 bits/pixel, RGB+alpha
+Reducing image to 3x8 bits/pixel, RGB
+Input IDAT size = 55867 bytes
+Input file size = 70379 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 49670
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 49631
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5		IDAT size = 49627
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 1  f = 5		IDAT size = 49627
+
+Output IDAT size = 49627 bytes (6240 bytes decrease)
+Output file size = 64139 bytes (6240 bytes = 8.87% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: logo.png
+200x200 pixels, 4x8 bits/pixel, RGB+alpha
+Reducing image to 8 bits/pixel, 183 colors (180 transparent) in palette
+Input IDAT size = 3275 bytes
+Input file size = 3390 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 1881
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 1881
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 1881
+
+Output IDAT size = 1881 bytes (1394 bytes decrease)
+Output file size = 2744 bytes (646 bytes = 19.06% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes10.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 98005 bytes
+Input file size = 98215 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 66267
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 66005
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 54488
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 51981
+  zc = 9  zm = 8  zs = 1  f = 1		IDAT size = 51801
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1		IDAT size = 50493
+  zc = 9  zm = 8  zs = 3  f = 1		IDAT size = 50342
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3		IDAT size = 50085
+  zc = 9  zm = 8  zs = 1  f = 3		IDAT size = 49932
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3		IDAT size = 49321
+  zc = 9  zm = 8  zs = 3  f = 3		IDAT size = 48949
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 45286
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 42060
+  zc = 9  zm = 8  zs = 3  f = 4		IDAT size = 41995
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 3  f = 4		IDAT size = 41995
+
+Output IDAT size = 41995 bytes (56010 bytes decrease)
+Output file size = 42073 bytes (56142 bytes = 57.16% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes11.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 46233 bytes
+Input file size = 46371 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 24808
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0		IDAT size = 23964
+  zc = 9  zm = 8  zs = 3  f = 0		IDAT size = 23918
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 23694
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 23693
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 23693
+
+Output IDAT size = 23693 bytes (22540 bytes decrease)
+Output file size = 23771 bytes (22600 bytes = 48.74% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes12.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 162774 bytes
+Input file size = 163080 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 112352
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 111405
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 91793
+  zc = 9  zm = 8  zs = 0  f = 1		IDAT size = 91441
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 86918
+  zc = 9  zm = 8  zs = 1  f = 1		IDAT size = 86789
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1		IDAT size = 85016
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2		IDAT size = 83906
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2		IDAT size = 81253
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3		IDAT size = 80804
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3		IDAT size = 78535
+  zc = 9  zm = 8  zs = 3  f = 3		IDAT size = 78531
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 76107
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 76107
+
+Output IDAT size = 76107 bytes (86667 bytes decrease)
+Output file size = 76185 bytes (86895 bytes = 53.28% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes13.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 195682 bytes
+Input file size = 196036 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 127164
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 127138
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 109088
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 105024
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1		IDAT size = 104965
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2		IDAT size = 104870
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 104794
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3		IDAT size = 100106
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 99115
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 98749
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 98492
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 98492
+
+Output IDAT size = 98492 bytes (97190 bytes decrease)
+Output file size = 98570 bytes (97466 bytes = 49.72% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes14.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 158940 bytes
+Input file size = 159246 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 90218
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 89817
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2		IDAT size = 83355
+  zc = 9  zm = 8  zs = 0  f = 2		IDAT size = 82748
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 72227
+  zc = 9  zm = 8  zs = 0  f = 4		IDAT size = 72128
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 70347
+  zc = 9  zm = 8  zs = 1  f = 4		IDAT size = 70065
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 70058
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5		IDAT size = 69901
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 69807
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 69807
+
+Output IDAT size = 69807 bytes (89133 bytes decrease)
+Output file size = 69885 bytes (89361 bytes = 56.12% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes15.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 240257 bytes
+Input file size = 240683 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 168872
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 168441
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 147389
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 143234
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1		IDAT size = 142915
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 139771
+  zc = 9  zm = 8  zs = 1  f = 4		IDAT size = 139723
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 139551
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 139358
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 139358
+
+Output IDAT size = 139358 bytes (100899 bytes decrease)
+Output file size = 139436 bytes (101247 bytes = 42.07% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes2.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 145747 bytes
+Input file size = 145825 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 145723
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 145164
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 145164
+
+Output IDAT size = 145164 bytes (583 bytes decrease)
+Output file size = 145242 bytes (583 bytes = 0.40% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes3.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 28038 bytes
+Input file size = 28152 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 17257
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 17255
+  zc = 9  zm = 9  zs = 1  f = 0		IDAT size = 16813
+  zc = 9  zm = 8  zs = 1  f = 0		IDAT size = 16611
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 16422
+  zc = 9  zm = 8  zs = 1  f = 1		IDAT size = 16264
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1		IDAT size = 15820
+  zc = 9  zm = 8  zs = 3  f = 1		IDAT size = 15771
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2		IDAT size = 15335
+  zc = 9  zm = 8  zs = 1  f = 2		IDAT size = 15153
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2		IDAT size = 14384
+  zc = 9  zm = 8  zs = 3  f = 2		IDAT size = 14355
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 14283
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 14250
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 14250
+
+Output IDAT size = 14250 bytes (13788 bytes decrease)
+Output file size = 14328 bytes (13824 bytes = 49.10% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes4.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 136241 bytes
+Input file size = 136511 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 80198
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 80033
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 71349
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 70651
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2		IDAT size = 69103
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2		IDAT size = 68184
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 67052
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3		IDAT size = 66093
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 1  f = 3		IDAT size = 66093
+
+Output IDAT size = 66093 bytes (70148 bytes decrease)
+Output file size = 66171 bytes (70340 bytes = 51.53% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes5.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 39890 bytes
+Input file size = 40016 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 22017
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 20723
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 19852
+  zc = 9  zm = 8  zs = 1  f = 1		IDAT size = 19791
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2		IDAT size = 19663
+  zc = 9  zm = 8  zs = 1  f = 2		IDAT size = 19628
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2		IDAT size = 19522
+  zc = 9  zm = 8  zs = 3  f = 2		IDAT size = 19475
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 19292
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 18302
+  zc = 9  zm = 8  zs = 1  f = 4		IDAT size = 18281
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 18074
+  zc = 9  zm = 8  zs = 3  f = 4		IDAT size = 18009
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 17933
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 17933
+
+Output IDAT size = 17933 bytes (21957 bytes decrease)
+Output file size = 18011 bytes (22005 bytes = 54.99% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes6.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 166385 bytes
+Input file size = 166703 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 125352
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 123999
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 112841
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 107374
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1		IDAT size = 104839
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 99180
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 93374
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 93150
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 93150
+
+Output IDAT size = 93150 bytes (73235 bytes decrease)
+Output file size = 93228 bytes (73475 bytes = 44.08% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes7.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 30705 bytes
+Input file size = 30819 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 16515
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 16515
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 15788
+  zc = 9  zm = 8  zs = 0  f = 1		IDAT size = 15788
+  zc = 9  zm = 9  zs = 1  f = 1		IDAT size = 15106
+  zc = 9  zm = 8  zs = 1  f = 1		IDAT size = 15106
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1		IDAT size = 14967
+  zc = 9  zm = 8  zs = 3  f = 1		IDAT size = 14946
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 14629
+  zc = 9  zm = 8  zs = 3  f = 4		IDAT size = 14605
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 14200
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 14187
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 14187
+
+Output IDAT size = 14187 bytes (16518 bytes decrease)
+Output file size = 14265 bytes (16554 bytes = 53.71% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes8.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 153556 bytes
+Input file size = 153850 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 85935
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2		IDAT size = 78091
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2		IDAT size = 76873
+  zc = 9  zm = 8  zs = 1  f = 2		IDAT size = 76811
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2		IDAT size = 75385
+  zc = 9  zm = 8  zs = 3  f = 2		IDAT size = 75354
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 72683
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4		IDAT size = 70475
+  zc = 9  zm = 8  zs = 1  f = 4		IDAT size = 70397
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4		IDAT size = 68688
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 68027
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 68027
+
+Output IDAT size = 68027 bytes (85529 bytes decrease)
+Output file size = 68105 bytes (85745 bytes = 55.73% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes9.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 224324 bytes
+Input file size = 224726 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 224324
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 201772
+  zc = 9  zm = 8  zs = 0  f = 1		IDAT size = 200905
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 197462
+  zc = 9  zm = 8  zs = 0  f = 4		IDAT size = 196742
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 196505
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 195777
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 195777
+
+Output IDAT size = 195777 bytes (28547 bytes decrease)
+Output file size = 195855 bytes (28871 bytes = 12.85% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: netflix-imdb.png
+450x450 pixels, 3x8 bits/pixel, RGB
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 608051 bytes
+Input file size = 627107 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 6316
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0		IDAT size = 6316
+  zc = 9  zm = 8  zs = 1  f = 0		IDAT size = 6316
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 1  f = 0		IDAT size = 6316
+
+Output IDAT size = 6316 bytes (601735 bytes decrease)
+Output file size = 25372 bytes (601735 bytes = 95.95% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: openmathmap-thumbnail-bw.png
+578x578 pixels, 4x8 bits/pixel, RGB+alpha
+Reducing image to 8 bits/pixel, grayscale
+Input IDAT size = 149081 bytes
+Input file size = 164051 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 53124
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 52598
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 52598
+
+Output IDAT size = 52598 bytes (96483 bytes decrease)
+Output file size = 67568 bytes (96483 bytes = 58.81% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: openmathmap-thumbnail.png
+578x578 pixels, 4x8 bits/pixel, RGB+alpha
+Reducing image to 3x8 bits/pixel, RGB
+Input IDAT size = 159584 bytes
+Input file size = 159977 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 119704
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 118803
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 118803
+
+Output IDAT size = 118803 bytes (40781 bytes decrease)
+Output file size = 118968 bytes (41009 bytes = 25.63% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: openmathmap.png
+240x223 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 24759 bytes
+Input file size = 24904 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 20818
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 20818
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 20818
+
+Output IDAT size = 20818 bytes (3941 bytes decrease)
+Output file size = 20927 bytes (3977 bytes = 15.97% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: photography-thumbnail.png
+450x450 pixels, 4x8 bits/pixel, RGB+alpha
+Reducing image to 3x8 bits/pixel, RGB
+Input IDAT size = 64476 bytes
+Input file size = 64688 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 55885
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 55304
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 55277
+  zc = 9  zm = 8  zs = 0  f = 1		IDAT size = 54841
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2		IDAT size = 53144
+  zc = 9  zm = 8  zs = 0  f = 2		IDAT size = 52783
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 51092
+  zc = 9  zm = 8  zs = 0  f = 3		IDAT size = 50660
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 50476
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 50017
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 50017
+
+Output IDAT size = 50017 bytes (14459 bytes decrease)
+Output file size = 50145 bytes (14543 bytes = 22.48% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic1.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2899851 bytes
+Input file size = 2904184 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: background.png
+2942x1250 pixels, 4x8 bits/pixel, RGB+alpha
+Input IDAT size = 1724861 bytes
+Input file size = 1724976 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 1724861
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+background.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: favicon.png
+104x245 pixels, 4x8 bits/pixel, RGB+alpha
+Input IDAT size = 22205 bytes
+Input file size = 22320 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 22205
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 22205
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+favicon.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: grumblr-thumbnail-bw.png
+450x450 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 19275 bytes
+Input file size = 34689 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5		IDAT size = 19275
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+grumblr-thumbnail-bw.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: grumblr-thumbnail.png
+450x450 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 49627 bytes
+Input file size = 64139 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5		IDAT size = 49627
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+grumblr-thumbnail.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: logo.png
+200x200 pixels, 8 bits/pixel, 183 colors (180 transparent) in palette
+Input IDAT size = 1881 bytes
+Input file size = 2744 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 1881
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 1881
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+logo.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes10.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 41995 bytes
+Input file size = 42073 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4		IDAT size = 41995
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes10.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes11.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 23693 bytes
+Input file size = 23771 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 23693
+
+mutableLandscapes11.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes12.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 76107 bytes
+Input file size = 76185 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 76107
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes12.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes13.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 98492 bytes
+Input file size = 98570 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 98492
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes13.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes14.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 69807 bytes
+Input file size = 69885 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 69807
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes14.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes15.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 139358 bytes
+Input file size = 139436 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 139358
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes15.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes2.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 145164 bytes
+Input file size = 145242 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 145164
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes2.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes3.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 14250 bytes
+Input file size = 14328 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 14250
+
+mutableLandscapes3.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes4.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 66093 bytes
+Input file size = 66171 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3		IDAT size = 66093
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes4.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes5.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 17933 bytes
+Input file size = 18011 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 17933
+
+mutableLandscapes5.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes6.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 93150 bytes
+Input file size = 93228 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 93150
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes6.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes7.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 14187 bytes
+Input file size = 14265 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5		IDAT size = 14187
+
+mutableLandscapes7.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes8.png
+1247x397 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 68027 bytes
+Input file size = 68105 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5		IDAT size = 68027
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes8.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: mutableLandscapes9.png
+1247x397 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 195777 bytes
+Input file size = 195855 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 195777
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+mutableLandscapes9.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: netflix-imdb.png
+450x450 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 6316 bytes
+Input file size = 25372 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 6316
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0		IDAT size = 6316
+  zc = 9  zm = 8  zs = 1  f = 0		IDAT size = 6316
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+netflix-imdb.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: openmathmap-thumbnail-bw.png
+578x578 pixels, 8 bits/pixel, grayscale
+Input IDAT size = 52598 bytes
+Input file size = 67568 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 52598
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+openmathmap-thumbnail-bw.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: openmathmap-thumbnail.png
+578x578 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 118803 bytes
+Input file size = 118968 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 118803
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+openmathmap-thumbnail.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: openmathmap.png
+240x223 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 20818 bytes
+Input file size = 20927 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 20818
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 20818
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+openmathmap.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: photography-thumbnail.png
+450x450 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 50017 bytes
+Input file size = 50145 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 50017
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+photography-thumbnail.png is already optimized.
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic1.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2899851 bytes
+Input file size = 2904184 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2856153
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 2842031
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 2842031
+
+Output IDAT size = 2842031 bytes (57820 bytes decrease)
+Output file size = 2842128 bytes (62056 bytes = 2.14% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic10.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 344453 bytes
+Input file size = 345054 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 312525
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 311941
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 309917
+  zc = 9  zm = 8  zs = 0  f = 4		IDAT size = 309582
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 308811
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 308416
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 308416
+
+Output IDAT size = 308416 bytes (36037 bytes decrease)
+Output file size = 308513 bytes (36541 bytes = 10.59% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic11.png
+2970x1969 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 3801782 bytes
+Input file size = 3807447 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 3594442
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 3594442
+
+Output IDAT size = 3594442 bytes (207340 bytes decrease)
+Output file size = 3594539 bytes (212908 bytes = 5.59% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic12.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 457572 bytes
+Input file size = 458329 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4		IDAT size = 455451
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 452456
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 448467
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 448467
+
+Output IDAT size = 448467 bytes (9105 bytes decrease)
+Output file size = 448564 bytes (9765 bytes = 2.13% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic13.png
+2932x1942 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 449047 bytes
+Input file size = 468504 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 432651
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 432278
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 432278
+
+Output IDAT size = 432278 bytes (16769 bytes decrease)
+Output file size = 451087 bytes (17417 bytes = 3.72% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic14.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 1054474 bytes
+Input file size = 1056107 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 1017978
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 1017373
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 1017373
+
+Output IDAT size = 1017373 bytes (37101 bytes decrease)
+Output file size = 1017470 bytes (38637 bytes = 3.66% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic15.png
+2942x1951 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2682720 bytes
+Input file size = 2686741 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2		IDAT size = 2612921
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2447587
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2447587
+
+Output IDAT size = 2447587 bytes (235133 bytes decrease)
+Output file size = 2447684 bytes (239057 bytes = 8.90% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic16.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2592293 bytes
+Input file size = 2596182 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 2591765
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2528847
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2528847
+
+Output IDAT size = 2528847 bytes (63446 bytes decrease)
+Output file size = 2528944 bytes (67238 bytes = 2.59% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic2.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 1754943 bytes
+Input file size = 1757608 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 1727995
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 1727111
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 1727111
+
+Output IDAT size = 1727111 bytes (27832 bytes decrease)
+Output file size = 1727208 bytes (30400 bytes = 1.73% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic3.png
+1806x2724 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2913226 bytes
+Input file size = 2917583 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2898771
+  zc = 9  zm = 8  zs = 0  f = 3		IDAT size = 2897270
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 2877263
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 2876167
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 2876167
+
+Output IDAT size = 2876167 bytes (37059 bytes decrease)
+Output file size = 2876264 bytes (41319 bytes = 1.42% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic4.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 680246 bytes
+Input file size = 681339 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 660521
+  zc = 9  zm = 8  zs = 0  f = 4		IDAT size = 659879
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 647554
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 646963
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 646963
+
+Output IDAT size = 646963 bytes (33283 bytes decrease)
+Output file size = 647060 bytes (34279 bytes = 5.03% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic5.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2359160 bytes
+Input file size = 2362701 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 2286431
+  zc = 9  zm = 8  zs = 0  f = 1		IDAT size = 2286262
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 1		IDAT size = 2286262
+
+Output IDAT size = 2286262 bytes (72898 bytes decrease)
+Output file size = 2286359 bytes (76342 bytes = 3.23% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic6.png
+2813x1863 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2088108 bytes
+Input file size = 2091253 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 2048909
+  zc = 9  zm = 8  zs = 0  f = 4		IDAT size = 2048544
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 2031612
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 2031145
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 2031145
+
+Output IDAT size = 2031145 bytes (56963 bytes decrease)
+Output file size = 2031242 bytes (60011 bytes = 2.87% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic7.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 1571516 bytes
+Input file size = 1573905 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 1538237
+  zc = 9  zm = 8  zs = 0  f = 4		IDAT size = 1537410
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 1520495
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 1519602
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 5		IDAT size = 1519602
+
+Output IDAT size = 1519602 bytes (51914 bytes decrease)
+Output file size = 1519699 bytes (54206 bytes = 3.44% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic8.png
+3038x2014 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 3135650 bytes
+Input file size = 3140331 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1		IDAT size = 2971206
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 2960141
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 2960141
+
+Output IDAT size = 2960141 bytes (175509 bytes decrease)
+Output file size = 2960238 bytes (180093 bytes = 5.73% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pic9.png
+2639x1749 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 1936702 bytes
+Input file size = 1939631 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2		IDAT size = 1898575
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4		IDAT size = 1884324
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 1877596
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 9  zs = 0  f = 5		IDAT size = 1877596
+
+Output IDAT size = 1877596 bytes (59106 bytes decrease)
+Output file size = 1877693 bytes (61938 bytes = 3.19% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: pricer-thumbnail.png
+598x598 pixels, 4x8 bits/pixel, RGB+alpha
+Reducing image to 3x8 bits/pixel, RGB
+Input IDAT size = 99524 bytes
+Input file size = 99833 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0		IDAT size = 61838
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 61166
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3
+  zc = 9  zm = 8  zs = 0  f = 3
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 0		IDAT size = 61166
+
+Output IDAT size = 61166 bytes (38358 bytes decrease)
+Output file size = 61331 bytes (38502 bytes = 38.57% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: resume.png
+2014x3038 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2490992 bytes
+Input file size = 2494737 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2410043
+  zc = 9  zm = 8  zs = 0  f = 3		IDAT size = 2409159
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 3		IDAT size = 2409159
+
+Output IDAT size = 2409159 bytes (81833 bytes decrease)
+Output file size = 2409256 bytes (85481 bytes = 3.43% decrease)
+
+** Warning: The option -log is deprecated; use shell redirection
+
+** Processing: triangles.png
+2014x3038 pixels, 3x8 bits/pixel, RGB
+Input IDAT size = 2490992 bytes
+Input file size = 2494737 bytes
+
+Trying:
+  zc = 9  zm = 9  zs = 0  f = 0
+  zc = 9  zm = 8  zs = 0  f = 0
+  zc = 9  zm = 9  zs = 1  f = 0
+  zc = 9  zm = 8  zs = 1  f = 0
+  zc = 1  zm = 9  zs = 2  f = 0
+  zc = 1  zm = 8  zs = 2  f = 0
+  zc = 9  zm = 9  zs = 3  f = 0
+  zc = 9  zm = 8  zs = 3  f = 0
+  zc = 9  zm = 9  zs = 0  f = 1
+  zc = 9  zm = 8  zs = 0  f = 1
+  zc = 9  zm = 9  zs = 1  f = 1
+  zc = 9  zm = 8  zs = 1  f = 1
+  zc = 1  zm = 9  zs = 2  f = 1
+  zc = 1  zm = 8  zs = 2  f = 1
+  zc = 9  zm = 9  zs = 3  f = 1
+  zc = 9  zm = 8  zs = 3  f = 1
+  zc = 9  zm = 9  zs = 0  f = 2
+  zc = 9  zm = 8  zs = 0  f = 2
+  zc = 9  zm = 9  zs = 1  f = 2
+  zc = 9  zm = 8  zs = 1  f = 2
+  zc = 1  zm = 9  zs = 2  f = 2
+  zc = 1  zm = 8  zs = 2  f = 2
+  zc = 9  zm = 9  zs = 3  f = 2
+  zc = 9  zm = 8  zs = 3  f = 2
+  zc = 9  zm = 9  zs = 0  f = 3		IDAT size = 2410043
+  zc = 9  zm = 8  zs = 0  f = 3		IDAT size = 2409159
+  zc = 9  zm = 9  zs = 1  f = 3
+  zc = 9  zm = 8  zs = 1  f = 3
+  zc = 1  zm = 9  zs = 2  f = 3
+  zc = 1  zm = 8  zs = 2  f = 3
+  zc = 9  zm = 9  zs = 3  f = 3
+  zc = 9  zm = 8  zs = 3  f = 3
+  zc = 9  zm = 9  zs = 0  f = 4
+  zc = 9  zm = 8  zs = 0  f = 4
+  zc = 9  zm = 9  zs = 1  f = 4
+  zc = 9  zm = 8  zs = 1  f = 4
+  zc = 1  zm = 9  zs = 2  f = 4
+  zc = 1  zm = 8  zs = 2  f = 4
+  zc = 9  zm = 9  zs = 3  f = 4
+  zc = 9  zm = 8  zs = 3  f = 4
+  zc = 9  zm = 9  zs = 0  f = 5
+  zc = 9  zm = 8  zs = 0  f = 5
+  zc = 9  zm = 9  zs = 1  f = 5
+  zc = 9  zm = 8  zs = 1  f = 5
+  zc = 1  zm = 9  zs = 2  f = 5
+  zc = 1  zm = 8  zs = 2  f = 5
+  zc = 9  zm = 9  zs = 3  f = 5
+  zc = 9  zm = 8  zs = 3  f = 5
+
+Selecting parameters:
+  zc = 9  zm = 8  zs = 0  f = 3		IDAT size = 2409159
+
+Output IDAT size = 2409159 bytes (81833 bytes decrease)
+Output file size = 2409256 bytes (85481 bytes = 3.43% decrease)
+

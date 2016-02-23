@@ -1,0 +1,253 @@
+<script>
+  Polymer('card-demo', {
+    page: 0,
+    items: [
+      { album: 'Education',
+        color: '#1C2130',
+        content: [
+        {
+          main: 'University of Konstanz',
+          place: 'Konstanz, Germany',
+          date: 'October 2014 - Present',
+          description: 'MSc Information Engineering - Human Computer Interaction',
+          description2: 'Expected year of graduation: July 2016'
+        },
+        {
+          main: 'Jacobs University Bremen',
+          place: 'Bremen, Germany',
+          date: 'September 2011 - June 2014',
+          description: 'BSc Computer Science'
+        }, {
+          main: 'Carnegie Mellon University',
+          place: 'Pittsburgh, USA',
+          date: 'August 2013 - December 2013',
+          description: 'Exchange Semester (Dean\'s List)'
+        }] },
+      { album: 'Skills',
+        color: '#028F76',
+        content: [{
+          main: 'Programming Languages',
+          description: 'JavaScript, Python, HTML5, CSS, Java, C++'
+        },{
+          main: 'Other',
+          description: 'Git, Closure, Django, SQL'
+        }, {
+          main: 'Languages',
+          description: 'Spanish, English, Portuguese, German'
+        }] },
+      { album: 'Honours and Awards',
+        color: '#B3E099',
+        content: [{
+          main: 'Merit-Based Scholarship for tuition and semester abroad.',
+          date: '2011 - 2014',
+          description: 'Scholarship from Jacobs University Bremen.'
+        },{
+          main: 'Dean\'s List',
+          date: 'Fall 2013',
+          description: 'Carnegie Mellon University'
+        }, {
+          main: 'CodeF 2012',
+          date: '2012 - 2013',
+          description: 'Participant of Google\'s mentoring programme for female computer scientists.'
+        }, {
+          main: 'Honourable Mentions',
+          date: '2007 - 2010',
+          description: 'International Mathematical Olympiads'
+        }] },
+      { album: 'Professional Experience',
+        color: '#D14334',
+        content: [{
+          main: 'Facebook',
+          date: 'August 2015 - November 2015',
+          place: 'Software Engineer Intern',
+          description: 'Front End Software Engineer Intern: Created interactive and portable components on PHP (Hack), Javascript (React), HTML5 and CSS3. Was also involved in the design and specification process of said components'
+        }, {
+          main: 'Google',
+          date: 'June 2014 - October 2014',
+          place: 'Software Engineer Intern',
+          description: 'Implemented from beginning to end a new frontend feature. This involved creating the user interface, creating and using a new backend and connecting them.'
+        }, {
+          main: 'Mevis Fraunhofer',
+          date: 'November 2012 - June 2014',
+          place: 'Software developer',
+          description: 'Developed modules for the Object Based Image Analysis (OBIA) framework in C++ using SQLite resources. Researched automatic classification of salient boundaries in object-based image segmentation.'
+        }, {
+          main: 'ResearchGate',
+          date: 'June 2012 - September 2012',
+          place: 'Software developing intern',
+          description: 'Refactored and implemented parsers for reference compilation files such as BibTeX. Afterwards developed back-end and front-end components in PHP and JavaScript. Created self contained widgets HTML5 while gaining experience with non-relational databases and AJAX.'
+        }]},
+      { album: 'Publications',
+        color: '#FFEAAD',
+        content: [{
+          main: 'OpenMathMap: Interaction',
+          date: 'July 2014',
+          place: 'C. Acevedo, M. Kohlhase',
+          description: 'Assess a platform that allows to build interactions with semantical meta-data based on OMM and show a variety of information services taking advantage of the semantic and hierarchical of the dataset at hand.'
+        }, {
+          main: 'Automatic classification of salient boundaries in object-based image segmentation',
+          date: 'March 2014',
+          place: 'C. Acevedo, T. Chitiboi, L. Linsen, H. Hahn',
+          description: 'Supervised classification approach for image segmentation that operates in an object-based image representation and combines object features with boundary features.'
+        }]}
+    ],
+
+    selectedAlbum: null,
+
+    transition: function(e) {
+      if (this.page === 0 && e.target.templateInstance.model.item) {
+        this.selectedAlbum = e.target.templateInstance.model.item;
+        this.page = 1;
+      } else {
+        this.page = 0;
+      }
+    }
+  });
+
+</script>
+<polymer-element name="card-demo">
+{% verbatim %}
+  <template>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/carmela.css" rel="stylesheet">
+    <core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+      <section>
+        <div class="chips-container" hero-p on-tap="{{transition}}">
+          <template repeat="{{items as item}}">
+            <div class="chip-wrapper">
+              <div class="chip-container">
+                <div class="chip" hero-id="{{item.album}}" hero?="{{selectedAlbum === item }}">
+                  <div class="chip-top-wrapper">
+                    <div class="chip-top" style="background:{{item.color}};" hero-id="{{item.album}}-art" hero?="{{selectedAlbum === item}}" onload="chipTopLoaded()"></div>
+                  </div>
+                  <div class="chip-bottom">
+                    <div class="chip-album-artist">{{item.album}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+      <section id="details">
+        <div class="card row" layout horizontal hero-id="{{selectedAlbum.album}}" hero on-tap="{{transition}}">
+          <div class="card-left col-lg-6" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.album}}-art" hero></div>
+          <div class="card-right col-lg-6" flex>
+            <div layout horizontal center>
+              <div>
+                <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+              </div>
+              <div flex>
+                <div class="card-album-title">{{selectedAlbum.album}}</div>
+              </div>
+            </div>
+            <template if="{{selectedAlbum.album == 'Skills'}}">
+              <h5>
+                Programming
+              </h5>
+              <div class="row" style="padding:20px 0px">
+                <div class="col-xs-6">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="circle angle-21">
+                  <div class="circle-center">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                Javascript <br> HTML5 <br> CSS3
+              </div>
+            </div>
+          </div>
+                <div class="col-xs-6">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="circle angle-50">
+                  <div class="circle-center">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                Python <br> Java <br> C++
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <h5>
+            Other
+          </h5>
+          <div class="row">
+            <div class="col-xs-3">
+              Git
+            </div>
+            <div class="col-xs-3">
+              Closure
+            </div>
+            <div class="col-xs-3">
+              Django
+            </div>
+            <div class="col-xs-3">
+              SQL
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h5>
+          Languages
+        </h5>
+              <div class="row" style="padding:20px 0px">
+          <div class="col-xs-3">
+            English (Fluent)
+          </div>
+          <div class="col-xs-3">
+            Spanish (Fluent)
+          </div>
+          <div class="col-xs-3">
+            Portuguese (Advanced)
+          </div>
+          <div class="col-xs-3">
+            German (Intermediate)
+          </div>
+        </div>
+            </template>
+            <template if="{{selectedAlbum.album != 'Skills'}}">
+            <div class="elements" center>
+              <template repeat="{{selectedAlbum.content as element}}">
+                <div>
+                  <div>
+                    <div class="row">
+                      <div class="col-xs-8 title">
+                        <h5>
+                          {{element.main}}
+                        </h5>
+                      </div>
+                      <div class="col-xs-4 date">
+                      {{element.date}}
+                      </div>
+                    </div>
+                  </div>
+                  <template if="{{element.place}}">
+                    <div class="place">
+                    {{element.place}}
+                    </div>
+                  </template>
+                  <div>
+                  {{element.description}}
+                  </div>
+                  <div>
+                  {{element.description2}}
+                  </div>
+                </div>
+                <hr>
+              </template>
+            </div>
+            </template>
+          </div>
+        </div>
+      </section>
+    </core-animated-pages>
+  </template>
+</polymer-element>
+{% endverbatim %}

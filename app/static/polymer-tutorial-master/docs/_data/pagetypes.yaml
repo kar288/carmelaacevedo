@@ -1,0 +1,17 @@
+default:
+  menu: other
+start:
+  headertitle: Basics
+  menu: docs
+concepts:
+  headertitle: Concepts
+  menu: docs
+core:
+  headertitle: Polymer
+  menu: docs
+elements:
+  headertitle: Elements
+  menu: elements
+platform:
+  headertitle: Platform
+  menu: docs

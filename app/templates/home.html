@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Portfolio
+{% endblock %}
+
+{% block bodyClass %}home{% endblock %}
+
+{% block smallDetail %}
+	<a href="{% url 'resumeHtml'%}">Resume</a>
+{% endblock %}
+
+{% block rightDetail %}
+<h1 class="light-text detail-text">
+	Portfolio
+</h1>
+{% endblock %}
+
+
+{% block chips %}
+<section>
+  <div class="chips-container chip-container-home">
+    {% for homeCard in homeCards %}
+      {% include "homeCard.html" %}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

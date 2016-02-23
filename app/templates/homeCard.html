@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<div class="chip-wrapper">
+  <a class="chip-link" target="_top;" href="{{homeCard.url}}">
+    <div class="chip">
+      <div class="chip-top ratio" style="background-image:url('{% static homeCard.image %}');">
+      </div>
+      <div class="description">
+        {% for t in homeCard.text %}
+          {{t}}
+          <br>
+        {% endfor %}
+        <br>
+      </div>
+      <div class="chip-bottom">
+        <div class="chip-album-artist">{{homeCard.title}}</div>
+      </div>
+    </div>
+  </a>
+</div>

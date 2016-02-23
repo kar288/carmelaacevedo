@@ -1,0 +1,359 @@
+html {
+  height: 100%;
+}
+body {
+	font-family: RobotoDraft, Helvetica Neue;
+	font-weight: lighter;
+  color: #444;
+  padding-bottom: 30px;
+  height: 100%;
+}
+
+.name {
+  font: 400 87px/84px Abril Fatface;
+}
+
+h1 > a {
+	color: #222;
+}
+
+h1 > a:hover {
+	text-decoration: none;
+}
+
+.info-header {
+	margin: 0px 50px;
+	border-bottom-width: 2px;
+	border-bottom-style: inset;
+}
+
+.info-footer {
+	margin: 0px 50px;
+	border-top-width: 2px;
+	border-top-style: inset;
+}
+
+.light-text {
+	font-weight: lighter;
+}
+
+.name {
+	padding-left: 50px;
+	padding-top: 86px;
+}
+
+.resume .detail {
+  padding-top: 110px;
+}
+
+.detail {
+	padding-top: 130px;
+	padding-right: 50px;
+}
+
+.detail-text {
+	text-align: right;
+}
+
+.detail-small {
+	padding-bottom: 5px;
+	margin-left: 65px;
+}
+
+.contact {
+	padding-top: 80px;
+}
+
+.contact .icon {
+	text-align: center;
+}
+
+h5 {
+  display: block;
+  /*font-size: 0.83em;*/
+  -webkit-margin-before: 1.67em;
+  -webkit-margin-after: 1.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: normal;
+}
+
+.circle-center {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+	margin-left: 5px;
+	margin-top: 5px;
+	text-align: center;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.circle {
+	float: left;
+	margin-right: 30px;
+	position: relative;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #ff6347;
+}
+
+.angle-85 {
+	background-image: linear-gradient(85deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #DDD 50%, #DDD);
+}
+
+.angle-21 {
+	background-image: linear-gradient(21deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #DDD 50%, #DDD);
+}
+
+.angle-50 {
+	background-image: linear-gradient(-50deg, #ff6347 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #ff6347 50%, #DDD 50%, #DDD);
+}
+
+.core-selected {
+  top: -200px;
+  z-index:10;
+}
+
+.chips-container {
+  /*position: absolute;*/
+  top: 20px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin-top:118px;
+}
+
+.chip {
+  position: relative;
+  border-radius: 3px;
+  margin: 4px;
+  overflow: hidden;
+  text-align: start;
+  background-color: #fff;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+
+.chip-bottom {
+  padding: 8px;
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+a .chip-bottom {
+  color: #222;
+}
+
+.chip-album-title {
+  font-weight: bold;
+}
+
+.ratio {
+  position: relative;
+  height: 0;
+  padding-bottom: 100% ;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.description {
+  position: absolute;
+  top: 0;
+  margin: 20px 20px;
+  opacity: 0;
+  color: #444;
+}
+
+.chip-top-wrapper .chip-top {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.chip-wrapper {
+  cursor: pointer;
+}
+
+.home .chip-wrapper:hover .chip-top {
+  opacity: 0;
+}
+
+.home .chip-wrapper:hover .description {
+  opacity: 1;
+}
+
+.chip-wrapper {
+  display: inline-block;
+  width: 250px;
+}
+
+#details {
+  /*top: -230px;*/
+  padding: 20px 10% 0;
+}
+
+.card {
+  /*height: 400px;*/
+  border-radius: 3px;
+  text-align: start;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.card-left {
+  /*width: 400px;*/
+  left: -1px;
+}
+
+.card-right {
+  padding-top: 24px;
+}
+
+.card-icon {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 16px;
+}
+
+.card-title {
+  font-size: 2em;
+}
+
+.elements {
+  padding: 20px;
+}
+
+.date {
+  /*width: 35%;*/
+  font-size: 0.9em;
+  padding-top: 19px;
+}
+
+.title {
+  /*width: 65%;*/
+}
+
+.title > h5 {
+  margin-bottom: -1px;
+  font-size: 14px;
+}
+
+.place {
+  margin-bottom: 20px;
+}
+
+.chip-top-wrapper{
+	position: relative;
+	width: 100%;		/* desired width */
+}
+.chip-top-wrapper:before{
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+
+.card-album-title {
+  font-weight: normal;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+.detail .row {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+@media (max-width: 1200px) {
+  .chip-wrapper {
+    width: 45%;
+  }
+
+  .description {
+    margin: 50px 50px;
+  }
+
+  .resume .detail {
+    padding-top: 145px;
+  }
+
+  .detail {
+    padding-top: 200px;
+  }
+
+  .detail-small {
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .detail {
+    /*padding-top: 0;*/
+  }
+}
+.complete {
+  height: 100%;
+}
+
+@media only screen and (max-device-width : 1080px) {
+  body {
+    /*font-size: 3em;*/
+  }
+  .pic-nav {
+    display: none;
+  }
+  .title > h5 {
+    font-size: 30px;
+  }
+
+  .chip-wrapper {
+    width: 80%;
+  }
+  .chips-container {
+    margin-top: 18px;
+  }
+  .name {
+    /*width: 80%;*/
+    font-size: 30px;
+    line-height: 50px;
+    padding-left: 5px;
+    padding-top: 0;
+  }
+  .resume .detail {
+    width: 100%;
+    padding-top: 20px;
+    padding-top: 20px;
+  }
+  .detail {
+    padding-left: 15px;
+  }
+  .detail-small {
+    font-size: 1.3em;
+    margin-left: 5px;
+    width: 100%;
+  }
+  .detail-text {
+    font-size: 25px;
+    padding-top: 0 !important;
+    text-align: left;
+  }
+  .detail {
+    padding-top: 0;
+  }
+  .detail .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .card-album-title {
+    font-size: 60px;
+  }
+}

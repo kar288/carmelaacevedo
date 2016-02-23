@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+Resume
+{% endblock %}
+
+{% block bodyClass %}resume{% endblock %}
+
+{% block smallDetail %}
+	Creating innovative user interfaces.
+{% endblock %}
+
+{% block polymer %}
+  {% include "polymer-element.html" %}
+{% endblock %}
+
+{% block rightDetail %}
+<div class="row">
+  <div class="col-xs-1">
+    <i class="fa fa-envelope contact-icon"></i>
+  </div>
+  <div class="col-xs-9">
+    Carmela.Acevedo@gmail.com
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-1">
+    <i class="fa fa-mobile-phone contact-icon"></i>
+  </div>
+  <div class="col-xs-9">
+    +49 176 304 93 108 <br>
+    +41 76 643 46 16
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-1">
+      <i class="fa fa-github contact-icon"></i>
+  </div>
+  <div class="col-xs-9">
+    kar288
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-1">
+      <!-- <i class="fa fa-github contact-icon"></i> -->
+  </div>
+  <div class="col-xs-9">
+    <a href="{% url 'resume' %}">pdf version</a>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block chips %}
+<card-demo></card-demo>
+{% endblock %}
+
+{% block extraDependencies %}
+
+<!-- <link href="/static/css/resume.css" rel="stylesheet"> -->
+{% include "dependencies.html" %}
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'js/cdependencies.js'%}"></script>
+<!-- <script type="text/javascript" src="{% static 'js/soyutils.js'%}"></script> -->
+<!-- <script type="text/javascript" src="{% static 'js/portfolio/simple.js'%}"></script> -->
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link rel="import" href="{% static 'polymer-tutorial-master/components/polymer-ui-card.html'%}">
+<link rel="import" href="{% static 'polymer-tutorial-master/components/core-animated-pages.html'%}">
+<script src="{% static 'js/carmela.js'%}"></script>
+
+{% endblock %}

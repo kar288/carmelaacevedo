@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+Netflix
+{% endblock %}
+
+{% block rightDetail %}
+<h1 class="light-text detail-text">
+	Netflix - IMDB
+</h1>
+{% endblock %}
+
+
+{% block chips %}
+<section>
+  <div class="movies-container">
+		<div class="list-data">
+			<div class="row">
+				<div class="col-md-4">
+					<h3 class="list-title"/>
+				</div>
+				<div class="col-md-8 list-description">
+				</div>
+			</div>
+		</div>
+    <div class="row movies-row">
+    </div>
+  </div>
+  <div class="info-footer">
+    <div class="row">
+      <div>
+        This is a small project to check which movies in an IMDB list are in netflix.
+        It was motivated by the fact that I got bored of checking which movies in my watchlist I could watch.
+        Any list can be specified in the url and after getting the movies I check using the <a href="http://netflixroulette.net/api/">Netflix Roulette API</a> to check if they are in IMDB and display the information.
+        Unfortunately there are some false positives for movies that are in the DVD plan and there are some images missing.
+      </div>
+			<div>
+				Url examples:
+				<ul>
+					<li>
+						http://carmelaacevedo.herokuapp.com/netflix/ls072734994
+					</li>
+					<li>
+						http://carmelaacevedo.herokuapp.com/netflix/ls000426137
+					</li>
+				</ul>
+			</div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extraDependencies %}
+<script src="{% static 'js/netflix.js'%}"></script>
+<link href="{% static 'css/netflix.css'%}" rel="stylesheet">
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+Pictures
+{% endblock %}
+
+{% block bodyClass %}{% endblock %}
+
+{% block smallDetail %}
+  Creating innovative user interfaces.
+{% endblock %}
+
+{% block rightDetail %}
+{% endblock %}
+
+
+{% block chips %}
+<div class="row photography-content">
+  <div class="col-lg-3">
+    <h3> Linear </h3>
+    <p>
+      Final class project from the Mutable Landscapes course in Carnegie Mellon University Fall 2014 Semester.
+    </p>
+    <p>
+      Exploring the use and flexibility of lines. Inspired by Gego, German born Venezuelan artist.
+    </p>
+    <p>
+      Printed on paper and held in plexiglass laser-cut box.
+    </p>
+  </div>
+  <div class="col-lg-9">
+    <div class="close-row row">
+      <div class="close-col col-xs-4">
+        <img src="{% static 'images/book1.jpg'%}">
+      </div>
+      <div class="close-col col-xs-4">
+        <img src="{% static 'images/book2.jpg'%}">
+      </div>
+      <div class="close-col col-xs-4">
+        <img src="{% static 'images/book3.jpg'%}">
+      </div>
+    </div>
+    <div class="close-row row">
+      <div class="close-col col-xs-12">
+        <img src="{% static 'images/book4.jpg'%}">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row photography-content">
+  <div class="col-xs-1 pic-nav">
+      {% for pic in pics %}
+        <div class="close-row row">
+          <div class="close-col col-xs-12">
+            <img index="{{forloop.counter0|add:"2"}}" class="small-picture" src="{% static pic %}">
+          </div>
+        </div>
+      {% endfor %}
+  </div>
+  <div class="col-xs-11">
+    <div class="close-row row">
+      <div class="close-col col-xs-12">
+        <img index="2" class="large-image" src="{% static 'images/mutableLandscapes2.png'%}">
+      </div>
+    </div>
+    <div class="close-row row">
+      <div class="mover left col-xs-1">
+        <h3>
+          <
+        </h3>
+      </div>
+      <div class="mover right col-xs-offset-10 col-xs-1">
+        <h3>
+          >
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+{% endblock %}
+
+
+{% block extraDependencies %}
+<script type="text/javascript" src="{% static 'js/pictures.js' %}"></script>
+<link href="{% static 'css/pictures.css' %}" rel="stylesheet">
+{% endblock %}
