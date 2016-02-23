@@ -34,7 +34,7 @@ var setPictureIndex = function(image, index) {
   } else if (index > 15) {
     index = 2;
   }
-  image.attr('src', '/media/mutableLandscapes' + index + '.png');
+  image.attr('src', '/static/images/mutableLandscapes' + index + '.png');
   image.attr('index', index);
   $('.small-picture').removeClass('selected');
   $('.small-picture[index="' + index + '"').addClass('selected');
