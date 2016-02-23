@@ -42,7 +42,7 @@ Resume
 </div>
 <div class="row">
   <div class="col-xs-1">
-      <!-- <i class="fa fa-github contact-icon"></i> -->
+      <i class="fa fa-github contact-icon"></i>
   </div>
   <div class="col-xs-9">
     <a href="{% url 'resume' %}">pdf version</a>
@@ -57,12 +57,7 @@ Resume
 
 {% block extraDependencies %}
 
-<!-- <link href="/static/css/resume.css" rel="stylesheet"> -->
-<!-- {% include "dependencies.html" %} -->
 {% load staticfiles %}
-<!-- <script type="text/javascript" src="{% static 'js/dependencies.js'%}"></script> -->
-<!-- <script type="text/javascript" src="{% static 'js/soyutils.js'%}"></script> -->
-<!-- <script type="text/javascript" src="{% static 'js/portfolio/simple.js'%}"></script> -->
 <link rel="import" href="{% static 'polymer-tutorial-master/components/polymer-ui-card.html'%}">
 <link rel="import" href="{% static 'polymer-tutorial-master/components/core-animated-pages.html'%}">
 <script src="{% static 'js/carmela.js'%}"></script>
