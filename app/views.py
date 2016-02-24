@@ -66,7 +66,8 @@ def home(request):
       'It includes a project studying linear photography inspired by Gego.'
     ]
   }];
-  return render(request, 'home.html', {'homeCards': els});
+  print(els)
+  return render(request, 'homePortfolio.html', {'homeCards': els});
 
 def resume(request):
   with open(settings.MEDIA_ROOT + 'Resume.pdf', 'r') as pdf:
