@@ -4,9 +4,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Recipe(models.Model):
-  url = models.CharField(max_length=30)
-  title = models.CharField(max_length=30)
-  date_added = models.CharField(max_length=30)
+  url = models.CharField(max_length=200)
+  title = models.CharField(max_length=200)
+  date_added = models.CharField(max_length=200)
 
 class Note(models.Model):
   recipe = models.OneToOneField(
