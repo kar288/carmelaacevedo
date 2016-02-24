@@ -132,3 +132,6 @@ def getMovies(request, lid):
 
 def netflix(request):
   return render(request, 'netflix.html');
+
+def googleSearch(request):
+  return render(request, 'googled336ac59e4c9735b.html');

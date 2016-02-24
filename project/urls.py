@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^netflix', app.views.netflix, name='netflix'),
     url(r'^getMovies/(?P<lid>ls[0-9]+)', app.views.getMovies, name='getMovies'),
     url(r'^getMovie/(?P<year>[0-9]+)/(?P<titleName>.+)', app.views.getMovie, name='getMovie'),
+    url(r'^googled336ac59e4c9735b.html$', app.views.googleSearch, name='googleSearch'),
 ]
