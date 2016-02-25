@@ -63,12 +63,31 @@ def addNote(request):
           html = urllib2.urlopen(recipeUrl);
         #   print(html.read().decode('utf-8'))
           soup = BeautifulSoup(html)
-          print soup.title.string
+        #   print soup.title.string
+          imageUrl = ''
+          image = soup.findAll(attrs={"itemprop": "image"})
+        #   print image
+          if len(image) :
+            if image[0].has_key('content'):
+              imageUrl = image[0]['content']
+            elif image[0].has_key('src'):
+              imageUrl = image[0]['src']
+        #   print imageUrl
+          ingredients = []
+          ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
+          traverse(ingredientElements, ingredients)
+          instructions = []
+          instructionElements = \
+            soup.findAll(attrs={"itemprop": "recipeInstructions"})
+          traverse(instructionElements, instructions)
         #   $('[itemprop="recipeInstructions"]')
         #   $('[itemprop="ingredients"]')
         #   $('[itemprop="image"]') $('figure')
           recipe = Recipe.objects.create(
             url = recipeUrl,
+            image = imageUrl,
+            ingredients = '*'.join(ingredients),
+            instructions = '*'.join(instructions),
             title = soup.title.string,
             date_added = datetime.datetime.now()
           )
@@ -82,6 +101,14 @@ def addNote(request):
     except RecipeUser.DoesNotExist:
       print('USER NOT FOUND')
     return redirect('/recipes/')
+
+def traverse(nodes, s):
+  for node in nodes:
+    if node.children:
+      traverse(node.children, s);
+    else:
+      s.append(node.text);
+
 
 def save_profile_picture(strategy, user, response, details,
                          is_new=False,*args,**kwargs):
