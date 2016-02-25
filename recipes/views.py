@@ -64,6 +64,9 @@ def addNote(request):
         #   print(html.read().decode('utf-8'))
           soup = BeautifulSoup(html)
           print soup.title.string
+        #   $('[itemprop="recipeInstructions"]')
+        #   $('[itemprop="ingredients"]')
+        #   $('[itemprop="image"]') $('figure')
           recipe = Recipe.objects.create(
             url = recipeUrl,
             title = soup.title.string,
