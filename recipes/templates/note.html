@@ -1,11 +1,16 @@
 {% extends "recipeBase.html" %}
 
 {% block content %}
-  <h3>
+  <h5>
     <a href="{{note.recipe.url}}">
       {{note.recipe.title}}
     </a>
-  </h3>
+    {% if not edit %}
+      <a class="recipe-original-link" href="{% url 'editNoteHtml' note.id %}">
+        Edit
+      </a>
+    {% endif %}
+  </h5>
 
   <div class="row">
     <div
@@ -13,26 +18,51 @@
       style="float: left; background-image: url('{{note.recipe.image}}')"
     ></div>
   </div>
-  <div>
-    <h4> Ingredients </h4>
-    {% for ingredient in note.recipe.ingredients_as_list %}
-        {{ ingredient }}<br>
-    {% endfor %}
-  </div>
-  <div>
-    <h4> Instructions </h4>
-    {% for instructions in note.recipe.instructions_as_list %}
-        {{ instructions }}<br>
-    {% endfor %}
-    <!-- {{note.recipe.instructions}} -->
-  </div>
-  <div>
-    <h4> Notes </h4>
+  {% if edit %}
     <form action="{% url 'editNote' note.id %}" method="post">
-      <textarea class="form-control" name="notes">{{note.text}}</textarea>
-      <!-- <input style="display: none;" value={{note.id}} type="number"></input> -->
+      <label class="recipe-form">
+        Ingredients:
+        <textarea class="form-control" name="ingredients">{{note.recipe.ingredients}}</textarea>
+      </label>
+      <br>
+      <label class="recipe-form">
+        Instructions:
+        <textarea class="form-control" name="instructions">{{note.recipe.instructions}}</textarea>
+      </label>
+      <br>
+      <label class="recipe-form">
+        Notes:
+        <textarea class="form-control" name="notes">{{note.text}}</textarea>
+      </label>
+      <br>
       {% csrf_token %}
-      <input type="submit"></input>
+      <div class="row">
+        <div class="col-xs-10 no-padding">
+          <input class="recipe-form btn btn-success" type="submit"></input>
+        </div>
+        <div class="col-xs-2">
+          <a class="recipe-original-link" href="{% url 'note' note.id %}">
+            Cancel
+          </a>
+        </div>
+      </div>
     </form>
-  </div>
+  {% else %}
+    <div>
+      <h4> Ingredients </h4>
+      {% for ingredient in note.recipe.ingredients_as_list %}
+          {{ ingredient }}<br>
+      {% endfor %}
+    </div>
+    <div>
+      <h4> Instructions </h4>
+      {% for instructions in note.recipe.instructions_as_list %}
+          {{ instructions }}<br>
+      {% endfor %}
+    </div>
+    <div>
+      <h4> Notes </h4>
+      {{note.text}}
+    </div>
+  {% endif %}
 {% endblock %}

@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^recipes/addNote/$', recipes.views.addNote, name='addNote'),
     url(r'^recipes/note/(?P<noteId>[0-9]+)/$', recipes.views.note, name='note'),
     url(r'^recipes/editNote/(?P<noteId>[0-9]+)/$', recipes.views.editNote, name='editNote'),
+    url(r'^recipes/editNoteHtml/(?P<noteId>[0-9]+)/$', recipes.views.editNoteHtml, name='editNoteHtml'),
 ]

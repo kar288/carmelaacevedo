@@ -18,18 +18,18 @@
     </div>
   {% endfor %}
   <form action="{% url 'addNote' %}" method="post">
-    <label>
+    <label class="recipe-form">
       Recipe Url
       <input class="form-control" type="text" name="recipeUrl"/>
     </label>
     <br>
-    <label>
+    <label class="recipe-form">
       Notes:
       <textarea class="form-control" name="notes" rows="10" cols="50"></textarea>
     </label>
     <br>
     {% csrf_token %}
-    <input type="submit"/>
+    <input class="recipe-form btn btn-success" type="submit"/>
   </form>
 <!-- {% endif %} -->
 {% endblock %}

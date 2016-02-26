@@ -61,6 +61,24 @@ def note(request, noteId):
       print('USER NOT FOUND')
     return render(request, 'note.html', context)
 
+def editNoteHtml(request, noteId):
+    context = {'edit': True}
+    print request.user
+    print request.user.is_authenticated()
+    if not request.user.is_authenticated():
+        context['errors'] = ['Please log in first!']
+        return render(request, 'index.html', context)
+    try:
+      recipeUser = RecipeUser.objects.get(googleUser = request.user)
+      note = Note.objects.get(id = noteId)
+      print(note.text)
+      if not note in recipeUser.notes.all():
+          return redirect('/recipes/')
+      context['note'] = note
+    except RecipeUser.DoesNotExist:
+      print('USER NOT FOUND')
+    return render(request, 'note.html', context)
+
 def editNote(request, noteId):
     context = {}
     post = request.POST
@@ -76,15 +94,20 @@ def editNote(request, noteId):
       note = Note.objects.get(id = noteId)
       if not note in recipeUser.notes.all():
           return redirect('/recipes/')
+      recipe = note.recipe
 
       if 'notes' in post:
         setattr(note, 'text', post['notes'])
-        note.save()
-      print(recipeUser.notes.all())
+      if 'ingredients' in post:
+        setattr(recipe, 'ingredients', post['ingredients'])
+      if 'instructions' in post:
+        setattr(recipe, 'instructions', post['instructions'])
+      recipe.save()
+      note.save()
       context['note'] = note
     except RecipeUser.DoesNotExist:
       print('USER NOT FOUND')
-    return redirect('/note/' + noteId)
+    return redirect('/recipes/note/' + noteId)
 
 # Create your views here.
 def addNote(request):
@@ -118,8 +141,8 @@ def addNote(request):
           recipe = Recipe.objects.create(
             url = recipeUrl,
             image = imageUrl,
-            ingredients = '*'.join(ingredients),
-            instructions = '*'.join(instructions),
+            ingredients = '\n'.join(ingredients),
+            instructions = '\n'.join(instructions),
             title = soup.title.string,
             date_added = datetime.datetime.now()
           )
@@ -135,11 +158,12 @@ def addNote(request):
     return redirect('/recipes/')
 
 def traverse(nodes, s):
-  for node in nodes:
-    if node.children:
-      traverse(node.children, s);
-    else:
-      s.append(node.text);
+    for node in nodes:
+        children = node.findAll()
+        if children:
+            traverse(children, s);
+        else:
+            s.append(node.text)
 
 
 def save_profile_picture(strategy, user, response, details,

@@ -1,7 +1,7 @@
 body {
   color: #333;
 	font-family: RobotoDraft, Helvetica Neue;
-  font-size: 1.4em;
+  /*font-size: 1.4em;*/
 	font-weight: 200;
   /*height: 100%;*/
   letter-spacing: 0.05em;
@@ -9,7 +9,7 @@ body {
 }
 
 .recipe-login-button {
-  padding-top: 23px;
+  padding-top: 50px;
 }
 
 .recipe-main-title {
@@ -34,6 +34,11 @@ body {
   width: 400px;
 }
 
+.recipe-content {
+  margin: 0 auto;
+  width: 600px;
+}
+
 .recipe-image {
   background-color: #bbb;
   background-position: 50%;
@@ -54,4 +59,14 @@ body {
 .recipe-original-link {
   font-size: 0.8em;
   color: #666;
+}
+
+.form-control,
+.recipe-form {
+  /*border-radius: 0;*/
+  width: 100%;
+}
+
+.no-padding {
+  padding: 0;
 }
