@@ -9,7 +9,6 @@ import datetime
 
 import urllib2
 import xml.etree.ElementTree as ET
-from NetflixRoulette import *
 from django.template import loader
 from django.http import JsonResponse
 
@@ -27,52 +26,85 @@ from recipes.models import Recipe, Note, RecipeUser
 import urllib2
 from BeautifulSoup import BeautifulSoup
 
-
-# from .models import Greeting
-
-
 # Create your views here.
 def home(request):
     context = {}
     print request.user
     print request.user.is_authenticated()
     if not request.user.is_authenticated():
+        return render(request, 'recipeBase.html', context)
+    try:
+        recipeUser = RecipeUser.objects.get(googleUser = request.user)
+        print(recipeUser.notes.all())
+        context['notes'] = recipeUser.notes.all()
+    except RecipeUser.DoesNotExist:
+        context['errors'] = ['User was not found']
+        print('USER NOT FOUND')
+        return render(request, 'recipeBase.html', context)
+    return render(request, 'index.html', context)
+
+def note(request, noteId):
+    context = {}
+    print request.user
+    print request.user.is_authenticated()
+    if not request.user.is_authenticated():
+        context['errors'] = ['Please log in first!']
         return render(request, 'index.html', context)
     try:
       recipeUser = RecipeUser.objects.get(googleUser = request.user)
-      print(recipeUser.notes.all())
-      context['notes'] = recipeUser.notes.all()
+      note = Note.objects.get(id = noteId)
+      print(note.text)
+      if not note in recipeUser.notes.all():
+          return redirect('/recipes/')
+      context['note'] = note
     except RecipeUser.DoesNotExist:
       print('USER NOT FOUND')
-    return render(request, 'index.html', context)
+    return render(request, 'note.html', context)
+
+def editNote(request, noteId):
+    context = {}
+    post = request.POST
+    if not post:
+        return redirect('/note/' + noteId)
+
+    if not request.user.is_authenticated():
+        context['errors'] = ['Please log in first!']
+        return render(request, 'index.html', context)
+
+    try:
+      recipeUser = RecipeUser.objects.get(googleUser = request.user)
+      note = Note.objects.get(id = noteId)
+      if not note in recipeUser.notes.all():
+          return redirect('/recipes/')
+
+      if 'notes' in post:
+        setattr(note, 'text', post['notes'])
+        note.save()
+      print(recipeUser.notes.all())
+      context['note'] = note
+    except RecipeUser.DoesNotExist:
+      print('USER NOT FOUND')
+    return redirect('/note/' + noteId)
 
 # Create your views here.
 def addNote(request):
-    print request.user
-    print request.POST
     post = request.POST
     if not post:
         return redirect('/recipes/')
     try:
       recipeUser = RecipeUser.objects.get(googleUser = request.user)
       print(recipeUser.notes.all())
-    #   notes = recipeUser.notes.all()
-    #   recipeUser.notes.
       if 'recipeUrl' in post:
           recipeUrl = post['recipeUrl']
           html = urllib2.urlopen(recipeUrl);
-        #   print(html.read().decode('utf-8'))
           soup = BeautifulSoup(html)
-        #   print soup.title.string
           imageUrl = ''
           image = soup.findAll(attrs={"itemprop": "image"})
-        #   print image
           if len(image) :
             if image[0].has_key('content'):
               imageUrl = image[0]['content']
             elif image[0].has_key('src'):
               imageUrl = image[0]['src']
-        #   print imageUrl
           ingredients = []
           ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
           traverse(ingredientElements, ingredients)

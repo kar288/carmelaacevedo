@@ -27,4 +27,6 @@ urlpatterns = [
     url(r'^logout/$', recipes.views.logout, name='logout'),
     url(r'^done/$', recipes.views.home, name='done'),
     url(r'^recipes/addNote/$', recipes.views.addNote, name='addNote'),
+    url(r'^recipes/note/(?P<noteId>[0-9]+)/$', recipes.views.note, name='note'),
+    url(r'^recipes/editNote/(?P<noteId>[0-9]+)/$', recipes.views.editNote, name='editNote'),
 ]

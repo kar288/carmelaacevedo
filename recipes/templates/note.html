@@ -1,0 +1,38 @@
+{% extends "recipeBase.html" %}
+
+{% block content %}
+  <h3>
+    <a href="{{note.recipe.url}}">
+      {{note.recipe.title}}
+    </a>
+  </h3>
+
+  <div class="row">
+    <div
+      class="recipe-image"
+      style="float: left; background-image: url('{{note.recipe.image}}')"
+    ></div>
+  </div>
+  <div>
+    <h4> Ingredients </h4>
+    {% for ingredient in note.recipe.ingredients_as_list %}
+        {{ ingredient }}<br>
+    {% endfor %}
+  </div>
+  <div>
+    <h4> Instructions </h4>
+    {% for instructions in note.recipe.instructions_as_list %}
+        {{ instructions }}<br>
+    {% endfor %}
+    <!-- {{note.recipe.instructions}} -->
+  </div>
+  <div>
+    <h4> Notes </h4>
+    <form action="{% url 'editNote' note.id %}" method="post">
+      <textarea class="form-control" name="notes">{{note.text}}</textarea>
+      <!-- <input style="display: none;" value={{note.id}} type="number"></input> -->
+      {% csrf_token %}
+      <input type="submit"></input>
+    </form>
+  </div>
+{% endblock %}

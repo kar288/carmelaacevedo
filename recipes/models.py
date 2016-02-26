@@ -10,6 +10,10 @@ class Recipe(models.Model):
   ingredients = models.TextField()
   instructions = models.TextField()
   date_added = models.CharField(max_length=200)
+  def ingredients_as_list(self):
+    return self.ingredients.split('*')
+  def instructions_as_list(self):
+    return self.instructions.split('*')
 
 class Note(models.Model):
   recipe = models.OneToOneField(

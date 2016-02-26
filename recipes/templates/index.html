@@ -1,42 +1,35 @@
 {% extends "recipeBase.html" %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  <a id="logout" href="{% url 'logout' %}" class="btn btn-success">Logout</a>
+<!-- {% if user.is_authenticated %} -->
   {% for note in notes %}
-    <img style="width: 200px;" src="{{note.recipe.image}}"/>
-    <div>
-      <a href="{{note.recipe.url}}">{{note.recipe.title}}</a>
-    </div>
-    <div>
-      <h4> Ingredients </h4>
-      {{note.recipe.ingredients}}
-    </div>
-    <div>
-      <h4> Instructions </h4>
-      {{note.recipe.instructions}}
-    </div>
-    <div>
-      <h4> Notes </h4>
-      {{note.text}}
+    <div class="row recipe-small">
+      <div
+        class="recipe-image"
+        style="float: left; background-image: url('{{note.recipe.image}}')"
+      ></div>
+      <div class="col-xs-8 recipe-title">
+        <a href="{% url 'note' note.id %}">{{note.recipe.title}}</a>
+        -
+        <a class="recipe-original-link" href="{{note.recipe.url}}">
+          (Go to original)
+        </a>
+      </div>
     </div>
   {% endfor %}
-  <form  action="{% url 'addNote' %}" method="post">
+  <form action="{% url 'addNote' %}" method="post">
     <label>
       Recipe Url
-      <input type="text" name="recipeUrl"/>
+      <input class="form-control" type="text" name="recipeUrl"/>
     </label>
     <br>
     <label>
       Notes:
-      <textarea name="notes" rows="10" cols="50"></textarea>
+      <textarea class="form-control" name="notes" rows="10" cols="50"></textarea>
     </label>
+    <br>
     {% csrf_token %}
     <input type="submit"/>
   </form>
-{% else %}
-  <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="btn btn-success">
-    Sign in with Google
-  </a>
-{% endif %}
+<!-- {% endif %} -->
 {% endblock %}
