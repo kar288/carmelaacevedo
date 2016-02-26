@@ -48,7 +48,7 @@ body {
 }
 
 .recipe-small .recipe-title {
-  line-height: 90px;
+  padding-top: 30px;
 }
 
 .recipe-original-link {
