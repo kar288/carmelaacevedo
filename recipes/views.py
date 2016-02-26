@@ -120,7 +120,9 @@ def addNote(request):
       if 'recipeUrl' in post:
           recipeUrl = post['recipeUrl']
           html = urllib2.urlopen(recipeUrl);
-          soup = BeautifulSoup(html)
+        #   content = html.read().decode('utf-8').strip()
+        #   print(content)
+          soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
           imageUrl = ''
           image = soup.findAll(attrs={"itemprop": "image"})
           if len(image) :
