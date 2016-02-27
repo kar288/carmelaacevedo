@@ -16,14 +16,33 @@ body {
   color: #444;
 }
 
+.recipe-small .fa-star {
+  font-size: 0.7em;
+  color: #FFD700;
+}
+
+.fa-star {
+  font-size: inherit;
+  color: #FFD700;
+}
+
+.recipe-general-error,
+.recipe-general-success {
+  font-weight: 300;
+  padding: 10px;
+  margin: 20px auto;
+  text-align: center;
+  width: 600px;
+}
+
 .recipe-general-error {
   background-color: #f2dede;
   color: #a94442;
-  font-weight: 300;
-  padding: 10px;
-  margin: 0 auto;
-  text-align: center;
-  width: 400px;
+}
+
+.recipe-general-success {
+  background-color: #dff0d8;
+  color: #3c763d;
 }
 
 .recipe-general-description {
@@ -39,6 +58,26 @@ body {
   width: 600px;
 }
 
+.recipe-details {
+  padding-top: 10px;
+  font-size: 0.8em;
+}
+
+.recipe-details .col-xs-4 {
+  padding-left: 2px;
+  padding-right: 2px;
+  overflow: hidden;
+  height: 1.4em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recipe-note {
+  color: black;
+  background-color: #F8F8F8;
+  padding: 20px;
+}
+
 .recipe-image {
   background-color: #bbb;
   background-position: 50%;
@@ -50,10 +89,15 @@ body {
 
 .recipe-small {
   padding: 20px;
+  width: 500px;
 }
 
 .recipe-small .recipe-title {
-  padding-top: 30px;
+  height: 60px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .recipe-original-link {
@@ -70,3 +114,75 @@ body {
 .no-padding {
   padding: 0;
 }
+
+.centered {
+  margin: 0 auto;
+}
+
+.small {
+  width: 600px;
+}
+
+
+/* RATING */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+/*fieldset, label { margin: 0; padding: 0; }*/
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; }
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+
+  border: 0 solid #26a69a !important;
+  background-color: white !important;
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+  border: 0 solid #26a69a !important;
+  background-color: white !important;
+}
+
+.rating > label {
+  color: #ddd;
+ float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label {
+  border: 0 solid #26a69a !important;
+  background-color: white !important;
+  color: #FFD700;
+} /* hover previous stars in list */
+
+[type="radio"]:checked+label:after {
+  border: 0 solid rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label {
+  border: 0 solid #26a69a !important;
+  background-color: white !important;
+  color: #FFED85;
+}
+
+/*[type="radio"] {*/
+/*}*/

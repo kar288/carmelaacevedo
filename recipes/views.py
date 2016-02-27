@@ -62,7 +62,7 @@ def note(request, noteId):
     return render(request, 'note.html', context)
 
 def editNoteHtml(request, noteId):
-    context = {'edit': True}
+    context = {'edit': True, 'rates': [5, 4, 3, 2, 1]}
     print request.user
     print request.user.is_authenticated()
     if not request.user.is_authenticated():
@@ -78,6 +78,55 @@ def editNoteHtml(request, noteId):
     except RecipeUser.DoesNotExist:
       print('USER NOT FOUND')
     return render(request, 'note.html', context)
+
+def deleteNoteHtml(request, noteId):
+    context = {}
+    if not request.user.is_authenticated():
+        context['errors'] = ['Please log in first!']
+        return render(request, 'index.html', context)
+    try:
+      recipeUser = RecipeUser.objects.get(googleUser = request.user)
+      note = Note.objects.get(id = noteId)
+      if not note in recipeUser.notes.all():
+          return redirect('/recipes/')
+      context['note'] = note
+    except RecipeUser.DoesNotExist:
+      print('USER NOT FOUND')
+    return render(request, 'deleteNote.html', context)
+
+def deleteNote(request, noteId):
+    context = {}
+    if not request.user.is_authenticated():
+        context['errors'] = ['Please log in first!']
+        return render(request, 'index.html', context)
+
+    try:
+      recipeUser = RecipeUser.objects.get(googleUser = request.user)
+      note = Note.objects.get(id = noteId)
+      if not note in recipeUser.notes.all():
+          return redirect('/recipes/')
+      recipe = note.recipe
+      context['success'] = ['Recipe was deleted: ' + recipe.title]
+      recipe.delete()
+      note.delete()
+      context['notes'] = recipeUser.notes.all()
+    except RecipeUser.DoesNotExist:
+      print('USER NOT FOUND')
+    return render(request, 'index.html', context)
+
+def addRecipeHtml(request):
+    context = {}
+    if not request.user.is_authenticated():
+        context['errors'] = ['Please log in first!']
+        return render(request, 'index.html', context)
+    return render(request, 'addRecipe.html', context)
+
+def addRecipesHtml(request):
+    context = {}
+    if not request.user.is_authenticated():
+        context['errors'] = ['Please log in first!']
+        return render(request, 'index.html', context)
+    return render(request, 'addRecipes.html', context)
 
 def editNote(request, noteId):
     context = {}
@@ -102,6 +151,15 @@ def editNote(request, noteId):
         setattr(recipe, 'ingredients', post['ingredients'])
       if 'instructions' in post:
         setattr(recipe, 'instructions', post['instructions'])
+      if 'tags' in post:
+        setattr(note, 'tags', post['tags'])
+      if 'difficulty' in post:
+        setattr(note, 'difficulty', post['difficulty'])
+      if 'servings' in post:
+        setattr(note, 'servings', post['servings'])
+      if 'rating' in post:
+        setattr(note, 'rating', post['rating'])
+      print post
       recipe.save()
       note.save()
       context['note'] = note
@@ -152,12 +210,49 @@ def addNote(request):
           if 'notes' in post:
               note = Note.objects.create(
                 recipe = recipe,
-                text = post['notes']
+                text = post['notes'],
+                tags = '',
+                rating = -1,
+                difficulty = '',
+                servings = ''
               )
               recipeUser.notes.add(note)
     except RecipeUser.DoesNotExist:
       print('USER NOT FOUND')
     return redirect('/recipes/')
+
+
+def processBulk(request):
+    context = {}
+    post = request.POST
+    if not post:
+        return redirect('/recipes/')
+    if 'bookmarks' in post:
+        bookmarks = post['bookmarks']
+        soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
+        urls = []
+        tags = soup.findAll('a')
+        for tag in tags:
+            href = tag.get('href')
+            urls.append({'url': href, 'name': tag.text if tag.text else href})
+        context['urls'] = urls
+    return render(request, 'addRecipes.html', context)
+
+def addBulk(request):
+    context = {}
+    post = request.POST
+    if not post:
+        return redirect('/recipes/')
+    if 'bookmarks' in post:
+        bookmarks = post['bookmarks']
+        soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
+        urls = []
+        tags = soup.findAll('a')
+        for tag in tags:
+            urls.push({'url': tag.href, 'name': tag.text})
+        context['urls'] = urls
+    return render(request, 'addRecipes.html', context)
+
 
 def traverse(nodes, s):
     for node in nodes:

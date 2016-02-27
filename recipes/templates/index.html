@@ -2,34 +2,58 @@
 
 {% block content %}
 <!-- {% if user.is_authenticated %} -->
-  {% for note in notes %}
-    <div class="row recipe-small">
-      <div
-        class="recipe-image"
-        style="float: left; background-image: url('{{note.recipe.image}}')"
-      ></div>
-      <div class="col-xs-8 recipe-title">
-        <a href="{% url 'note' note.id %}">{{note.recipe.title}}</a>
-        -
-        <a class="recipe-original-link" href="{{note.recipe.url}}">
-          (Go to original)
-        </a>
-      </div>
+  <div class="row centered small">
+    <div class="col-sm-6">
+      <a href="{% url 'addRecipe' %}" class="btn blue recipe-form">
+        Add recipe
+      </a>
     </div>
-  {% endfor %}
-  <form action="{% url 'addNote' %}" method="post">
-    <label class="recipe-form">
-      Recipe Url
-      <input class="form-control" type="text" name="recipeUrl"/>
-    </label>
-    <br>
-    <label class="recipe-form">
-      Notes:
-      <textarea class="form-control" name="notes" rows="10" cols="50"></textarea>
-    </label>
-    <br>
-    {% csrf_token %}
-    <input class="recipe-form btn btn-success" type="submit"/>
-  </form>
+    <div class="col-sm-6">
+      <a href="{% url 'addRecipes' %}" class="btn blue recipe-form">
+        Add recipes bulk
+      </a>
+    </div>
+  </div>
+  <div class="row notes-container">
+    {% for note in notes %}
+      <div style="float: left">
+        <div class="row recipe-small">
+          <div class="col-xs-3">
+            <div
+              class="recipe-image"
+              style="background-image: url('{{note.recipe.image}}')"
+            ></div>
+          </div>
+          <div class="col-xs-9 recipe-info">
+            <div class="recipe-title">
+              <a href="{% url 'note' note.id %}">{{note.recipe.title}}</a>
+              -
+              <a class="recipe-original-link" href="{{note.recipe.url}}">
+                (Go to original)
+              </a>
+            </div>
+            <div class="row recipe-details">
+              <div class="col-xs-4">
+                Rating:
+                {% if note.rating == -1 %}
+                -
+                {% else %}
+                  {% for i in note.rating_as_list %}
+                    <i class="fa fa-star"></i>
+                  {% endfor %}
+                {% endif %}
+              </div>
+              <div class="col-xs-4">
+                Difficulty: {% if note.difficulty %} {{note.difficulty}} {% else %} - {% endif %}
+              </div>
+              <div class="col-xs-4">
+                Servings: {% if note.servings %} {{note.servings}} {% else %} - {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 <!-- {% endif %} -->
 {% endblock %}

@@ -26,6 +26,9 @@ class Note(models.Model):
   rating = models.IntegerField()
   difficulty = models.CharField(max_length=200)
   servings = models.CharField(max_length=200)
+
+  def rating_as_list(self):
+    return range(self.rating)
   # date_added = models.CharField(max_length=30)
 
 class RecipeUser(models.Model):

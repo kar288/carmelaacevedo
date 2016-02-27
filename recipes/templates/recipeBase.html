@@ -8,6 +8,7 @@
 
   <link href="{% static 'bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
   <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link href="{% static 'css/recipes.css' %}" rel="stylesheet">
   <title>{% block title %}{% endblock %} - Recipe Managing</title>
@@ -37,7 +38,13 @@
       {{error}}
     </div>
   {% endfor %}
-  <div class="recipe-content">
+  {% for s in success %}
+    <div class='recipe-general-success'>
+      {{s}}
+    </div>
+  {% endfor %}
+  <div>
+  <!-- <div class="recipe-content"> -->
     {% block content %}
       <div class="recipe-general-description">
         Keep track of recipes and notes
@@ -64,9 +71,9 @@
 <!-- <link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'> -->
 <!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <script>
-  $('textarea').on('keyup', function(e) {
-    this.style.height = '1px';
-    this.style.height = (25 + this.scrollHeight) + 'px';
-  });
+  // $('textarea').on('keyup', function(e) {
+  //   this.style.height = '1px';
+  //   this.style.height = (25 + this.scrollHeight) + 'px';
+  // });
 </script>
 </html>

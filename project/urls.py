@@ -27,7 +27,13 @@ urlpatterns = [
     url(r'^logout/$', recipes.views.logout, name='logout'),
     url(r'^done/$', recipes.views.home, name='done'),
     url(r'^recipes/addNote/$', recipes.views.addNote, name='addNote'),
+    url(r'^recipes/addBulk/$', recipes.views.addBulk, name='addBulk'),
+    url(r'^recipes/processBulk/$', recipes.views.processBulk, name='processBulk'),
+    url(r'^recipes/addRecipe/$', recipes.views.addRecipeHtml, name='addRecipe'),
+    url(r'^recipes/addRecipes/$', recipes.views.addRecipesHtml, name='addRecipes'),
     url(r'^recipes/note/(?P<noteId>[0-9]+)/$', recipes.views.note, name='note'),
     url(r'^recipes/editNote/(?P<noteId>[0-9]+)/$', recipes.views.editNote, name='editNote'),
     url(r'^recipes/editNoteHtml/(?P<noteId>[0-9]+)/$', recipes.views.editNoteHtml, name='editNoteHtml'),
+    url(r'^recipes/deleteNote/(?P<noteId>[0-9]+)/$', recipes.views.deleteNote, name='deleteNote'),
+    url(r'^recipes/deleteNoteHtml/(?P<noteId>[0-9]+)/$', recipes.views.deleteNoteHtml, name='deleteNoteHtml'),
 ]

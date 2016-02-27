@@ -1,0 +1,29 @@
+{% extends "recipeBase.html" %}
+
+{% block content %}
+<div class="centered small">
+  {% if urls %}
+    <form action="{% url 'addBulk' %}" method="post">
+      {% for url in urls %}
+        <p>
+          <input type="checkbox" id="bookmark-{{forloop.counter}}" value={{url.url}}/>
+          <label for="bookmark-{{forloop.counter}}">{{url.name}}</label>
+        </p>
+      {% endfor %}
+      <input class="recipe-form btn btn-success" type="submit"/>
+    </form>
+  {% else %}
+    Export your chrome bookmarks and add them here, they will be processed so that you can choose which to import.
+    <br>
+    <form action="{% url 'processBulk' %}" method="post">
+      <label class="recipe-form">
+        Chrome bookmarks
+        <input class="form-control" type="text" name="bookmarks"/>
+      </label>
+      <br>
+      {% csrf_token %}
+      <input class="recipe-form btn btn-success" value="Process" type="submit"/>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}
