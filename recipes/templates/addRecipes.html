@@ -5,11 +5,12 @@
   {% if urls %}
     <form action="{% url 'addBulk' %}" method="post">
       {% for url in urls %}
-        <p>
-          <input type="checkbox" id="bookmark-{{forloop.counter}}" value={{url.url}}/>
+        <p style="background-color: {{url.color}}">
+          <input name="bookmark" type="checkbox" id="bookmark-{{forloop.counter}}" value={{url.url}}/>
           <label for="bookmark-{{forloop.counter}}">{{url.name}}</label>
         </p>
       {% endfor %}
+      {% csrf_token %}
       <input class="recipe-form btn btn-success" type="submit"/>
     </form>
   {% else %}

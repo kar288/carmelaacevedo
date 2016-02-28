@@ -8,6 +8,8 @@ from random import randint
 import datetime
 
 import urllib2
+
+from urlparse import urlparse
 import xml.etree.ElementTree as ET
 from django.template import loader
 from django.http import JsonResponse
@@ -177,54 +179,80 @@ def addNote(request):
       print(recipeUser.notes.all())
       if 'recipeUrl' in post:
           recipeUrl = post['recipeUrl']
-          html = urllib2.urlopen(recipeUrl);
-        #   content = html.read().decode('utf-8').strip()
-        #   print(content)
-          soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
-          imageUrl = ''
-          image = soup.findAll(attrs={"itemprop": "image"})
-          if len(image) :
-            if image[0].has_key('content'):
-              imageUrl = image[0]['content']
-            elif image[0].has_key('src'):
-              imageUrl = image[0]['src']
-          ingredients = []
-          ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
-          traverse(ingredientElements, ingredients)
-          instructions = []
-          instructionElements = \
-            soup.findAll(attrs={"itemprop": "recipeInstructions"})
-          traverse(instructionElements, instructions)
-        #   $('[itemprop="recipeInstructions"]')
-        #   $('[itemprop="ingredients"]')
-        #   $('[itemprop="image"]') $('figure')
-          recipe = Recipe.objects.create(
-            url = recipeUrl,
-            image = imageUrl,
-            ingredients = '\n'.join(ingredients),
-            instructions = '\n'.join(instructions),
-            title = soup.title.string,
-            date_added = datetime.datetime.now()
-          )
-          print(recipe)
-          if 'notes' in post:
-              note = Note.objects.create(
-                recipe = recipe,
-                text = post['notes'],
-                tags = '',
-                rating = -1,
-                difficulty = '',
-                servings = ''
-              )
-              recipeUser.notes.add(note)
+          addRecipeByUrl(recipeUser, recipeUrl)
     except RecipeUser.DoesNotExist:
-      print('USER NOT FOUND')
+        print('USER NOT FOUND')
     return redirect('/recipes/')
 
+def addRecipeByUrl(recipeUser, recipeUrl):
+    req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
+    html = urllib2.urlopen(req)
+    soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+    imageUrl = ''
+    image = soup.findAll(attrs={"itemprop": "image"})
+    if len(image) :
+      if image[0].has_key('content'):
+        imageUrl = image[0]['content']
+      elif image[0].has_key('src'):
+        imageUrl = image[0]['src']
+    ingredients = []
+    ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
+    traverse(ingredientElements, ingredients)
+    instructions = []
+    instructionElements = \
+      soup.findAll(attrs={"itemprop": "recipeInstructions"})
+    traverse(instructionElements, instructions)
+  #   $('[itemprop="recipeInstructions"]')
+  #   $('[itemprop="ingredients"]')
+  #   $('[itemprop="image"]') $('figure')
+    recipe = Recipe.objects.create(
+      url = recipeUrl,
+      image = imageUrl,
+      ingredients = '\n'.join(ingredients),
+      instructions = '\n'.join(instructions),
+      title = soup.title.string,
+      date_added = datetime.datetime.now()
+    )
+    note = Note.objects.create(
+      recipe = recipe,
+      text = '',
+      tags = '',
+      rating = -1,
+      difficulty = '',
+      servings = ''
+    )
+    recipeUser.notes.add(note)
+
+def addBulk(request):
+    context = {}
+    post = request.POST
+    if not post:
+        return redirect('/recipes/')
+    recipeUser = RecipeUser.objects.get(googleUser = request.user)
+    print post
+    bookmarks = post.getlist('bookmark')
+    print bookmarks
+    for recipeUrl in bookmarks:
+        print(recipeUrl)
+        addRecipeByUrl(recipeUser, recipeUrl)
+    return redirect('/recipes/')
 
 def processBulk(request):
     context = {}
     post = request.POST
+    cookingDomains = {
+        'food52.com': True,
+        'smittenkitchen.com': True,
+        'www.thekitchn.com': True,
+        'www.epicurious.com': True,
+        'allrecipes.com': True,
+        'cooking.nytimes.com': True,
+        'www.food.com': True,
+        'www.101cookbooks.com': True,
+        'www.marthastewart.com': True,
+        'www.jamieoliver.com': True,
+        'allrecipes.com': True,
+    }
     if not post:
         return redirect('/recipes/')
     if 'bookmarks' in post:
@@ -234,22 +262,17 @@ def processBulk(request):
         tags = soup.findAll('a')
         for tag in tags:
             href = tag.get('href')
-            urls.append({'url': href, 'name': tag.text if tag.text else href})
-        context['urls'] = urls
-    return render(request, 'addRecipes.html', context)
-
-def addBulk(request):
-    context = {}
-    post = request.POST
-    if not post:
-        return redirect('/recipes/')
-    if 'bookmarks' in post:
-        bookmarks = post['bookmarks']
-        soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
-        urls = []
-        tags = soup.findAll('a')
-        for tag in tags:
-            urls.push({'url': tag.href, 'name': tag.text})
+            text = tag.text if tag.text else href
+            parsed_uri = urlparse(href)
+            domain = '{uri.netloc}'.format(uri=parsed_uri)
+            color = 'white'
+            if domain in cookingDomains or 'recipe' in text.lower():
+                color = 'rgba(38, 166, 154, 0.3)'
+            urls.append({
+                'url': href,
+                'name': text,
+                'color': color
+            })
         context['urls'] = urls
     return render(request, 'addRecipes.html', context)
 
