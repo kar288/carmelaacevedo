@@ -14,7 +14,6 @@ import xml.etree.ElementTree as ET
 from django.template import loader
 from django.http import JsonResponse
 
-
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout, login
@@ -25,218 +24,203 @@ from social.backends.utils import load_backends
 from social.apps.django_app.utils import psa
 from recipes.models import Recipe, Note, RecipeUser
 
-import urllib2
 from BeautifulSoup import BeautifulSoup
 
 # Create your views here.
 def home(request):
     context = {}
-    print request.user
-    print request.user.is_authenticated()
     if not request.user.is_authenticated():
         return render(request, 'recipeBase.html', context)
-    try:
-        recipeUser = RecipeUser.objects.get(googleUser = request.user)
-        print(recipeUser.notes.all())
-        context['notes'] = recipeUser.notes.all()
-    except RecipeUser.DoesNotExist:
-        context['errors'] = ['User was not found']
-        print('USER NOT FOUND')
-        return render(request, 'recipeBase.html', context)
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    context['notes'] = recipeUser.notes.all()
     return render(request, 'index.html', context)
 
+def recrawlImages(request):
+    context = {}
+    recipes = Recipe.objects.all()
+    for recipe in recipes:
+        print recipe.image, recipe.url
+        if not recipe.image:
+            req = urllib2.Request(recipe.url, headers={'User-Agent' : "Magic Browser"})
+            html = urllib2.urlopen(req)
+            soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+            imageUrl = getImage(soup)
+            print 'changing image to :' + imageUrl
+            setattr(recipe, 'image', imageUrl)
+            recipe.save()
+    return render(request, 'index.html', context)
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def note(request, noteId):
     context = {}
-    print request.user
-    print request.user.is_authenticated()
-    if not request.user.is_authenticated():
-        context['errors'] = ['Please log in first!']
-        return render(request, 'index.html', context)
-    try:
-      recipeUser = RecipeUser.objects.get(googleUser = request.user)
-      note = Note.objects.get(id = noteId)
-      print(note.text)
-      if not note in recipeUser.notes.all():
-          return redirect('/recipes/')
-      context['note'] = note
-    except RecipeUser.DoesNotExist:
-      print('USER NOT FOUND')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    note = get_object_or_404(Note, id = noteId)
+    if not note in recipeUser.notes.all():
+        context['errors'] = ['Note not found']
+    else:
+        context['note'] = note
     return render(request, 'note.html', context)
 
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def editNoteHtml(request, noteId):
     context = {'edit': True, 'rates': [5, 4, 3, 2, 1]}
-    print request.user
-    print request.user.is_authenticated()
-    if not request.user.is_authenticated():
-        context['errors'] = ['Please log in first!']
-        return render(request, 'index.html', context)
-    try:
-      recipeUser = RecipeUser.objects.get(googleUser = request.user)
-      note = Note.objects.get(id = noteId)
-      print(note.text)
-      if not note in recipeUser.notes.all():
-          return redirect('/recipes/')
-      context['note'] = note
-    except RecipeUser.DoesNotExist:
-      print('USER NOT FOUND')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    note = get_object_or_404(Note, id = noteId)
+    if not note in recipeUser.notes.all():
+        context['errors'] = ['Note not found']
+    else:
+        context['note'] = note
     return render(request, 'note.html', context)
 
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def deleteNoteHtml(request, noteId):
     context = {}
-    if not request.user.is_authenticated():
-        context['errors'] = ['Please log in first!']
-        return render(request, 'index.html', context)
-    try:
-      recipeUser = RecipeUser.objects.get(googleUser = request.user)
-      note = Note.objects.get(id = noteId)
-      if not note in recipeUser.notes.all():
-          return redirect('/recipes/')
-      context['note'] = note
-    except RecipeUser.DoesNotExist:
-      print('USER NOT FOUND')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    note = get_object_or_404(Note, id = noteId)
+    if not note in recipeUser.notes.all():
+        context['errors'] = ['Note not found']
+    else:
+        context['note'] = note
     return render(request, 'deleteNote.html', context)
 
 def deleteNote(request, noteId):
     context = {}
-    if not request.user.is_authenticated():
-        context['errors'] = ['Please log in first!']
-        return render(request, 'index.html', context)
-
-    try:
-      recipeUser = RecipeUser.objects.get(googleUser = request.user)
-      note = Note.objects.get(id = noteId)
-      if not note in recipeUser.notes.all():
-          return redirect('/recipes/')
-      recipe = note.recipe
-      context['success'] = ['Recipe was deleted: ' + recipe.title]
-      recipe.delete()
-      note.delete()
-      context['notes'] = recipeUser.notes.all()
-    except RecipeUser.DoesNotExist:
-      print('USER NOT FOUND')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    note = get_object_or_404(Note, id = noteId)
+    if not note in recipeUser.notes.all():
+        context['errors'] = ['Note not found']
+    else:
+        recipe = note.recipe
+        context['success'] = ['Recipe was deleted: ' + recipe.title]
+        recipe.delete()
+        note.delete()
+        context['notes'] = recipeUser.notes.all()
     return render(request, 'index.html', context)
 
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addRecipeHtml(request):
-    context = {}
-    if not request.user.is_authenticated():
-        context['errors'] = ['Please log in first!']
-        return render(request, 'index.html', context)
-    return render(request, 'addRecipe.html', context)
+    return render(request, 'addRecipe.html')
 
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addRecipesHtml(request):
-    context = {}
-    if not request.user.is_authenticated():
-        context['errors'] = ['Please log in first!']
-        return render(request, 'index.html', context)
-    return render(request, 'addRecipes.html', context)
+    return render(request, 'addRecipes.html')
 
 def editNote(request, noteId):
     context = {}
     post = request.POST
     if not post:
         return redirect('/note/' + noteId)
-
-    if not request.user.is_authenticated():
-        context['errors'] = ['Please log in first!']
-        return render(request, 'index.html', context)
-
-    try:
-      recipeUser = RecipeUser.objects.get(googleUser = request.user)
-      note = Note.objects.get(id = noteId)
-      if not note in recipeUser.notes.all():
-          return redirect('/recipes/')
-      recipe = note.recipe
-
-      if 'notes' in post:
-        setattr(note, 'text', post['notes'])
-      if 'ingredients' in post:
-        setattr(recipe, 'ingredients', post['ingredients'])
-      if 'instructions' in post:
-        setattr(recipe, 'instructions', post['instructions'])
-      if 'tags' in post:
-        setattr(note, 'tags', post['tags'])
-      if 'difficulty' in post:
-        setattr(note, 'difficulty', post['difficulty'])
-      if 'servings' in post:
-        setattr(note, 'servings', post['servings'])
-      if 'rating' in post:
-        setattr(note, 'rating', post['rating'])
-      print post
-      recipe.save()
-      note.save()
-      context['note'] = note
-    except RecipeUser.DoesNotExist:
-      print('USER NOT FOUND')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    note = get_object_or_404(Note, id = noteId)
+    if not note in recipeUser.notes.all():
+        context['errors'] = ['Note not found']
+    else:
+        recipe = note.recipe
+        if 'notes' in post:
+            setattr(note, 'text', post['notes'])
+        if 'ingredients' in post:
+            setattr(recipe, 'ingredients', post['ingredients'])
+        if 'instructions' in post:
+            setattr(recipe, 'instructions', post['instructions'])
+        if 'tags' in post:
+            setattr(note, 'tags', post['tags'])
+        if 'difficulty' in post:
+            setattr(note, 'difficulty', post['difficulty'])
+        if 'servings' in post:
+            setattr(note, 'servings', post['servings'])
+        if 'rating' in post:
+            setattr(note, 'rating', post['rating'])
+        recipe.save()
+        note.save()
+        context['note'] = note
     return redirect('/recipes/note/' + noteId)
 
 # Create your views here.
 def addNote(request):
     post = request.POST
     if not post:
-        return redirect('/recipes/')
-    try:
-      recipeUser = RecipeUser.objects.get(googleUser = request.user)
-      print(recipeUser.notes.all())
-      if 'recipeUrl' in post:
-          recipeUrl = post['recipeUrl']
-          addRecipeByUrl(recipeUser, recipeUrl)
-    except RecipeUser.DoesNotExist:
-        print('USER NOT FOUND')
-    return redirect('/recipes/')
-
-def addRecipeByUrl(recipeUser, recipeUrl):
-    req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
-    html = urllib2.urlopen(req)
-    soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
-    imageUrl = ''
-    image = soup.findAll(attrs={"itemprop": "image"})
-    if len(image) :
-      if image[0].has_key('content'):
-        imageUrl = image[0]['content']
-      elif image[0].has_key('src'):
-        imageUrl = image[0]['src']
-    ingredients = []
-    ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
-    traverse(ingredientElements, ingredients)
-    instructions = []
-    instructionElements = \
-      soup.findAll(attrs={"itemprop": "recipeInstructions"})
-    traverse(instructionElements, instructions)
-  #   $('[itemprop="recipeInstructions"]')
-  #   $('[itemprop="ingredients"]')
-  #   $('[itemprop="image"]') $('figure')
-    recipe = Recipe.objects.create(
-      url = recipeUrl,
-      image = imageUrl,
-      ingredients = '\n'.join(ingredients),
-      instructions = '\n'.join(instructions),
-      title = soup.title.string,
-      date_added = datetime.datetime.now()
-    )
-    note = Note.objects.create(
-      recipe = recipe,
-      text = '',
-      tags = '',
-      rating = -1,
-      difficulty = '',
-      servings = ''
-    )
-    recipeUser.notes.add(note)
-
-def addBulk(request):
-    context = {}
-    post = request.POST
-    if not post:
-        return redirect('/recipes/')
-    recipeUser = RecipeUser.objects.get(googleUser = request.user)
-    print post
-    bookmarks = post.getlist('bookmark')
-    print bookmarks
-    for recipeUrl in bookmarks:
-        print(recipeUrl)
+        return redirect('/recipes/addRecipe/')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    if 'recipeUrl' in post:
+        recipeUrl = post['recipeUrl']
         addRecipeByUrl(recipeUser, recipeUrl)
     return redirect('/recipes/')
 
+def getImage(soup):
+    imageUrl = ''
+    image = soup.find('meta', attrs={"property": "og:image"})
+    image2 = soup.find('meta', attrs={"name": "twitter:image:src"})
+    if image:
+      print ('op:image')
+      if image.has_key('content'):
+        imageUrl = image['content']
+    elif image2:
+        print ('twitter image src')
+        print image2
+        if image2:
+          if image2.has_key('content'):
+            imageUrl = image2['content']
+    else:
+        image = soup.findAll(attrs={"itemprop": "image"})
+        if len(image) :
+          if image[0].has_key('content'):
+            imageUrl = image[0]['content']
+          elif image[0].has_key('src'):
+            imageUrl = image[0]['src']
+    print imageUrl
+    return imageUrl
+
+def addRecipeByUrl(recipeUser, recipeUrl):
+    try:
+        req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
+        html = urllib2.urlopen(req)
+        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+        imageUrl = getImage(soup)
+        ingredients = []
+        ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
+        traverse(ingredientElements, ingredients)
+        instructions = []
+        instructionElements = \
+          soup.findAll(attrs={"itemprop": "recipeInstructions"})
+        traverse(instructionElements, instructions)
+      #   $('[itemprop="recipeInstructions"]')
+      #   $('[itemprop="ingredients"]')
+      #   $('[itemprop="image"]') $('figure')
+        print instructions
+        recipe = Recipe.objects.create(
+          url = recipeUrl,
+          image = imageUrl,
+          ingredients = '\n'.join(ingredients),
+          instructions = '\n'.join(instructions),
+          title = soup.title.string,
+          date_added = datetime.datetime.now()
+        )
+        note = Note.objects.create(
+          recipe = recipe,
+          text = '',
+          tags = '',
+          rating = -1,
+          difficulty = '',
+          servings = ''
+        )
+        recipeUser.notes.add(note)
+    except urllib2.HTTPError, err:
+        return 'Could not get recipe: ' + recipeUrl
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+def addBulk(request):
+    context = {'errors': []}
+    post = request.POST
+    if not post:
+        return redirect('/recipes/addRecipes/')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    bookmarks = post.getlist('bookmark')
+    for recipeUrl in bookmarks:
+        error = addRecipeByUrl(recipeUser, recipeUrl)
+        context['errors'].append(error)
+    return redirect('/recipes/')
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def processBulk(request):
     context = {}
     post = request.POST
@@ -254,7 +238,7 @@ def processBulk(request):
         'allrecipes.com': True,
     }
     if not post:
-        return redirect('/recipes/')
+        return render(request, 'addRecipes.html', context)
     if 'bookmarks' in post:
         bookmarks = post['bookmarks']
         soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
@@ -276,14 +260,12 @@ def processBulk(request):
         context['urls'] = urls
     return render(request, 'addRecipes.html', context)
 
-
 def traverse(nodes, s):
     for node in nodes:
-        children = node.findAll()
-        if children:
-            traverse(children, s);
-        else:
-            s.append(node.text)
+        for child in node.recursiveChildGenerator():
+            name = getattr(child, "name", None)
+            if name is None and not child.isspace(): # leaf node, don't print spaces
+                s.append(child.strip())
 
 
 def save_profile_picture(strategy, user, response, details,

@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^login/$', recipes.views.home),
     url(r'^logout/$', recipes.views.logout, name='logout'),
     url(r'^done/$', recipes.views.home, name='done'),
+    url(r'^recipes/recrawlImages$', recipes.views.recrawlImages, name='recrawlImages'),
     url(r'^recipes/addNote/$', recipes.views.addNote, name='addNote'),
     url(r'^recipes/addBulk/$', recipes.views.addBulk, name='addBulk'),
     url(r'^recipes/processBulk/$', recipes.views.processBulk, name='processBulk'),
