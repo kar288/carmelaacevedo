@@ -32,7 +32,7 @@ def home(request):
     if not request.user.is_authenticated():
         return render(request, 'recipeBase.html', context)
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    context['notes'] = recipeUser.notes.all()
+    context['notes'] = recipeUser.notes.all().order_by('-recipe__date_added')
     return render(request, 'index.html', context)
 
 def recrawlImages(request):
@@ -143,7 +143,7 @@ def addNote(request):
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     if 'recipeUrl' in post:
         recipeUrl = post['recipeUrl']
-        addRecipeByUrl(recipeUser, recipeUrl)
+        addRecipeByUrl(recipeUser, recipeUrl, post)
     return redirect('/recipes/')
 
 def getImage(soup):
@@ -170,7 +170,7 @@ def getImage(soup):
     print imageUrl
     return imageUrl
 
-def addRecipeByUrl(recipeUser, recipeUrl):
+def addRecipeByUrl(recipeUser, recipeUrl, post):
     try:
         req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
         html = urllib2.urlopen(req)
@@ -183,10 +183,6 @@ def addRecipeByUrl(recipeUser, recipeUrl):
         instructionElements = \
           soup.findAll(attrs={"itemprop": "recipeInstructions"})
         traverse(instructionElements, instructions)
-      #   $('[itemprop="recipeInstructions"]')
-      #   $('[itemprop="ingredients"]')
-      #   $('[itemprop="image"]') $('figure')
-        print instructions
         recipe = Recipe.objects.create(
           url = recipeUrl,
           image = imageUrl,
@@ -197,11 +193,11 @@ def addRecipeByUrl(recipeUser, recipeUrl):
         )
         note = Note.objects.create(
           recipe = recipe,
-          text = '',
-          tags = '',
-          rating = -1,
-          difficulty = '',
-          servings = ''
+          text = post.get('notes', ''),
+          tags = post.get('tags', ''),
+          rating = post.get('rating', -1),
+          difficulty = post.get('difficulty', ''),
+          servings = post.get('servings', '')
         )
         recipeUser.notes.add(note)
     except urllib2.HTTPError, err:
@@ -216,7 +212,7 @@ def addBulk(request):
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     bookmarks = post.getlist('bookmark')
     for recipeUrl in bookmarks:
-        error = addRecipeByUrl(recipeUser, recipeUrl)
+        error = addRecipeByUrl(recipeUser, recipeUrl, post)
         context['errors'].append(error)
     return redirect('/recipes/')
 

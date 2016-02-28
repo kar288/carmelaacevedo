@@ -8,6 +8,13 @@ body {
   padding: 30px;
 }
 
+.recipe-more-fields {
+  display: none;
+}
+.recipe-more-fields.show {
+  display: block;
+}
+
 .recipe-login-button {
   padding-top: 50px;
 }
@@ -70,6 +77,11 @@ body {
   height: 1.4em;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.long {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .recipe-note {

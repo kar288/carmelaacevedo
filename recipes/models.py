@@ -29,7 +29,6 @@ class Note(models.Model):
 
   def rating_as_list(self):
     return range(self.rating)
-  # date_added = models.CharField(max_length=30)
 
 class RecipeUser(models.Model):
   googleUser = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -3,18 +3,73 @@
 {% block content %}
 <div class="centered small">
   <form action="{% url 'addNote' %}" method="post">
-    <label class="recipe-form">
-      Recipe Url
-      <input class="form-control" type="text" name="recipeUrl"/>
-    </label>
-    <br>
-    <label class="recipe-form">
-      Notes:
-      <textarea class="form-control" name="notes" rows="10" cols="50"></textarea>
-    </label>
-    <br>
+    <div class="row">
+      <div class="long col-xs-8">
+        <label class="recipe-form">
+          Recipe Url
+          <input class="form-control" type="text" name="recipeUrl"/>
+        </label>
+      </div>
+      <div class="long col-xs-4">
+        <a class="recipe-form btn more-button-fields">More Fields</a>
+      </div>
+    </div>
+    <div class="recipe-more-fields">
+      <!-- <label class="recipe-form">
+        Ingredients:
+        <textarea class="materialize-textarea" name="ingredients"></textarea>
+      </label> -->
+      <!-- <br>
+      <label class="recipe-form">
+        Instructions:
+        <textarea class="materialize-textarea" name="instructions"></textarea>
+      </label> -->
+      <br>
+      <label class="recipe-form">
+        Rating:<br>
+        <fieldset class="rating">
+          {% for i in "12345" %}
+            <input type="radio" id="star{{i}}" name="rating" value="{{i}}"><label class="full" for="star{{i}}" title=""></label>
+          {% endfor %}
+        </fieldset>
+      </label>
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <label class="recipe-form">
+            Difficulty:
+            <input type="text" class="form-control" name="difficulty"></input>
+          </label>
+        </div>
+        <div class="col-sm-6">
+          <label class="recipe-form">
+            Servings:
+            <input type="text" class="form-control" name="servings"></input>
+          </label>
+        </div>
+      </div>
+      <label class="recipe-form">
+        Notes:
+        <textarea class="materialize-textarea" name="notes"></textarea>
+      </label>
+      <br>
+      <label class="recipe-form">
+        Tags (one per line):
+        <textarea class="materialize-textarea" name="tags"></textarea>
+      </label>
+    </div>
     {% csrf_token %}
     <input class="recipe-form btn btn-success" type="submit"/>
   </form>
 </div>
+<script>
+$('.more-button-fields').on('click', function(e) {
+  $('.recipe-more-fields').toggle('show');
+  if ($(this).text() === 'More Fields') {
+    $(this).text('Less Fields');
+  } else {
+    $(this).text('More Fields');
+  }
+});
+</script>
 {% endblock %}
