@@ -1,0 +1,59 @@
+{% extends "recipeBase.html" %}
+
+{% block content %}
+<!-- {% if user.is_authenticated %} -->
+  <div class="row centered small">
+    <div class="col-sm-6">
+      <a href="{% url 'addRecipe' %}" class="btn blue recipe-form">
+        Add recipe
+      </a>
+    </div>
+    <div class="col-sm-6">
+      <a href="{% url 'addRecipes' %}" class="btn blue recipe-form">
+        Add recipes bulk
+      </a>
+    </div>
+  </div>
+  <div class="row notes-container">
+    <table>
+      <tr>
+        {% for field in fields%}
+          <td class="table-header{% if field.selected %} selected{% endif %}">
+            <a href="/recipes/table/{{field.field}}">
+              {{field.display}}
+            </a>
+          </td>
+        {% endfor %}
+      </tr>
+      {% for note in notes %}
+        <tr>
+          <td>
+            <div
+              class="recipe-image small"
+              style="background-image: url('{{note.image}}')"
+            ></div>
+          </td>
+          <td>
+            {{note.title_short}}
+          </td>
+          <td>
+            {{note.site}}
+          </td>
+          <td>
+            {{note.difficulty}}
+          </td>
+          <td>
+            {{note.servings}}
+          </td>
+          <td>
+            {{note.date_added_formatted}}
+          </td>
+          <td>
+            {% include 'ratingStars.html' %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+<!-- {% endif %} -->
+{% endblock %}

@@ -1,0 +1,31 @@
+<div style="float: left">
+  <div class="row recipe-small">
+    <div class="col-xs-3">
+      <div
+        class="recipe-image"
+        style="background-image: url('{{note.image}}')"
+      ></div>
+    </div>
+    <div class="col-xs-9 recipe-info">
+      <div class="recipe-title">
+        <a href="{% url 'note' note.id %}">{{note.title}}</a>
+        -
+        <a class="recipe-original-link" href="{{note.url}}">
+          (Go to original)
+        </a>
+      </div>
+      <div class="row recipe-details">
+        <div class="col-xs-4">
+          Rating:
+          {% include 'ratingStars.html' %}
+        </div>
+        <div class="col-xs-4">
+          Difficulty: {% if note.difficulty %} {{note.difficulty}} {% else %} - {% endif %}
+        </div>
+        <div class="col-xs-4">
+          Servings: {% if note.servings %} {{note.servings}} {% else %} - {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

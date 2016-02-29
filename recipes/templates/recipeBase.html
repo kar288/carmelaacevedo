@@ -24,7 +24,14 @@
         </a>
       </h1>
     </div>
-    <div class="col-xs-3 recipe-login-button">
+    <div class="col-xs-2 recipe-login-button">
+      {% if user.is_authenticated %}
+        <form action="{% url 'search' %}" method="get" class="recipe-form recipe-search">
+          <input class="recipe-form" type="text" name="query" placeholder="Search" value="{{query}}"></input>
+        </form>
+      {% endif %}
+    </div>
+    <div class="col-xs-1 recipe-login-button">
       {% if user.is_authenticated %}
         <a id="logout" href="{% url 'logout' %}" class="btn btn-success">Logout</a>
       {% else %}

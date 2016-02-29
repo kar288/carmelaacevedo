@@ -1,0 +1,73 @@
+{% extends "recipeBase.html" %}
+
+{% block content %}
+  <h5 style="text-align: center">
+    Advanced Search
+  </h5>
+  <form class="centered small" action="{% url 'advancedSearch' %}" method="get">
+    <label class="recipe-form">
+      Title contains:
+      <input type="text" class="form-control" name="title" value="{{advancedQuery.title}}"></input>
+    </label>
+    - and -
+    <label class="recipe-form">
+      Ingredients contain:
+      <input type="text" class="form-control" name="ingredients" value="{{advancedQuery.ingredients}}"></input>
+    </label>
+    <br>
+
+    - and -
+    <label class="recipe-form">
+      Instructions contain:
+      <input type="text" class="form-control" name="instructions" value="{{advancedQuery.instructions}}"></input>
+    </label>
+    <!-- <br> -->
+    <!-- <label class="recipe-form">
+      Rating:<br>
+      <fieldset class="rating">
+        {% for i in rates %}
+          {% if note.rating == i %}
+            <input checked type="radio" id="star{{i}}" name="rating" value="{{i}}"><label class="full" for="star{{i}}" title=""></label>
+          {% else %}
+            <input type="radio" id="star{{i}}" name="rating" value="{{i}}"><label class="full" for="star{{i}}" title=""></label>
+          {% endif %}
+        {% endfor %}
+      </fieldset>
+    </label> -->
+    <br>
+    - and -
+    <div class="row">
+      <div class="col-sm-6">
+        <label class="recipe-form">
+          Difficulty:
+          <input type="text" class="form-control" name="difficulty" value="{{advancedQuery.difficulty}}"></input>
+        </label>
+      </div>
+      <div class="col-sm-6">
+        <label class="recipe-form">
+          Servings:
+          <input type="text" class="form-control" name="servings" value="{{advancedQuery.servings}}"></input>
+        </label>
+      </div>
+    </div>
+    - and -
+    <label class="recipe-form">
+      Note contains:
+      <input type="text" class="form-control" name="notes" value="{{advancedQuery.notes}}"></input>
+    </label>
+    <br>
+    - and -
+    <label class="recipe-form">
+      Tags (one per line):
+      <input type="text" class="form-control" name="tags" value="{{advancedQuery.tags}}"></input>
+    </label>
+    <br>
+    {% csrf_token %}
+    <input class="recipe-form btn btn-success" value="Search" type="submit"></input>
+  </form>
+  <div class="row notes-container">
+    {% for note in notes %}
+      {% include 'smallRecipe.html' %}
+    {% endfor %}
+  </div>
+{% endblock %}
