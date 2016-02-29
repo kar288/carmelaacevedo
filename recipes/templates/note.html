@@ -113,7 +113,7 @@
           <h4> Tags </h4>
         </div>
         {% for tag in note.tags_as_list %}
-          <a href="{% url 'tags' tag %}" class="blue recipe-tag">
+          <a href="{% url 'tags' tag %}" class="recipe-tag">
             {{tag}}
           </a>
         {% endfor %}

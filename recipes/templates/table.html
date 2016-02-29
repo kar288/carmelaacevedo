@@ -34,7 +34,9 @@
             ></div>
           </td>
           <td>
-            {{note.title}}
+            <a href="{% url 'note' note.id %}">
+              {{note.title}}
+            </a>
           </td>
           <td>
             {{note.site}}
