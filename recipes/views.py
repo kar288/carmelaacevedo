@@ -127,10 +127,11 @@ def note(request, noteId):
     context = {}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     note = get_object_or_404(Note, id = noteId)
-    if not note in recipeUser.notes.all():
-        context['errors'] = ['Note not found']
-    else:
-        context['note'] = note
+    # if not note in recipeUser.notes.all():
+        # context['errors'] = ['Note not found']
+    # else:
+        # context['note'] = note
+    context['note'] = note
     return render(request, 'note.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
