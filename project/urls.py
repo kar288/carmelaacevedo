@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^recipes/tags/(?P<tags>[\w, ]+)/$', recipes.views.tags, name='tags'),
     url(r'^recipes/search/$', recipes.views.search, name='search'),
     url(r'^recipes/table/(?P<field>[\w]*)$', recipes.views.table, name='table'),
+    url(r'^recipes/tableAll/(?P<field>[\w]*)$', recipes.views.tableAll, name='tableAll'),
     url(r'^recipes/advancedSearch/$', recipes.views.advancedSearch, name='advancedSearch'),
     url(r'^recipes/advancedSearchHtml/(?P<field>[\w]*)$', recipes.views.advancedSearchHtml, name='advancedSearchHtml'),
     url(r'^recipes/ingredients/(?P<ingredients>[\w,]+)/$', recipes.views.ingredients, name='ingredients'),

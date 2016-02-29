@@ -115,6 +115,14 @@ def table(request, field):
     return render(request, 'table.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+def tableAll(request, field):
+    context = {}
+    field = field if field else 'title'
+    context['notes'] = Note.objects.all().order_by(Lower(field))
+    context['fields'] = getTableFields(field)
+    return render(request, 'table.html', context)
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def note(request, noteId):
     context = {}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
