@@ -308,16 +308,21 @@ def getImage(soup):
           if image2.has_key('content'):
             imageUrl = image2['content']
     elif len(image3):
+      print('itemprop image')
       if image3[0].has_key('content'):
         imageUrl = image3[0]['content']
       elif image3[0].has_key('src'):
         imageUrl = image3[0]['src']
     elif image4:
+      print "rel link image_sec"
       if image4[0].has_key('content'):
         imageUrl = image4[0]['content']
       elif image4[0].has_key('src'):
         imageUrl = image4[0]['src']
+      elif image4[0].has_key('href'):
+        imageUrl = image4[0]['href']
     else:
+        print "all images"
         images = soup.findAll('img')
         imageUrl = images[0]['src']
 
