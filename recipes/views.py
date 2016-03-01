@@ -308,7 +308,7 @@ def getImage(soup):
         if image2:
           if image2.has_key('content'):
             imageUrl = image2['content']
-    elif if len(image3):
+    elif len(image3):
       if image3[0].has_key('content'):
         imageUrl = image3[0]['content']
       elif image3[0].has_key('src'):
@@ -320,7 +320,7 @@ def getImage(soup):
         imageUrl = image4[0]['src']
     else:
         images = soup.findAll('img')
-        imageUrl = images[0]['src']        
+        imageUrl = images[0]['src']
 
     print imageUrl
     return imageUrl
