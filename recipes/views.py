@@ -337,6 +337,8 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         imageUrl = getImage(soup)
         ingredients = []
         ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
+        if not len(ingredientElements):
+            ingredientElements = soup.findAll(attrs={"itemprop": "recipeIngredient"})
         traverse(ingredientElements, ingredients)
         instructions = []
         instructionElements = \
@@ -426,7 +428,7 @@ def traverse(nodes, s):
         for child in node.recursiveChildGenerator():
             name = getattr(child, "name", None)
             if name is None and not child.isspace(): # leaf node, don't print spaces
-                s.append(child.strip())
+                s.append(clean(child))
 
 
 def save_profile_picture(strategy, user, response, details,
