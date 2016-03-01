@@ -71,9 +71,8 @@ def home(request):
 
 def recrawlImages(request):
     context = {}
-    recipes = Recipe.objects.all()
+    recipes = Note.objects.all()
     for recipe in recipes:
-        print recipe.image, recipe.url
         if not recipe.image:
             req = urllib2.Request(recipe.url, headers={'User-Agent' : "Magic Browser"})
             html = urllib2.urlopen(req)
