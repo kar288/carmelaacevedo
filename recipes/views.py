@@ -129,6 +129,7 @@ def note(request, noteId):
     note = get_object_or_404(Note, id = noteId)
     # if not note in recipeUser.notes.all():
         # context['errors'] = ['Note not found']
+        # return render(request, 'index.html', context)
     # else:
         # context['note'] = note
     context['note'] = note
@@ -295,6 +296,8 @@ def getImage(soup):
     imageUrl = ''
     image = soup.find('meta', attrs={"property": "og:image"})
     image2 = soup.find('meta', attrs={"name": "twitter:image:src"})
+    image3 = soup.findAll(attrs={"itemprop": "image"})
+    image4 = soup.findAll(attrs={"rel": "image_src"})
     if image:
       print ('op:image')
       if image.has_key('content'):
@@ -305,13 +308,20 @@ def getImage(soup):
         if image2:
           if image2.has_key('content'):
             imageUrl = image2['content']
+    elif if len(image3):
+      if image3[0].has_key('content'):
+        imageUrl = image3[0]['content']
+      elif image3[0].has_key('src'):
+        imageUrl = image3[0]['src']
+    elif image4:
+      if image4[0].has_key('content'):
+        imageUrl = image4[0]['content']
+      elif image4[0].has_key('src'):
+        imageUrl = image4[0]['src']
     else:
-        image = soup.findAll(attrs={"itemprop": "image"})
-        if len(image) :
-          if image[0].has_key('content'):
-            imageUrl = image[0]['content']
-          elif image[0].has_key('src'):
-            imageUrl = image[0]['src']
+        images = soup.findAll('img')
+        imageUrl = images[0]['src']        
+
     print imageUrl
     return imageUrl
 
