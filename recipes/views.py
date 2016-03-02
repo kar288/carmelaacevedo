@@ -99,8 +99,10 @@ def convertNotes(request):
         # domain = '{uri.netloc}'.format(uri = parsed_uri)
         # setattr(note, 'site', domain)
 
-        extracted = tldextract.extract(note.url)
-        setattr(note, 'site', extracted.domain)
+        # extracted = tldextract.extract(note.url)
+        # setattr(note, 'site', extracted.domain)
+
+        setattr(note, 'difficulty', Note.NONE)
         # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
         # # print date
         # setattr(note, 'created_at', date)
