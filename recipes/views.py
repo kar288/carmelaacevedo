@@ -163,11 +163,13 @@ def search(request):
     notes = Note.objects.none()
     for term in terms:
         notes |= recipeUser.notes.filter(tags__icontains = term)
-        notes |= recipeUser.notes.filter(recipe__ingredients__icontains = term)
-        notes |= recipeUser.notes.filter(recipe__title__icontains = term)
+        notes |= recipeUser.notes.filter(ingredients__icontains = term)
+        notes |= recipeUser.notes.filter(title__icontains = term)
         notes |= recipeUser.notes.filter(difficulty__icontains = term)
         notes |= recipeUser.notes.filter(servings__icontains = term)
+        notes |= recipeUser.notes.filter(site__icontains = term)
     context['notes'] = notes
+    print notes
     return render(request, 'index.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
@@ -348,7 +350,7 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         instructionElements = \
           soup.findAll(attrs={"itemprop": "recipeInstructions"})
         traverse(instructionElements, instructions)
-        extracted = tldextract.extract(note.url)
+        extracted = tldextract.extract(recipeUrl)
         recipe = Recipe.objects.create(
           url = recipeUrl,
           image = imageUrl,

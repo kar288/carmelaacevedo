@@ -1,4 +1,34 @@
-<div style="float: left">
+<a href="{% url 'note' note.id %}">
+  <div class="card recipe-card" style="float: left">
+    <div class="card-image">
+      <div
+        class="recipe-image"
+        style="background-image: url('{{note.image}}')"
+      ></div>
+      <div class="card-wash"></div>
+      <div class="card-title">{{note.title}}</div>
+    </div>
+    <div class="card-content">
+      <div class=" recipe-details">
+        <div class="">
+          Rating:
+          {% include 'ratingStars.html' %}
+        </div>
+        <div class="">
+          Difficulty: {% if note.difficulty %} {{note.difficulty}} {% else %} - {% endif %}
+        </div>
+        <div class="">
+          Servings: {% if note.servings %} {{note.servings}} {% else %} - {% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card-action">
+      <a href="#">This is a link</a>
+    </div> -->
+  </div>
+</a>
+
+<!-- <div style="float: left">
   <div class="row recipe-small">
     <div class="col-xs-3">
       <div
@@ -28,4 +58,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

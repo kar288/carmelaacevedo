@@ -10,38 +10,75 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/recipes.css' %}" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <title>{% block title %}{% endblock %} - Recipe Managing</title>
 </head>
-<body>
-  <div class="row">
-    <div class="col-xs-9">
-      <h1>
-        <a class="recipe-main-title" href="{% url 'recipesHome' %}">
-          Recipe manager
-        </a>
-      </h1>
+<body class="recipe">
+
+  <ul id="dropdown1" class="add-recipe-content dropdown-content">
+    <li><a href="{% url 'addRecipe' %}">Add recipe</a></li>
+    <li><a {% url 'addRecipes' %}>Add recipes bulk</a></li>
+  </ul>
+  <nav class="grey lighten-3">
+    <div class="nav-wrapper">
+      <a href="{% url 'recipesHome' %}" class="brand-logo">Recipe Manager</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        {% if user.is_authenticated %}
+          <li>
+            <form action="{% url 'search' %}" method="get" >
+              <div class="input-field">
+                <input id="search" type="search" name="query" value="{{query}}">
+                <label for="search"><i class="material-icons">search</i></label>
+                <!-- <i class="material-icons">close</i> -->
+              </div>
+            </form>
+          </li>
+          <li>
+            <a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">add</i></a>
+          </li>
+          <li>
+            <a id="logout" href="{% url 'logout' %}" class="lighten-2 blue">Logout</a>
+          </li>
+        {% else %}
+          <li>
+            <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="lighten-2 blue">
+              Sign in with Google
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        {% if user.is_authenticated %}
+          <li>
+            <form action="{% url 'search' %}" method="get" >
+              <div class="input-field">
+                <input id="search" type="search" name="query" value="{{query}}">
+                <label for="search"><i class="material-icons">search</i></label>
+              </div>
+            </form>
+          </li>
+          <li>
+            <i class="material-icons right">add</i>
+          </li>
+          <li><a href="{% url 'addRecipe' %}">Add recipe</a></li>
+          <li><a {% url 'addRecipes' %}>Add recipes bulk</a></li>
+          <li>
+            <a id="logout" href="{% url 'logout' %}" class="lighten-2 blue">Logout</a>
+          </li>
+        {% else %}
+          <li>
+            <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="lighten-2 blue">
+              Sign in with Google
+            </a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
-    <div class="col-xs-2 recipe-login-button">
-      {% if user.is_authenticated %}
-        <form action="{% url 'search' %}" method="get" class="recipe-form recipe-search">
-          <input class="recipe-form" type="text" name="query" placeholder="Search" value="{{query}}"></input>
-        </form>
-      {% endif %}
-    </div>
-    <div class="col-xs-1 recipe-login-button">
-      {% if user.is_authenticated %}
-        <a id="logout" href="{% url 'logout' %}" class="btn btn-success">Logout</a>
-      {% else %}
-        <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="btn btn-success">
-          Sign in with Google
-        </a>
-      {% endif %}
-    </div>
-  </div>
-  <hr>
+  </nav>
   {% for error in errors %}
     <div class='recipe-general-error'>
       {{error}}
@@ -60,21 +97,24 @@
       </div>
     {% endblock %}
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script>
+
+    $(".dropdown-button").dropdown();
+    $(".button-collapse").sideNav();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-44815814-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 </body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-44815814-1', 'auto');
-  ga('send', 'pageview');
-</script>
 <link rel="shortcut icon" type="image/x-icon" href="/media/favicon.ico">
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
 <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 
 <!-- <link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'> -->
 <!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->

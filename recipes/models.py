@@ -16,6 +16,19 @@ class Recipe(models.Model):
     return self.instructions.split('\n')
 
 class Note(models.Model):
+    HARD = 'H'
+    MEDIUM = 'M'
+    EASY = 'E'
+    NONE = '-'
+    RECIPE_DIFFICULTY = (
+        (HARD, 'Hard'),
+        (MEDIUM, 'Medium'),
+        (EASY, 'Easy'),
+        (NONE, '-'),
+    )
+    difficulty = models.CharField(max_length=1,
+        choices=RECIPE_DIFFICULTY,
+        default=NONE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     url = models.CharField(max_length=200)
@@ -32,7 +45,6 @@ class Note(models.Model):
     text = models.TextField()
     tags = models.TextField()
     rating = models.IntegerField()
-    difficulty = models.CharField(max_length=200)
     servings = models.CharField(max_length=200)
     site = models.CharField(max_length=200)
 
