@@ -16,10 +16,10 @@
   {% else %}
     Export your chrome bookmarks and add them here, they will be processed so that you can choose which to import.
     <br>
-    <form action="{% url 'processBulk' %}" method="post">
+    <form enctype="multipart/form-data" action="{% url 'processBulk' %}" method="post">
       <label class="recipe-form">
         Chrome bookmarks
-        <input class="form-control" type="text" name="bookmarks"/>
+        <input class="form-control" type="file" name="bookmarks"/>
       </label>
       <br>
       {% csrf_token %}

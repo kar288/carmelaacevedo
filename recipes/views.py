@@ -51,10 +51,10 @@ def getTableFields(field):
             'display': 'Servings',
             'selected': 'servings' == field
         }, {
-            'field': 'created_at',
-            'display': 'Date added',
-            'selected': 'date_added_formatted' == field
-        }, {
+        #     'field': 'created_at',
+        #     'display': 'Date added',
+        #     'selected': 'date_added_formatted' == field
+        # }, {
             'field': 'rating',
             'display': 'Rating',
             'selected': 'rating' == field
@@ -400,27 +400,27 @@ def processBulk(request):
         'www.jamieoliver.com': True,
         'allrecipes.com': True,
     }
-    if not post:
+    if not post or not 'bookmarks' in request.FILES:
         return render(request, 'addRecipes.html', context)
-    if 'bookmarks' in post:
-        bookmarks = post['bookmarks']
-        soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
-        urls = []
-        tags = soup.findAll('a')
-        for tag in tags:
-            href = tag.get('href')
-            text = tag.text if tag.text else href
-            parsed_uri = urlparse(href)
-            domain = '{uri.netloc}'.format(uri=parsed_uri)
-            color = 'white'
-            if domain in cookingDomains or 'recipe' in text.lower():
-                color = 'rgba(38, 166, 154, 0.3)'
-            urls.append({
-                'url': href,
-                'name': text,
-                'color': color
-            })
-        context['urls'] = urls
+    bookmarks = request.FILES['bookmarks'].read()
+    soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
+    urls = []
+    tags = soup.findAll('a')
+    for tag in tags:
+        print tag
+        href = tag.get('href')
+        text = tag.text if tag.text else href
+        parsed_uri = urlparse(href)
+        domain = '{uri.netloc}'.format(uri=parsed_uri)
+        color = 'white'
+        if domain in cookingDomains or 'recipe' in text.lower():
+            color = 'rgba(38, 166, 154, 0.3)'
+        urls.append({
+            'url': href,
+            'name': text,
+            'color': color
+        })
+    context['urls'] = urls
     return render(request, 'addRecipes.html', context)
 
 def traverse(nodes, s):
