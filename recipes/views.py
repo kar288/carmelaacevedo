@@ -11,6 +11,7 @@ from datetime import datetime
 import urllib2
 
 from urlparse import urlparse
+import tldextract
 import xml.etree.ElementTree as ET
 from django.template import loader
 from django.http import JsonResponse
@@ -88,18 +89,21 @@ def convertNotes(request):
     notes = Note.objects.all()
     for note in notes:
         recipe = note.recipe
-        setattr(note, 'url', recipe.url)
-        setattr(note, 'title', recipe.title)
-        setattr(note, 'image', recipe.image)
-        setattr(note, 'ingredients', recipe.ingredients)
-        setattr(note, 'instructions', recipe.instructions)
-        setattr(note, 'date_added', recipe.date_added)
-        parsed_uri = urlparse(recipe.url)
-        domain = '{uri.netloc}'.format(uri = parsed_uri)
-        setattr(note, 'site', domain)
-        date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
-        # print date
-        setattr(note, 'created_at', date)
+        # setattr(note, 'url', recipe.url)
+        # setattr(note, 'title', recipe.title)
+        # setattr(note, 'image', recipe.image)
+        # setattr(note, 'ingredients', recipe.ingredients)
+        # setattr(note, 'instructions', recipe.instructions)
+        # setattr(note, 'date_added', recipe.date_added)
+        # parsed_uri = urlparse(recipe.url)
+        # domain = '{uri.netloc}'.format(uri = parsed_uri)
+        # setattr(note, 'site', domain)
+
+        extracted = tldextract.extract(note.url)
+        setattr(note, 'site', extracted.domain)
+        # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
+        # # print date
+        # setattr(note, 'created_at', date)
         note.save()
         context['notes'].append(note)
     return render(request, 'index.html', context)
@@ -344,6 +348,7 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         instructionElements = \
           soup.findAll(attrs={"itemprop": "recipeInstructions"})
         traverse(instructionElements, instructions)
+        extracted = tldextract.extract(note.url)
         recipe = Recipe.objects.create(
           url = recipeUrl,
           image = imageUrl,
@@ -363,6 +368,7 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
           text = post.get('notes', ''),
           tags = post.get('tags', ''),
           rating = post.get('rating', -1),
+          site = extracted.domain,
           difficulty = post.get('difficulty', ''),
           servings = post.get('servings', '')
         )
