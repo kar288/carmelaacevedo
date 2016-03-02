@@ -4,49 +4,50 @@
 <div class="centered small">
   <form action="{% url 'addNote' %}" method="post">
     <div class="row">
-      <div class="long col-xs-8">
+      <div class="long col s8">
         <label class="recipe-form">
           Recipe Url
           <input class="form-control" type="text" name="recipeUrl"/>
         </label>
       </div>
-      <div class="long col-xs-4">
+      <div class="long col s4">
         <a class="recipe-form btn more-button-fields">More Fields</a>
       </div>
     </div>
     <div class="recipe-more-fields">
-      <!-- <label class="recipe-form">
-        Ingredients:
-        <textarea class="materialize-textarea" name="ingredients"></textarea>
-      </label> -->
-      <!-- <br>
-      <label class="recipe-form">
-        Instructions:
-        <textarea class="materialize-textarea" name="instructions"></textarea>
-      </label> -->
       <br>
-      <label class="recipe-form">
-        Rating:<br>
-        <fieldset class="rating">
-          {% for i in "12345" %}
-            <input type="radio" id="star{{i}}" name="rating" value="{{i}}"><label class="full" for="star{{i}}" title=""></label>
-          {% endfor %}
-        </fieldset>
-      </label>
-      <br>
+
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col s4">
           <label class="recipe-form">
-            Difficulty:
-            <input type="text" class="form-control" name="difficulty"></input>
+            Rating:<br>
+            <fieldset class="rating">
+              {% for i in "12345" %}
+                <input type="radio" id="star{{i}}" name="rating" value="{{i}}"><label class="full" for="star{{i}}" title=""></label>
+              {% endfor %}
+            </fieldset>
           </label>
         </div>
-        <div class="col-sm-6">
-          <label class="recipe-form">
-            Servings:
-            <input type="text" class="form-control" name="servings"></input>
-          </label>
-        </div>
+
+          <div class="col s4">
+            <label class="recipe-form">
+              Difficulty:
+              <select>
+                <option name="difficulty" value="" disabled selected>Choose your option</option>
+                <option name="difficulty" value="E">Easy</option>
+                <option name="difficulty" value="M">Medium</option>
+                <option name="difficulty" value="H">High</option>
+              </select>
+              <!-- <label>Materialize Select</label> -->
+              <!-- <input type="text" class="form-control" name="difficulty"></input> -->
+            </label>
+          </div>
+          <div class="col s4">
+            <label class="recipe-form">
+              Servings:
+              <input type="text" class="form-control" name="servings"></input>
+            </label>
+          </div>
       </div>
       <label class="recipe-form">
         Notes:
