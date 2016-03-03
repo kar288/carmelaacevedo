@@ -30,6 +30,8 @@ from recipes.models import Recipe, Note, RecipeUser
 from  django.db.models import Q
 from  django.db.models.functions import Lower
 
+import operator
+
 from BeautifulSoup import BeautifulSoup
 
 
@@ -70,8 +72,54 @@ def home(request):
     if not request.user.is_authenticated():
         return render(request, 'recipeBase.html', context)
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    context['notes'] = recipeUser.notes.all().order_by('-recipe__date_added')
+    notes = recipeUser.notes.all().order_by('-recipe__date_added')
+
+    allNotes = recipeUser.notes.all().order_by('-recipe__date_added')
+
+    get = request.GET
+    notes_per_field = []
+    if get:
+        for field in get:
+            note_per_field = Note.objects.none()
+            vals = get.getlist(field)
+            for val in vals:
+                note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
+            notes_per_field.append(note_per_field)
+    for note_per_field in notes_per_field:
+        notes &= note_per_field
+
+    context['notes'] = notes
+    context['filters'] = {}
+    fields = ['tags', 'site']
+    # fields = ['tags', 'site', 'rating']
+    for field in fields:
+        context['filters'][field] = getTopValues(allNotes, field, get.getlist(field))
     return render(request, 'index.html', context)
+
+def getTopValues(notes, field, selected):
+    vals = {}
+    for note in notes:
+        noteVals = getattr(note, field, '')
+        if field == 'tags':
+            noteVals = noteVals.split(',')
+        else:
+            noteVals = [noteVals]
+        for noteVal in noteVals:
+            if not noteVal:
+                continue
+            if not noteVal in vals:
+                vals[noteVal] = 0
+            vals[noteVal] += 1
+    sorted_vals = sorted(vals.items(), key=operator.itemgetter(1))
+    sorted_vals_els = []
+    for val in sorted_vals:
+        sorted_vals_els.append(val[0])
+    sorted_vals_els.reverse()
+    sorted_vals_els = sorted_vals_els[:10]
+    elements = {}
+    for el in sorted_vals_els:
+        elements[el] = el in selected
+    return elements
 
 def recrawlImages(request):
     context = {}
@@ -139,11 +187,6 @@ def note(request, noteId):
     context = {}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     note = get_object_or_404(Note, id = noteId)
-    # if not note in recipeUser.notes.all():
-        # context['errors'] = ['Note not found']
-        # return render(request, 'index.html', context)
-    # else:
-        # context['note'] = note
     context['note'] = note
     return render(request, 'note.html', context)
 

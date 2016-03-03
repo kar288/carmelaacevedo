@@ -1,23 +1,39 @@
 {% extends "recipeBase.html" %}
 
 {% block content %}
-<!-- {% if user.is_authenticated %} -->
-  <div class="row centered">
-    <div class="col s3">
+  <div class="row">
+    <div class="left-filters col s12 m3 l2">
       <a href="{% url 'table' title %}" class="btn blue recipe-form">
         Table view
       </a>
-    </div>
-    <div class="col s3">
       <a href="{% url 'advancedSearchHtml' title %}" class="btn blue recipe-form">
         Advanced Search
       </a>
+      <div>
+        <form action="{% url 'recipesHome' %}" method="get">
+          {% for filter, vals in filters.items %}
+            <h5> {{filter}} </h5>
+            {% for val, selected in vals.items %}
+              <input value="{{val}}"
+                name={{filter}}
+                type="checkbox"
+                id="{{filter}}-{{forloop.counter}}"
+                {% if selected %}checked="checked"{% endif %}
+              />
+              <label for="{{filter}}-{{forloop.counter}}">{{val}}</label>
+              </br>
+            {% endfor %}
+          {% endfor %}
+          <input class="btn" value="filter" type="submit"/>
+        </form>
+      </div>
+    </div>
+    <div class="col s12 m9 l10">
+      <div class="row notes-container">
+        {% for note in notes %}
+          {% include 'smallRecipe.html' %}
+        {% endfor %}
+      </div>
     </div>
   </div>
-  <div class="row notes-container">
-    {% for note in notes %}
-      {% include 'smallRecipe.html' %}
-    {% endfor %}
-  </div>
-<!-- {% endif %} -->
 {% endblock %}

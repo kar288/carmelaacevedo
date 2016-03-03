@@ -7,8 +7,21 @@ body {
   letter-spacing: 0.05em;
 }
 
+.recipe .left-filters {
+  border-right: grey solid 1px;
+  padding-top: 10px;
+}
+
+.recipe .left-filters * {
+  font-size: 1em;
+}
+
+.recipe .left-filters .btn {
+  font-size: 0.9em;
+}
+
 .recipe .content {
-  padding: 30px;
+  /*padding: 30px;*/
 }
 
 .recipe nav * {
