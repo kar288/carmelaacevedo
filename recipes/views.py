@@ -30,17 +30,8 @@ from recipes.models import Recipe, Note, RecipeUser
 from  django.db.models import Q
 from  django.db.models.functions import Lower
 
-import RAKE.RAKE as rake
-import operator
-
 from BeautifulSoup import BeautifulSoup
 
-# tagger = tag.Tagger()
-# tagger.initialize()
-# extractor = extract.TermExtractor(tagger)
-# extractor.tagger is tagger
-#
-# rake_object = rake.Rake("SmartStoplist.txt")
 
 def getTableFields(field):
     return [{
@@ -296,7 +287,7 @@ def editNote(request, noteId):
             if field == 'rating':
                 setattr(note, 'rating', post.get('rating', -1))
             elif field == 'difficulty':
-                setattr(note, 'difficulty', Note.RECIPE_DIFFICULTY(post.get('difficulty', '-')))                
+                setattr(note, 'difficulty', Note.RECIPE_DIFFICULTY(post.get('difficulty', '-')))
             else:
                 setattr(note, field, clean(post.get(field, '')))
         note.save()
