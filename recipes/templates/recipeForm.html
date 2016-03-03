@@ -32,24 +32,21 @@
           </fieldset>
         </label>
       </div>
-      <div class="col s4">
-        <label class="recipe-form">
-          Difficulty:
-          <select>
-            <option name="difficulty" value="" disabled selected>Choose your option</option>
-            <option name="difficulty" value="E">Easy</option>
-            <option name="difficulty" value="M">Medium</option>
-            <option name="difficulty" value="H">High</option>
+      <div class="input-field col s4">
+          <select id="difficulty" name="difficulty">
+            <option value="-" disabled selected>Choose your option</option>
+            <option value="E">Easy</option>
+            <option value="M">Medium</option>
+            <option value="H">High</option>
           </select>
-          <!-- <label>Materialize Select</label> -->
-          <!-- <input type="text" class="form-control" name="difficulty"></input> -->
-        </label>
+          <label for="difficulty">Difficulty</label>
       </div>
       <div class="col s4">
-        <label class="recipe-form">
-          Servings:
-          <input type="text" class="form-control" name="servings"></input>
-        </label>
+
+        <div class="recipe-form input-field">
+          <input placeholder="" name="servings" id="servings" type="text"/>
+          <label>Servings</label>
+        </div>
       </div>
     </div>
     <label class="recipe-form">

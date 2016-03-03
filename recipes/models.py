@@ -20,6 +20,12 @@ class Note(models.Model):
     MEDIUM = 'M'
     EASY = 'E'
     NONE = '-'
+    DIFFICULTY_MAP = {
+        HARD: 0,
+        MEDIUM: 1,
+        EASY: 2,
+        NONE: 3,
+    }
     RECIPE_DIFFICULTY = (
         (HARD, 'Hard'),
         (MEDIUM, 'Medium'),
@@ -48,6 +54,10 @@ class Note(models.Model):
     servings = models.CharField(max_length=200)
     site = models.CharField(max_length=200)
 
+    def difficulty_long(self):
+        if self.difficulty == '':
+            return '-'
+        return self.RECIPE_DIFFICULTY[self.DIFFICULTY_MAP[self.difficulty]][1]
     def tags_as_list(self):
         tags = self.tags.split(',')
         newTags = []

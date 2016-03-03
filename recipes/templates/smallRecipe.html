@@ -15,7 +15,7 @@
           {% include 'ratingStars.html' %}
         </div>
         <div class="">
-          Difficulty: {% if note.difficulty %} {{note.difficulty}} {% else %} - {% endif %}
+          Difficulty: {{note.difficulty_long}}
         </div>
         <div class="">
           Servings: {% if note.servings %} {{note.servings}} {% else %} - {% endif %}

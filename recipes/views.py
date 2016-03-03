@@ -295,6 +295,8 @@ def editNote(request, noteId):
         for field in post:
             if field == 'rating':
                 setattr(note, 'rating', post.get('rating', -1))
+            elif field == 'difficulty':
+                setattr(note, 'difficulty', Note.RECIPE_DIFFICULTY(post.get('difficulty', '-')))                
             else:
                 setattr(note, field, clean(post.get(field, '')))
         note.save()
