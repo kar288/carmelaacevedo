@@ -105,7 +105,11 @@ def convertNotes(request):
         # extracted = tldextract.extract(note.url)
         # setattr(note, 'site', extracted.domain)
 
-        setattr(note, 'difficulty', Note.NONE)
+        # setattr(note, 'difficulty', Note.NONE)
+
+        setattr(note, 'tags', note.tags.replace('\n', ','))
+
+
         # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
         # # print date
         # setattr(note, 'created_at', date)
