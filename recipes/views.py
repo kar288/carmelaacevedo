@@ -331,10 +331,11 @@ def editNote(request, noteId):
         context['errors'] = ['Note not found']
     else:
         for field in post:
+            print post.get('difficulty', '-')
             if field == 'rating':
                 setattr(note, 'rating', post.get('rating', -1))
             elif field == 'difficulty':
-                setattr(note, 'difficulty', Note.RECIPE_DIFFICULTY(post.get('difficulty', '-')))
+                setattr(note, 'difficulty', post.get('difficulty', '-'))
             else:
                 setattr(note, field, clean(post.get(field, '')))
         note.save()
