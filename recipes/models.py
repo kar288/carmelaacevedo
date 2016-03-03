@@ -49,7 +49,7 @@ class Note(models.Model):
     site = models.CharField(max_length=200)
 
     def tags_as_list(self):
-        tags = self.tags.split('\n')
+        tags = self.tags.split(',')
         newTags = []
         for tag in tags:
             newTags.append(tag.replace('\r', '').strip())

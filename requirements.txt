@@ -14,5 +14,7 @@ requests==2.9.1
 requests-oauthlib==0.6.1
 six==1.10.0
 tldextract==1.7.5
+topia.termextract==1.1.0
 whitenoise==2.0.6
 wsgiref==0.1.2
+zope.interface==4.1.3

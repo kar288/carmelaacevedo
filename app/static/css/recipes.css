@@ -81,11 +81,12 @@ body {
 }
 
 .recipe-tag {
-  float: left;
   background-color: #d0e9c6;
   margin: 2px 5px;
-  padding: 5px 15px;
-  border-radius: 3px;
+}
+
+.recipe-tag.to-add {
+  cursor: pointer;
 }
 
 .recipe-details {
@@ -169,11 +170,16 @@ body {
 
 .table-header {
   background-color: #F8F8F8;
+  height: 50px;
+  padding: 0;
   /*cursor: pointer;*/
 }
 
 .table-header a {
   color: inherit;
+  display: block;
+  height: 100%;
+  padding: 7px 5px;
   width: 100%;
 }
 
@@ -187,10 +193,6 @@ body {
 
 .notes-container td {
   padding: 5px;
-}
-
-.notes-container tr:hover {
-  background-color: #DDD;
 }
 
 .recipe-small .recipe-title {

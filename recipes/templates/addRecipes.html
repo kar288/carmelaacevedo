@@ -17,10 +17,20 @@
     Export your chrome bookmarks and add them here, they will be processed so that you can choose which to import.
     <br>
     <form enctype="multipart/form-data" action="{% url 'processBulk' %}" method="post">
-      <label class="recipe-form">
+
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>File</span>
+          <input name="bookmarks" type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" placeholder="Chrome bookmark HTML file" type="text">
+        </div>
+      </div>
+      <!-- <label class="recipe-form">
         Chrome bookmarks
         <input class="form-control" type="file" name="bookmarks"/>
-      </label>
+      </label> -->
       <br>
       {% csrf_token %}
       <input class="recipe-form btn btn-success" value="Process" type="submit"/>

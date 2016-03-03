@@ -7,6 +7,8 @@ import re
 from random import randint
 # import datetime
 from datetime import datetime
+from topia.termextract import tag
+from topia.termextract import extract
 
 import urllib2
 
@@ -28,7 +30,17 @@ from recipes.models import Recipe, Note, RecipeUser
 from  django.db.models import Q
 from  django.db.models.functions import Lower
 
+import RAKE.RAKE as rake
+import operator
+
 from BeautifulSoup import BeautifulSoup
+
+# tagger = tag.Tagger()
+# tagger.initialize()
+# extractor = extract.TermExtractor(tagger)
+# extractor.tagger is tagger
+#
+# rake_object = rake.Rake("SmartStoplist.txt")
 
 def getTableFields(field):
     return [{
@@ -223,6 +235,7 @@ def editNoteHtml(request, noteId):
     context = {'edit': True, 'rates': [5, 4, 3, 2, 1]}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     note = get_object_or_404(Note, id = noteId)
+    context['tags'] = getTagsForNote(note)
     if not note in recipeUser.notes.all():
         context['errors'] = ['Note not found']
     else:
@@ -260,7 +273,10 @@ def advancedSearchHtml(request, field):
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addRecipeHtml(request):
-    return render(request, 'addRecipe.html')
+    return render(request, 'addRecipe.html', {
+        'rates': [5, 4, 3, 2, 1],
+        'note': {'rating': -1}
+    })
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addRecipesHtml(request):
@@ -336,6 +352,13 @@ def getImage(soup):
 
     print imageUrl
     return imageUrl
+
+def getTagsForNote(note):
+    tags = ['breakfast', 'lunch', 'dinner', 'snack', 'vegetarian', 'vegan']
+    text = note.title
+    words = text.split(' ')
+    longerWords = [word.lower() for word in words if len(word) > 2 and word[-3:] != 'ing']
+    return longerWords + tags
 
 def addRecipeByUrl(recipeUser, recipeUrl, post):
     try:
