@@ -8,6 +8,7 @@
 
   <!-- <link href="{% static 'bootstrap/css/bootstrap.min.css'%}" rel="stylesheet"> -->
   <!-- Compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.purple-amber.min.css" /> -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,68 +19,88 @@
   <title>{% block title %}{% endblock %} - Recipe Managing</title>
 </head>
 <body class="recipe">
-
   <ul id="dropdown1" class="add-recipe-content dropdown-content">
     <li><a href="{% url 'addRecipe' %}">Add recipe</a></li>
     <li><a href="{% url 'addRecipes' %}">Add recipes bulk</a></li>
   </ul>
-  <nav class="grey lighten-3">
-    <div class="nav-wrapper">
-      <a href="{% url 'recipesHome' %}" class="brand-logo">Recipe Manager</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        {% if user.is_authenticated %}
-          <li>
-            <form action="{% url 'search' %}" method="get" >
-              <div class="input-field">
-                <input id="search" type="search" name="query" value="{{query}}">
-                <label for="search"><i class="material-icons">search</i></label>
-                <!-- <i class="material-icons">close</i> -->
-              </div>
-            </form>
-          </li>
-          <li>
-            <a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons right">add</i></a>
-          </li>
-          <li>
-            <a id="logout" href="{% url 'logout' %}" class="lighten-2 blue">Logout</a>
-          </li>
-        {% else %}
-          <li>
-            <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="lighten-2 blue">
-              Sign in with Google
-            </a>
-          </li>
-        {% endif %}
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        {% if user.is_authenticated %}
-          <li>
-            <form action="{% url 'search' %}" method="get" >
-              <div class="input-field">
-                <input id="search" type="search" name="query" value="{{query}}">
-                <label for="search"><i class="material-icons">search</i></label>
-              </div>
-            </form>
-          </li>
-          <li>
-            <i class="material-icons right">add</i>
-          </li>
-          <li><a href="{% url 'addRecipe' %}">Add recipe</a></li>
-          <li><a href="{% url 'addRecipes' %}">Add recipes bulk</a></li>
-          <li>
-            <a id="logout" href="{% url 'logout' %}" class="lighten-2 blue">Logout</a>
-          </li>
-        {% else %}
-          <li>
-            <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="lighten-2 blue">
-              Sign in with Google
-            </a>
-          </li>
-        {% endif %}
-      </ul>
-    </div>
-  </nav>
+  <ul id="dropdown-search" class="add-recipe-content dropdown-content">
+    <li>
+      <a href="{% url 'advancedSearchHtml' title %}">
+        Advanced Search
+      </a>
+    </li>
+  </ul>
+
+  <div class="navbar-fixed">
+    <nav class="default-primary-color ">
+      <div class="nav-wrapper">
+        <a href="{% url 'recipesHome' %}" class="brand-logo">Recipe Manager</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          {% if user.is_authenticated %}
+            <li>
+              <form action="{% url 'search' %}" method="get" >
+                <div class="input-field">
+                  <input id="search" type="search" name="query" value="{{query}}">
+                  <label for="search"><i class="material-icons">search</i></label>
+                </div>
+              </form>
+            </li>
+            <li>
+              <a class="dropdown-button" href="#!" data-activates="dropdown-search">
+                <i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
+            <li>
+              <a class="amber waves-effect waves-light btn-floating dropdown-button" data-activates="dropdown1"><i class="short-icon material-icons">add</i></a>
+            </li>
+            <li>
+              <a id="logout" href="{% url 'logout' %}" class="">Logout</a>
+            </li>
+          {% else %}
+            <li>
+              <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="">
+                Sign in with Google
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          {% if user.is_authenticated %}
+            <li>
+              <form action="{% url 'search' %}" method="get" >
+                <div class="input-field">
+                  <input id="search" type="search" name="query" value="{{query}}">
+                  <label for="search"><i class="material-icons">search</i></label>
+                </div>
+              </form>
+            </li>
+            <li>
+              <a href="{% url 'advancedSearchHtml' title %}">
+                Advanced Search
+              </a>
+            </li>
+            <hr>
+            <li>
+              <i class="material-icons right">add</i>
+            </li>
+            <li><a href="{% url 'addRecipe' %}">Add recipe</a></li>
+            <li><a href="{% url 'addRecipes' %}">Add recipes bulk</a></li>
+            <hr>
+            <li>
+              <a id="logout" href="{% url 'logout' %}" class="">Logout</a>
+            </li>
+          {% else %}
+            <li>
+              <a id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="">
+                Sign in with Google
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
   {% for error in errors %}
     <div class='recipe-general-error'>
       {{error}}
@@ -115,6 +136,7 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+<script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 <script src="{% static 'js/materialize-tags/js/materialize-tags.min.js' %}"></script>
 <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
 <!-- Compiled and minified JavaScript -->

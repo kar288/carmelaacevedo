@@ -63,8 +63,7 @@ class Note(models.Model):
         newTags = []
         for tag in tags:
             newTags.append(tag.replace('\r', '').strip())
-        print newTags
-        return newTags
+        return [tag for tag in tags if len(tag)]
     def rating_as_list(self):
         return range(self.rating)
     def ingredients_as_list(self):

@@ -34,23 +34,23 @@
       </div>
       <div class="input-field col s4">
           <select id="difficulty" name="difficulty">
-            <option value="-" disabled selected>Choose your option</option>
-            <option value="E">Easy</option>
-            <option value="M">Medium</option>
-            <option value="H">High</option>
+            <option value="-" disabled {% if note.difficulty == "-" %}selected{% endif %}>Choose your option</option>
+            <option value="E" {% if note.difficulty == "E" %}selected{% endif %}>Easy</option>
+            <option value="M" {% if note.difficulty == "M" %}selected{% endif %}>Medium</option>
+            <option value="H" {% if note.difficulty == "H" %}selected{% endif %}>High</option>
           </select>
           <label for="difficulty">Difficulty</label>
       </div>
       <div class="col s4">
         <div class="recipe-form input-field">
-          <input placeholder="" name="servings" id="servings" type="text"/>
+          <input placeholder="" value="{{note.servings}}" name="servings" id="servings" type="text"/>
           <label>Servings</label>
         </div>
       </div>
     </div>
     <label class="recipe-form">
       Notes:
-      <textarea class="materialize-textarea" name="notes">{{note.text}}</textarea>
+      <textarea class="materialize-textarea" name="text">{{note.text}}</textarea>
     </label>
     <br>
     <label class="recipe-form">

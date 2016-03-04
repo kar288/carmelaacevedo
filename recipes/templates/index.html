@@ -3,11 +3,8 @@
 {% block content %}
   <div class="row">
     <div class="left-filters col s12 m3 l2">
-      <a href="{% url 'table' title %}" class="btn blue recipe-form">
+      <a href="{% url 'table' title %}" class="btn amber recipe-form">
         Table view
-      </a>
-      <a href="{% url 'advancedSearchHtml' title %}" class="btn blue recipe-form">
-        Advanced Search
       </a>
       <div>
         <form action="{% url 'recipesHome' %}" method="get">
@@ -24,7 +21,7 @@
               </br>
             {% endfor %}
           {% endfor %}
-          <input class="btn" value="filter" type="submit"/>
+          <input class="btn purple" value="filter" type="submit"/>
         </form>
       </div>
     </div>

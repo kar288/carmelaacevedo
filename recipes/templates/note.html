@@ -1,82 +1,89 @@
 {% extends "recipeBase.html" %}
 
 {% block content %}
-  <h5 style="text-align: center">
-    <a href="{{note.url}}">
-      {{note.title}}
-    </a>
-    {% if not edit %}
-      <a class="recipe-original-link" href="{% url 'editNoteHtml' note.id %}">
-        (Edit)
+<div class="card recipe-card recipe-large">
+  <div class="light-primary-color card-content">
+    <span class="card-title activator grey-text text-darken-4">
+      <a class="primary-text-color" href="{{note.url}}">
+        {{note.title}}
       </a>
-    {% endif %}
-    <a class="recipe-original-link" href="{% url 'deleteNoteHtml' note.id %}">
-      (Delete)
-    </a>
-  </h5>
+
+      <a class="recipe-original-link" href="{% url 'deleteNoteHtml' note.id %}">
+        (Delete)
+      </a>
+    </span>
+    <!-- <p><a href="#">This is a link</a></p> -->
+  </div>
   {% if edit %}
     {% include 'editRecipeForm.html' %}
   {% else %}
-    <div class="row">
-      <div class="col s2">
+  <div class="recipe-middle row">
+    <div class="col s12 m12 l8">
+      <div class="card-image">
         <div
           class="recipe-image"
           style="background-image: url('{{note.image}}')"
         ></div>
+        <a class="btn-floating btn-large amber recipe-edit-button" href="{% url 'editNoteHtml' note.id %}">
+          <i class="material-icons">edit</i>
+        </a>
       </div>
-      <div class="col s10">
-        <div  class="recipe-details">
-          Rating:
-          {% if note.rating == -1 %}
-          -
-          {% else %}
-            {% for i in note.rating_as_list %}
-              <i class="fa fa-star"></i>
-            {% endfor %}
-          {% endif %}
-        </div>
-        <div class="recipe-details">
-          Difficulty: {{note.difficulty_long}}
-        </div>
-        <div class="recipe-details">
-          Servings: {% if note.servings %} {{note.servings}} {% else %} - {% endif %}
-        </div>
-      </div>
+      <!-- <div class="card-wash"></div> -->
     </div>
-    {% if note.tags %}
-      <div class="row">
-        <div class="col m12">
-          <h4> Tags </h4>
-        </div>
-        {% for tag in note.tags_as_list %}
-          <div class="recipe-tag chip">
-            <a href="{% url 'tags' tag %}" >
-              {{tag}}
-            </a>
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-    <div class="row">
-      <div class="col m6">
-        <div>
-          <h4> Ingredients </h4>
-          {% for ingredient in note.ingredients_as_list %}
-              {{ ingredient }}<br>
-          {% endfor %}
-        </div>
-        <div>
-          <h4> Instructions </h4>
-          {% for instructions in note.instructions_as_list %}
-              {{ instructions }}<br>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="col m6 recipe-note">
-        <h4> Notes </h4>
+    <div class="recipe-info  col s12 m12 l4">
+      <div class="recipe-note">
+        <div class="card-title grey-text text-darken-4"> Notes </div>
         {{note.text}}
       </div>
     </div>
-  {% endif %}
-<!-- </div> -->
+  </div>
+  <div class="row">
+    <div class="recipe-info col s12">
+      <div class="card-title grey-text text-darken-4"> Tags </div>
+      {% for tag in note.tags_as_list %}
+        <div class="recipe-tag chip">
+          <a href="{% url 'tags' tag %}">
+            {{tag}}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="row">
+    <div  class="recipe-info col s4">
+      Rating:
+      {% include 'ratingStars.html' %}
+    </div>
+    <div class="recipe-info col s4">
+      Difficulty: {{note.difficulty_long}}
+    </div>
+    <div class="recipe-info col s4">
+      Servings: {% if note.servings %} {{note.servings}} {% else %} - {% endif %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="recipe-info col s6">
+      <div class="card-title grey-text text-darken-4">
+        Ingredients
+      </div>
+      {% for ingredient in note.ingredients_as_list %}
+          {{ ingredient }}<br>
+      {% endfor %}
+    </div>
+    <div class="recipe-info col s6">
+      <div class="card-title grey-text text-darken-4">
+        Instructions
+      </div>
+      {% for instructions in note.instructions_as_list %}
+          {{ instructions }}<br>
+      {% endfor %}
+    </div>
+  </div>
+   <div class="card-reveal">
+     <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+     <p>Here is some more information about this product that is only revealed once clicked on.</p>
+     {% include 'editRecipeForm.html' %}
+   </div>
+   {% endif %}
+ </div>
 {% endblock %}
