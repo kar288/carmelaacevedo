@@ -185,6 +185,7 @@ body {
 }
 
 .recipe-card.recipe-large {
+  height: 100%;
   margin: 10px auto;
   max-width: 1080px;
   min-width: 600px;
