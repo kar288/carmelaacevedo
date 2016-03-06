@@ -34,7 +34,7 @@ import operator
 
 import re
 
-from BeautifulSoup import BeautifulSoup
+from BeautifulSoup import BeautifulSoup, NavigableString
 
 
 def getTableFields(field):
@@ -132,7 +132,6 @@ def recrawlImages(request):
             html = urllib2.urlopen(req)
             soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
             imageUrl = getImage(soup)
-            print 'changing image to :' + imageUrl
             setattr(recipe, 'image', imageUrl)
             recipe.save()
     return render(request, 'index.html', context)
@@ -159,24 +158,16 @@ def convertNotes(request):
 
         # setattr(note, 'tags', note.tags.replace('\n', ','))
 
-        req = urllib2.Request(note.url, headers={'User-Agent' : "Magic Browser"})
-        html = urllib2.urlopen(req)
-        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+        recipeData = parseRecipe(note.url)
 
-        ingredientElements = soup.findAll(attrs={'itemprop': 'recipeIngredient'})
-        if not len(ingredientElements):
-            ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
-        ingredients = traverse(ingredientElements, ' ')
-        if len(ingredients):
-            setattr(note, 'ingredients', '\n'.join(ingredients))
+        if len(recipeData['ingredients']) and note.ingredients == '':
+            setattr(note, 'ingredients', '\n'.join(recipeData['ingredients']))
 
-        instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
-        instructions = traverse(instructionElements, '\n')
-        if len(instructions):
-            setattr(note, 'instructions', '\n'.join(instructions))
+        if len(recipeData['instructions']) and note.instructions == '':
+            setattr(note, 'instructions', '\n'.join(recipeData['instructions']))
 
-
-
+        if 'servings' in recipeData and len(recipeData['servings']) and note.servings == '':
+            setattr(note, 'servings', recipeData['servings'])
         # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
         # # print date
         # setattr(note, 'created_at', date)
@@ -229,7 +220,6 @@ def search(request):
     query = get.get('query', '')
     context['query'] = query
     terms = query.split(' ')
-    print terms
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     notes = Note.objects.none()
     for term in terms:
@@ -240,7 +230,6 @@ def search(request):
         notes |= recipeUser.notes.filter(servings__icontains = term)
         notes |= recipeUser.notes.filter(site__icontains = term)
     context['notes'] = notes
-    print notes
     return render(request, 'index.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
@@ -257,7 +246,6 @@ def advancedSearch(request):
         q = query.get(field, '').strip().split(' ')
         if not len(q):
             continue
-        print field, q
         for term in q:
             if field == 'tags':
                 notes &= recipeUser.notes.filter(tags__icontains = term)
@@ -350,7 +338,6 @@ def editNote(request, noteId):
         context['errors'] = ['Note not found']
     else:
         for field in post:
-            print post.get('difficulty', '-')
             if field == 'rating':
                 setattr(note, 'rating', post.get('rating', -1))
             elif field == 'difficulty':
@@ -375,73 +362,68 @@ def addNote(request):
         addRecipeByUrl(recipeUser, recipeUrl, post)
     return redirect('/recipes/')
 
-def getImage(soup):
+def getImage(soup, attr=None, key=None):
     imageUrl = ''
-    image = soup.find('meta', attrs={"property": "og:image"})
-    image2 = soup.find('meta', attrs={"name": "twitter:image:src"})
-    image3 = soup.findAll(attrs={"itemprop": "image"})
-    image4 = soup.findAll(attrs={"rel": "image_src"})
-    if image:
-      print ('op:image')
-      if image.has_key('content'):
-        imageUrl = image['content']
-    elif image2:
-        print ('twitter image src')
-        print image2
-        if image2:
-          if image2.has_key('content'):
-            imageUrl = image2['content']
-    elif len(image3):
-      print('itemprop image')
-      if image3[0].has_key('content'):
-        imageUrl = image3[0]['content']
-      elif image3[0].has_key('src'):
-        imageUrl = image3[0]['src']
-    elif image4:
-      print "rel link image_sec"
-      if image4[0].has_key('content'):
-        imageUrl = image4[0]['content']
-      elif image4[0].has_key('src'):
-        imageUrl = image4[0]['src']
-      elif image4[0].has_key('href'):
-        imageUrl = image4[0]['href']
-    else:
-        print "all images"
+    attrs = [attr] if attr is not None else [
+        {"property": "og:image"},
+        {"name": "twitter:image:src"},
+        {"itemprop": "image"},
+        {"rel": "image_src"}
+    ]
+    keys = [key] if key is not None else [
+        'content',
+        'src',
+        'href'
+    ]
+    for attr in attrs:
+        image = soup.find(attrs={"property": "og:image"})
+        if image:
+            for key in keys:
+                if image.has_key(key):
+                    imageUrl = image[key]
+                    break
+        if imageUrl:
+            break
+    if not imageUrl:
         images = soup.findAll('img')
         imageUrl = images[0]['src']
 
-    print imageUrl
     return imageUrl
 
-def getTags(soup):
+def getTags(soup, attr=None, link=None):
     tagsResult = []
-    tagAttrs = [
+    tagAttrs = [attr] if attr is not None else [
         {'itemprop': 'keywords'},
+        {'name': 'keywords'},
         {'property': 'article:tag'},
         {'name': 'sailthru.tags'},
-        {'name': 'parsely-tags'},
-        {'name': 'keywords'}
+        {'name': 'parsely-tags'}
     ]
-    tagLinks = [
-        'tags-nutrition-container',
-        re.compile(r'.*freyja_tagslist.*')
-    ]
+    tagLinks = []
+    if link is None:
+        tagLinks = [
+            'tags-nutrition-container',
+            re.compile(r'.*post-categories.*'),
+            re.compile(r'.*postmetadata.*')
+        ]
+    elif link:
+        tagLinks = [link]
     tagContainer = None
     for tagLink in tagLinks:
         tagContainer = soup.findAll(attrs={'class': tagLink})
-        print tagContainer
         if tagContainer:
             break
-    if tagContainer:
+    if tagContainer and len(tagContainer):
         tags = tagContainer[0].findAll('a')
         tagVals = [tag.text.lower() for tag in tags]
         tagsResult = tagVals
     else:
+        print tagAttrs
         for tagAttr in tagAttrs:
+            print tagAttr
             tags = soup.findAll(attrs=tagAttr)
-            tagsArray = [tag['content'].lower() for tag in tags]
+            tagsArray = [tag['content'].lower() for tag in tags if 'content' in tag]
             if len(tagsArray) == 1 and ',' in tagsArray[0]:
-                print '--------------------------'
                 tagsArray = tagsArray[0].split(',')
             tagsArray = [tag.strip() for tag in tagsArray]
             tagsResult = tagsArray
@@ -468,72 +450,195 @@ def traverse(nodes, separator):
     return texts
     # return '\n'.join(texts)
 
-def parseRecipe(request):
-    get = request.GET
-    recipeUrl = get['url']
-    recipe = {'url': recipeUrl}
-    req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
-    html = urllib2.urlopen(req)
-    soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+def testRecipes(request):
+    testUrls = [
+        'http://smittenkitchen.com/blog/2016/02/roasted-yams-and-chickpeas-with-yogurt/',
+        # 'http://smittenkitchen.com/blog/2016/03/churros/#more-17497',
+        # 'http://www.thekitchn.com/recipe-crispy-garlic-pita-breads-recipes-from-the-kitchn-216127',
+        # # 'http://www.thekitchn.com/recipe-blistered-tomato-toasts-228917',
+        # 'http://www.epicurious.com/recipes/food/views/fresh-coconut-layer-cake-241213',
+        # 'http://food52.com/recipes/41455-pudding-style-buttercream',
+        # 'http://www.bonappetit.com/recipe/colcannon',
+        # 'http://www.myrecipes.com/recipe/broccoli-casserole-3',
+        # 'http://www.davidlebovitz.com/2016/02/tangerine-sorbet-ice-cream-recipe/',
+        # 'http://cooking.nytimes.com/recipes/11631-soft-scrambled-eggs-with-pesto-and-fresh-ricotta?smid=fb-nytdining&smtyp=cur',
+        # 'http://www.chowhound.com/recipes/slow-cured-corned-beef-31292'
+    ]
+    results = []
+    for recipeUrl in testUrls:
+        results.append(parseRecipe(recipeUrl))
+    return JsonResponse({'results': results})
+
+def parseRecipe(url):
+    #TEST
+    # get = request.GET
+    # recipeUrl = get['url']
+    recipe = {'url': url}
+    try:
+        req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+        html = urllib2.urlopen(req)
+        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+        print url
+        if 'nyt' in url:
+            parseNYT(soup, recipe)
+        elif 'food52' in url:
+            parseFood52(soup, recipe)
+        elif 'epicurious' in url:
+            parseEpicurious(soup, recipe)
+        elif 'davidlebovitz' in url:
+            parseDavidLebovitz(soup, recipe)
+        elif 'myrecipes' in url:
+            parseMyRecipes(soup, recipe)
+        elif 'bonappetit' in url:
+            parseBonAppetit(soup, recipe)
+        elif 'chowhound' in url:
+            parseChowhound(soup, recipe)
+        elif 'smittenkitchen' in url:
+            parseSmittenKitchen(soup, recipe)
+        else:
+            parseGeneral(url, soup, recipe)
+    except urllib2.HTTPError, err:
+        print 'Could not get recipe: ' + recipeUrl
+    return recipe
+
+def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
+    recipe['title'] = soup.find(attrs={'property': 'og:title'})['content']
+    recipe['tags'] = getTags(soup, tagAttr, tagLink)
+    instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
+    recipe['instructions'] = traverse(instructionElements, '\n')
+    ingredientElements = soup.findAll(attrs={'itemprop': ingredientAttr})
+    recipe['ingredients'] = traverse(ingredientElements, ' ')
+    recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
+    return recipe
+
+
+def parseNYT(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {},
+        'tags-nutrition-container',
+        'recipeIngredient'
+    )
+
+def parseBonAppetit(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {'property': 'article:tag'},
+        '',
+        'ingredients'
+    )
+
+def parseChowhound(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {},
+        re.compile(r'.*freyja_tagslist.*'),
+        'ingredients'
+    )
+
+def parseEpicurious(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {'itemprop': 'keywords'},
+        '',
+        'ingredients'
+    )
+
+def parseFood52(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {'name': 'sailthru.tags'},
+        '',
+        'ingredients'
+    )
+
+def parseMyRecipes(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {'name': 'keywords'},
+        '',
+        'recipeIngredient'
+    )
+
+def parseDavidLebovitz(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {'property': 'article:tag'},
+        '',
+        'recipeIngredient'
+    )
+
+def parseSmittenKitchen(soup, recipe):
+    recipe['title'] = soup.find('a', attrs={'rel': 'bookmark'}).text
+    recipe['tags'] = getTags(soup, {}, re.compile(r'.*postmetadata.*'))
+    recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
+    instructions = []
+    ingredients = []
+    recipe['ingredients'] = ingredients
+    recipe['instructions'] = instructions
+
+    servings = soup.body.find(text=re.compile('^(Serve|Yield)[s]*.*'))
+    if not servings:
+        return recipe
+    node = servings.parent
+    recipe['servings'] = ' '.join(node.findAll(text=True)).strip()
+    while True:
+        node = node.nextSibling
+        if isinstance(node, NavigableString):
+            continue
+        if node.name == 'script':
+            break
+
+        texts = node.findAll(text=True)
+        texts = [i.strip() for i in texts]
+        if node.find('br'):
+            ingredients += texts
+        else:
+            instructions += texts
+    recipe['ingredients'] = ingredients
+    recipe['instructions'] = instructions
+    return recipe
+
+def parseGeneral(url, soup, recipe):
     recipe['image'] = getImage(soup)
-    parseNYT(recipeUrl, soup, recipe)
-    return JsonResponse(recipe)
-
-def parseNYT(url, soup, recipe):
-
     ogTitle = soup.find(attrs={'property': 'og:title'})
     if ogTitle:
         recipe['title'] = ogTitle['content']
     else:
         recipe['title'] = soup.title.string
+
+    instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
+    recipe['instructions'] = traverse(instructionElements, '\n')
+    recipe['tags'] = getTags(soup)
     ingredientElements = soup.findAll(attrs={'itemprop': 'recipeIngredient'})
     if not len(ingredientElements):
         ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
     recipe['ingredients'] = traverse(ingredientElements, ' ')
 
-    instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
-    recipe['instructions'] = traverse(instructionElements, '\n')
-    recipe['tags'] = getTags(soup)
     return recipe
 
 def addRecipeByUrl(recipeUser, recipeUrl, post):
     try:
-        req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
-        html = urllib2.urlopen(req)
-        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
-        imageUrl = getImage(soup)
-        ingredients = []
-        ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
-        if not len(ingredientElements):
-            ingredientElements = soup.findAll(attrs={"itemprop": "recipeIngredient"})
-        ingredients = traverse(ingredientElements, ' ')
-
-        instructionElements = \
-          soup.findAll(attrs={"itemprop": "recipeInstructions"})
-        instructions = traverse(instructionElements, '\n')
+        recipeData = parseRecipe(recipeUrl)
         extracted = tldextract.extract(recipeUrl)
         recipe = Recipe.objects.create(
           url = recipeUrl,
-          image = imageUrl,
-          ingredients = '\n'.join(ingredients),
-          instructions = '\n'.join(instructions),
-          title = soup.title.string,
+          image = recipeData['image'],
+          ingredients = '\n'.join(recipeData['ingredients']),
+          instructions = '\n'.join(recipeData['instructions']),
+          title = recipeData['title'],
           date_added = datetime.now()
         )
+        servings = post.get('servings', '')
+        if recipeData['servings']:
+            servings = recipeData['servings']
         note = Note.objects.create(
           recipe = recipe,
           url = recipeUrl,
-          image = imageUrl,
-          ingredients = '\n'.join(ingredients),
-          instructions = '\n'.join(instructions),
-          title = soup.title.string,
+          image = recipeData['image'],
+          ingredients = '\n'.join(recipeData['ingredients']),
+          instructions = '\n'.join(recipeData['instructions']),
+          title = recipeData['title'],
           date_added = datetime.now(),
           text = post.get('notes', ''),
-          tags = post.get('tags', '') + ','.join(getTags(soup)),
+          tags = post.get('tags', '') + ','.join(recipeData['tags']),
           rating = post.get('rating', -1),
           site = extracted.domain,
           difficulty = post.get('difficulty', ''),
-          servings = post.get('servings', '')
+          servings = servings
         )
         recipeUser.notes.add(note)
     except urllib2.HTTPError, err:
@@ -576,7 +681,6 @@ def processBulk(request):
     urls = []
     tags = soup.findAll('a')
     for tag in tags:
-        print tag
         href = tag.get('href')
         text = tag.text if tag.text else href
         parsed_uri = urlparse(href)
@@ -603,7 +707,6 @@ def save_profile_picture(strategy, user, response, details,
     profile.save()
 
 def save_profile(backend, user, response, *args, **kwargs):
-  # print(response)
   if backend.name == "google-oauth2":
     print('------------------------------------------')
     print type(user)
