@@ -172,6 +172,9 @@ def convertNotes(request):
 
         if 'servings' in recipeData and len(recipeData['servings']) and note.servings == '':
             setattr(note, 'servings', recipeData['servings'])
+
+        if 'tags' in recipeData:
+            setattr(note, 'tags', ','.join(recipeData['tags']))
         # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
         # setattr(note, 'created_at', date)
         note.save()
