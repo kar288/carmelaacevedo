@@ -139,6 +139,7 @@ def recrawlImages(request):
 def convertNotes(request):
     context = {'notes': []}
     notes = Note.objects.all()
+    site = request.GET['site']
     for note in notes:
         recipe = note.recipe
         # setattr(note, 'url', recipe.url)
@@ -158,6 +159,9 @@ def convertNotes(request):
 
         # setattr(note, 'tags', note.tags.replace('\n', ','))
 
+        if not site in note.url:
+            continue
+
         recipeData = parseRecipe(note.url)
 
         if len(recipeData['ingredients']) and note.ingredients == '':
@@ -169,7 +173,6 @@ def convertNotes(request):
         if 'servings' in recipeData and len(recipeData['servings']) and note.servings == '':
             setattr(note, 'servings', recipeData['servings'])
         # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
-        # # print date
         # setattr(note, 'created_at', date)
         note.save()
         context['notes'].append(note)
@@ -418,9 +421,7 @@ def getTags(soup, attr=None, link=None):
         tagVals = [tag.text.lower() for tag in tags]
         tagsResult = tagVals
     else:
-        print tagAttrs
         for tagAttr in tagAttrs:
-            print tagAttr
             tags = soup.findAll(attrs=tagAttr)
             tagsArray = [tag['content'].lower() for tag in tags if 'content' in tag]
             if len(tagsArray) == 1 and ',' in tagsArray[0]:
@@ -708,15 +709,10 @@ def save_profile_picture(strategy, user, response, details,
 
 def save_profile(backend, user, response, *args, **kwargs):
   if backend.name == "google-oauth2":
-    print('------------------------------------------')
-    print type(user)
-    print('------------------------------------------')
     recipeUser = None
     try:
       recipeUser = RecipeUser.objects.get(googleUser = user)
-      print(recipeUser.googleUser)
     except RecipeUser.DoesNotExist:
-      print('USER NOT FOUND')
       recipeUser = RecipeUser.objects.create(googleUser = user)
 
 def logout(request):
