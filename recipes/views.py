@@ -116,11 +116,14 @@ def getTopValues(notes, field, selected):
     sorted_vals_els = []
     for val in sorted_vals:
         sorted_vals_els.append(val[0])
+    print sorted_vals
+    print sorted_vals_els
     sorted_vals_els.reverse()
     sorted_vals_els = sorted_vals_els[:10]
-    elements = {}
+    print sorted_vals_els
+    elements = []
     for el in sorted_vals_els:
-        elements[el] = el in selected
+        elements.append({'name': el, 'selected': el in selected})
     return elements
 
 def recrawlImages(request):
@@ -360,12 +363,13 @@ def clean(str):
 # Create your views here.
 def addNote(request):
     post = request.POST
-    if not post:
+    if not post or not 'recipeUrl' in post or not len(post['recipeUrl']):
         return redirect('/recipes/addRecipe/')
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    if 'recipeUrl' in post:
-        recipeUrl = post['recipeUrl']
-        addRecipeByUrl(recipeUser, recipeUrl, post)
+    recipeUrl = post['recipeUrl']
+    error = addRecipeByUrl(recipeUser, recipeUrl, post)
+    if error:
+        return render(request, 'addRecipe.html', {'errors': [error]})
     return redirect('/recipes/')
 
 def getImage(soup, attr=None, key=None):
@@ -483,33 +487,30 @@ def parseRecipe(url):
     if not url.startswith('http'):
         url = 'http://' + url
     recipe = {'url': url}
-    try:
-        req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
-        html = urllib2.urlopen(req)
-        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
-        print url
-        if 'nyt' in url:
-            parseNYT(soup, recipe)
-        elif 'food52' in url:
-            parseFood52(soup, recipe)
-        elif 'epicurious' in url:
-            parseEpicurious(soup, recipe)
-        elif 'davidlebovitz' in url:
-            parseDavidLebovitz(soup, recipe)
-        elif 'myrecipes' in url:
-            parseMyRecipes(soup, recipe)
-        elif 'bonappetit' in url:
-            parseBonAppetit(soup, recipe)
-        elif 'chowhound' in url:
-            parseChowhound(soup, recipe)
-        elif 'smittenkitchen' in url:
-            parseSmittenKitchen(soup, recipe)
-        elif 'thekitchn' in url:
-            parseTheKitchn(soup, recipe)
-        else:
-            parseGeneral(url, soup, recipe)
-    except urllib2.HTTPError, err:
-        print 'Could not get recipe: ' + recipeUrl
+    req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+    html = urllib2.urlopen(req)
+    soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+    print url
+    if 'nyt' in url:
+        parseNYT(soup, recipe)
+    elif 'food52' in url:
+        parseFood52(soup, recipe)
+    elif 'epicurious' in url:
+        parseEpicurious(soup, recipe)
+    elif 'davidlebovitz' in url:
+        parseDavidLebovitz(soup, recipe)
+    elif 'myrecipes' in url:
+        parseMyRecipes(soup, recipe)
+    elif 'bonappetit' in url:
+        parseBonAppetit(soup, recipe)
+    elif 'chowhound' in url:
+        parseChowhound(soup, recipe)
+    elif 'smittenkitchen' in url:
+        parseSmittenKitchen(soup, recipe)
+    elif 'thekitchn' in url:
+        parseTheKitchn(soup, recipe)
+    else:
+        parseGeneral(url, soup, recipe)
     return recipe
 
 def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
@@ -697,6 +698,8 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
           servings = servings
         )
         recipeUser.notes.add(note)
+    except urllib2.URLError, err:
+        return 'Could not get recipe: ' + recipeUrl
     except urllib2.HTTPError, err:
         return 'Could not get recipe: ' + recipeUrl
 
@@ -732,24 +735,31 @@ def processBulk(request):
     }
     if not post or not 'bookmarks' in request.FILES:
         return render(request, 'addRecipes.html', context)
-    bookmarks = request.FILES['bookmarks'].read()
-    soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
-    urls = []
-    tags = soup.findAll('a')
-    for tag in tags:
-        href = tag.get('href')
-        text = tag.text if tag.text else href
-        parsed_uri = urlparse(href)
-        domain = '{uri.netloc}'.format(uri=parsed_uri)
-        color = 'white'
-        if domain in cookingDomains or 'recipe' in text.lower():
-            color = 'rgba(38, 166, 154, 0.3)'
-        urls.append({
-            'url': href,
-            'name': text,
-            'color': color
-        })
-    context['urls'] = urls
+    print request.FILES['bookmarks']
+    if not request.FILES['bookmarks'].name.endswith('.html'):
+        return render(request, 'addRecipes.html', {'errors': ['Please upload an html file']})
+
+    try:
+        bookmarks = request.FILES['bookmarks'].read()
+        soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
+        urls = []
+        tags = soup.findAll('a')
+        for tag in tags:
+            href = tag.get('href')
+            text = tag.text if tag.text else href
+            parsed_uri = urlparse(href)
+            domain = '{uri.netloc}'.format(uri=parsed_uri)
+            color = 'white'
+            if domain in cookingDomains or 'recipe' in text.lower():
+                color = 'rgba(38, 166, 154, 0.3)'
+            urls.append({
+                'url': href,
+                'name': text,
+                'color': color
+            })
+        context['urls'] = urls
+    except:
+        return render(request, 'addRecipes.html', {'errors': ['Invalid bookmark file']})
     return render(request, 'addRecipes.html', context)
 
 

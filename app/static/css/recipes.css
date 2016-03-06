@@ -172,6 +172,10 @@ body {
   padding: 30px;
 }
 
+.recipe-form.centered {
+  padding: 30px;
+}
+
 .recipe-card .col {
   padding: 0;
 }

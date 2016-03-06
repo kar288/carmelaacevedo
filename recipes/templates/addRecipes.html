@@ -1,7 +1,7 @@
 {% extends "recipeBase.html" %}
 
 {% block content %}
-<div class="centered small">
+<div class="recipe-form centered small">
   {% if urls %}
     <form action="{% url 'addBulk' %}" method="post">
       {% for url in urls %}
