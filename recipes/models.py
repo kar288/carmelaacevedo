@@ -59,10 +59,10 @@ class Note(models.Model):
             return '-'
         return self.RECIPE_DIFFICULTY[self.DIFFICULTY_MAP[self.difficulty]][1]
     def tags_as_list(self):
-        tags = self.tags.split(',')
+        tags = self.tags.replace('\r', '').split(',')
         newTags = []
         for tag in tags:
-            newTags.append(tag.replace('\r', '').strip())
+            newTags.append(tag.strip())
         return [tag for tag in tags if len(tag)]
     def rating_as_list(self):
         return range(self.rating)

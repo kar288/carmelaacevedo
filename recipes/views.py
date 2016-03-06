@@ -32,6 +32,8 @@ from  django.db.models.functions import Lower
 
 import operator
 
+import re
+
 from BeautifulSoup import BeautifulSoup
 
 
@@ -430,7 +432,6 @@ def traverse(nodes, separator):
     return texts
     # return '\n'.join(texts)
 
-
 def parseRecipe(request):
     get = request.GET
     recipeUrl = get['url']
@@ -443,12 +444,39 @@ def parseRecipe(request):
     return JsonResponse(recipe)
 
 def parseNYT(url, soup, recipe):
-    tagContainer = soup.find(attrs={'class': 'tags-nutrition-container'})
-    print tagContainer
-    if 'nyt' in url:
-        tags = tagContainer.findAll('a')
+    tagAttrs = [
+        {'itemprop': 'keywords'},
+        {'property': 'article:tag'},
+        {'name': 'sailthru.tags'},
+        {'name': 'parsely-tags'},
+        {'name': 'keywords'}
+    ]
+    tagLinks = [
+        'tags-nutrition-container',
+        re.compile(r".*\bfreyja_tagslist\b.*")
+    ]
+    tagContainer = None
+    for tagLink in tagLinks:
+        tagContainer = soup.find(attrs= tagLink})
+        print tagContainer
+        if tagContainer:
+            break
+    if tagContainer:
+        tags = tagContainer[0].findAll('a')
         tagVals = [tag.text.lower() for tag in tags]
         recipe['tags'] = tagVals
+    else:
+        for tagAttr in tagAttrs:
+            tags = soup.findAll(attrs=tagAttr)
+            tagsArray = [tag['content'].lower() for tag in tags]
+            # print tagsArray, len(tagsArray)
+            if len(tagsArray) == 1 and ',' in tagsArray[0]:
+                print '--------------------------'
+                tagsArray = tagsArray[0].split(',')
+            tagsArray = [tag.strip() for tag in tagsArray]
+            recipe['tags'] = tagsArray
+            if len(tagsArray):
+                break
     recipe['title'] = soup.find(attrs={'property': 'og:title'})['content']
     ingredientElements = soup.findAll(attrs={'itemprop': 'recipeIngredient'})
     if not len(ingredientElements):
