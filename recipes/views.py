@@ -454,10 +454,12 @@ def traverse(nodes, separator):
 def testRecipes(request):
     testUrls = [
         # 'http://smittenkitchen.com/blog/2016/02/roasted-yams-and-chickpeas-with-yogurt/',
-        'http://www.epicurious.com/recipes/food/views/chicken-skewers-with-meyer-lemon-salsa-380587',
+        # 'http://www.epicurious.com/recipes/food/views/chicken-skewers-with-meyer-lemon-salsa-380587',
         # 'http://smittenkitchen.com/blog/2016/03/churros/#more-17497',
-        # 'http://www.thekitchn.com/recipe-crispy-garlic-pita-breads-recipes-from-the-kitchn-216127',
-        # # 'http://www.thekitchn.com/recipe-blistered-tomato-toasts-228917',
+        'http://www.thekitchn.com/recipe-crispy-garlic-pita-breads-recipes-from-the-kitchn-216127',
+        'http://www.thekitchn.com/recipe-blistered-tomato-toasts-228917',
+        'http://www.thekitchn.com/how-to-make-basic-white-sandwich-bread-cooking-lessons-from-the-kitchn-166588',
+        'http://www.thekitchn.com/how-to-make-brioche-224507',
         # 'http://www.epicurious.com/recipes/food/views/fresh-coconut-layer-cake-241213',
         # 'http://food52.com/recipes/41455-pudding-style-buttercream',
         # 'http://www.bonappetit.com/recipe/colcannon',
@@ -487,7 +489,6 @@ def parseRecipe(url):
             parseFood52(soup, recipe)
         elif 'epicurious' in url:
             parseEpicurious(soup, recipe)
-            print recipe['tags']
         elif 'davidlebovitz' in url:
             parseDavidLebovitz(soup, recipe)
         elif 'myrecipes' in url:
@@ -498,6 +499,8 @@ def parseRecipe(url):
             parseChowhound(soup, recipe)
         elif 'smittenkitchen' in url:
             parseSmittenKitchen(soup, recipe)
+        elif 'thekitchn' in url:
+            parseTheKitchn(soup, recipe)
         else:
             parseGeneral(url, soup, recipe)
     except urllib2.HTTPError, err:
@@ -512,6 +515,8 @@ def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
     ingredientElements = soup.findAll(attrs={'itemprop': ingredientAttr})
     recipe['ingredients'] = traverse(ingredientElements, ' ')
     recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
+    servings = soup.findAll(attrs={'itemprop': 'recipeYield'})
+    recipe['servings'] = traverse(servings, ' ')
     return recipe
 
 
@@ -595,6 +600,46 @@ def parseSmittenKitchen(soup, recipe):
     recipe['instructions'] = instructions
     return recipe
 
+def parseTheKitchn(soup, recipe):
+    recipe['title'] = soup.find(attrs={'property': 'og:title'})['content']
+    recipe['tags'] = getTags(soup, {}, re.compile(r'.*post-categories.*'))
+    recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
+    servings = soup.findAll(attrs={'itemprop': 'recipeYield'})
+    recipe['servings'] = ' '.join(traverse(servings, ' '))
+
+    ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
+    recipe['ingredients'] = traverse(ingredientElements, ' ')
+
+    instructions = []
+    ingredients = []
+
+    node = soup.body.find(text=re.compile('^(Serves|Yield|Makes)[s]*[: ].*'))
+    recipe['servings'] = node
+    if not node or node == None:
+        return recipe
+    while isinstance(node, NavigableString) or not node.name == 'p':
+        if node.parent:
+            node = node.parent
+        else:
+            break
+    while True:
+        node = node.nextSibling
+        if isinstance(node, NavigableString):
+            continue
+        if not node or node.name == 'script':
+            break
+
+        texts = node.findAll(text=True)
+        texts = [i.strip() for i in texts if len(i.strip())]
+        if node.find('br') and not node.find('li'):
+            ingredients += texts
+        else:
+            instructions += texts
+    if not len(recipe['ingredients']):
+        recipe['ingredients'] = ingredients
+    recipe['instructions'] = instructions
+    return recipe
+
 def parseGeneral(url, soup, recipe):
     recipe['image'] = getImage(soup)
     ogTitle = soup.find(attrs={'property': 'og:title'})
@@ -610,6 +655,9 @@ def parseGeneral(url, soup, recipe):
     if not len(ingredientElements):
         ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
     recipe['ingredients'] = traverse(ingredientElements, ' ')
+
+    servings = soup.findAll(attrs={'itemprop': 'recipeYield'})
+    recipe['servings'] = traverse(servings, ' ')
 
     return recipe
 
