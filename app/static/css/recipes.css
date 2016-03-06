@@ -200,6 +200,7 @@ body {
 }
 
 .recipe-card {
+  height: 290px;
   margin: 10px;
   width: 300px;
   color: #666;
