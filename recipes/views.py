@@ -480,6 +480,8 @@ def parseRecipe(url):
     #TEST
     # get = request.GET
     # recipeUrl = get['url']
+    if not url.startswith('http'):
+        url = 'http://' + url
     recipe = {'url': url}
     try:
         req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
@@ -519,7 +521,7 @@ def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
     recipe['ingredients'] = traverse(ingredientElements, ' ')
     recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
     servings = soup.findAll(attrs={'itemprop': 'recipeYield'})
-    recipe['servings'] = traverse(servings, ' ')
+    recipe['servings'] = ' '.join(traverse(servings, ' '))
     return recipe
 
 
@@ -660,7 +662,7 @@ def parseGeneral(url, soup, recipe):
     recipe['ingredients'] = traverse(ingredientElements, ' ')
 
     servings = soup.findAll(attrs={'itemprop': 'recipeYield'})
-    recipe['servings'] = traverse(servings, ' ')
+    recipe['servings'] = ' '.join(traverse(servings, ' '))
 
     return recipe
 
