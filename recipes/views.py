@@ -413,6 +413,42 @@ def getImage(soup):
     print imageUrl
     return imageUrl
 
+def getTags(soup):
+    tagsResult = []
+    tagAttrs = [
+        {'itemprop': 'keywords'},
+        {'property': 'article:tag'},
+        {'name': 'sailthru.tags'},
+        {'name': 'parsely-tags'},
+        {'name': 'keywords'}
+    ]
+    tagLinks = [
+        'tags-nutrition-container',
+        re.compile(r'.*freyja_tagslist.*')
+    ]
+    tagContainer = None
+    for tagLink in tagLinks:
+        tagContainer = soup.findAll(attrs={'class': tagLink})
+        print tagContainer
+        if tagContainer:
+            break
+    if tagContainer:
+        tags = tagContainer[0].findAll('a')
+        tagVals = [tag.text.lower() for tag in tags]
+        tagsResult = tagVals
+    else:
+        for tagAttr in tagAttrs:
+            tags = soup.findAll(attrs=tagAttr)
+            tagsArray = [tag['content'].lower() for tag in tags]
+            if len(tagsArray) == 1 and ',' in tagsArray[0]:
+                print '--------------------------'
+                tagsArray = tagsArray[0].split(',')
+            tagsArray = [tag.strip() for tag in tagsArray]
+            tagsResult = tagsArray
+            if len(tagsArray):
+                break
+    return tagsResult
+
 def getTagsForNote(note):
     tags = ['breakfast', 'lunch', 'dinner', 'snack', 'vegetarian', 'vegan']
     text = note.title
@@ -444,39 +480,7 @@ def parseRecipe(request):
     return JsonResponse(recipe)
 
 def parseNYT(url, soup, recipe):
-    tagAttrs = [
-        {'itemprop': 'keywords'},
-        {'property': 'article:tag'},
-        {'name': 'sailthru.tags'},
-        {'name': 'parsely-tags'},
-        {'name': 'keywords'}
-    ]
-    tagLinks = [
-        'tags-nutrition-container',
-        re.compile(r'.*freyja_tagslist.*')
-    ]
-    tagContainer = None
-    for tagLink in tagLinks:
-        tagContainer = soup.findAll(attrs={'class': tagLink})
-        print tagContainer
-        if tagContainer:
-            break
-    if tagContainer:
-        tags = tagContainer[0].findAll('a')
-        tagVals = [tag.text.lower() for tag in tags]
-        recipe['tags'] = tagVals
-    else:
-        for tagAttr in tagAttrs:
-            tags = soup.findAll(attrs=tagAttr)
-            tagsArray = [tag['content'].lower() for tag in tags]
-            # print tagsArray, len(tagsArray)
-            if len(tagsArray) == 1 and ',' in tagsArray[0]:
-                print '--------------------------'
-                tagsArray = tagsArray[0].split(',')
-            tagsArray = [tag.strip() for tag in tagsArray]
-            recipe['tags'] = tagsArray
-            if len(tagsArray):
-                break
+
     ogTitle = soup.find(attrs={'property': 'og:title'})
     if ogTitle:
         recipe['title'] = ogTitle['content']
@@ -489,7 +493,7 @@ def parseNYT(url, soup, recipe):
 
     instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
     recipe['instructions'] = traverse(instructionElements, '\n')
-
+    recipe['tags'] = getTags(soup)
     return recipe
 
 def addRecipeByUrl(recipeUser, recipeUrl, post):
@@ -525,7 +529,7 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
           title = soup.title.string,
           date_added = datetime.now(),
           text = post.get('notes', ''),
-          tags = post.get('tags', ''),
+          tags = post.get('tags', '') + ','.join(getTags(soup)),
           rating = post.get('rating', -1),
           site = extracted.domain,
           difficulty = post.get('difficulty', ''),
