@@ -453,11 +453,11 @@ def parseNYT(url, soup, recipe):
     ]
     tagLinks = [
         'tags-nutrition-container',
-        re.compile(r".*\bfreyja_tagslist\b.*")
+        re.compile(r'.*freyja_tagslist.*')
     ]
     tagContainer = None
     for tagLink in tagLinks:
-        tagContainer = soup.find(attrs= tagLink)
+        tagContainer = soup.findAll(attrs={'class': tagLink})
         print tagContainer
         if tagContainer:
             break
@@ -477,7 +477,11 @@ def parseNYT(url, soup, recipe):
             recipe['tags'] = tagsArray
             if len(tagsArray):
                 break
-    recipe['title'] = soup.find(attrs={'property': 'og:title'})['content']
+    ogTitle = soup.find(attrs={'property': 'og:title'})
+    if ogTitle:
+        recipe['title'] = ogTitle['content']
+    else:
+        recipe['title'] = soup.title.string
     ingredientElements = soup.findAll(attrs={'itemprop': 'recipeIngredient'})
     if not len(ingredientElements):
         ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
