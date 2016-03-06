@@ -457,7 +457,7 @@ def parseNYT(url, soup, recipe):
     ]
     tagContainer = None
     for tagLink in tagLinks:
-        tagContainer = soup.find(attrs= tagLink})
+        tagContainer = soup.find(attrs= tagLink)
         print tagContainer
         if tagContainer:
             break
