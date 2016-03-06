@@ -423,7 +423,7 @@ def getTags(soup, attr=None, link=None):
     else:
         for tagAttr in tagAttrs:
             tags = soup.findAll(attrs=tagAttr)
-            tagsArray = [tag['content'].lower() for tag in tags if 'content' in tag]
+            tagsArray = [tag['content'].lower() for tag in tags if tag and tag.has_key('content')]
             if len(tagsArray) == 1 and ',' in tagsArray[0]:
                 tagsArray = tagsArray[0].split(',')
             tagsArray = [tag.strip() for tag in tagsArray]
@@ -453,7 +453,8 @@ def traverse(nodes, separator):
 
 def testRecipes(request):
     testUrls = [
-        'http://smittenkitchen.com/blog/2016/02/roasted-yams-and-chickpeas-with-yogurt/',
+        # 'http://smittenkitchen.com/blog/2016/02/roasted-yams-and-chickpeas-with-yogurt/',
+        'http://www.epicurious.com/recipes/food/views/chicken-skewers-with-meyer-lemon-salsa-380587',
         # 'http://smittenkitchen.com/blog/2016/03/churros/#more-17497',
         # 'http://www.thekitchn.com/recipe-crispy-garlic-pita-breads-recipes-from-the-kitchn-216127',
         # # 'http://www.thekitchn.com/recipe-blistered-tomato-toasts-228917',
@@ -486,6 +487,7 @@ def parseRecipe(url):
             parseFood52(soup, recipe)
         elif 'epicurious' in url:
             parseEpicurious(soup, recipe)
+            print recipe['tags']
         elif 'davidlebovitz' in url:
             parseDavidLebovitz(soup, recipe)
         elif 'myrecipes' in url:
@@ -624,7 +626,7 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
           date_added = datetime.now()
         )
         servings = post.get('servings', '')
-        if recipeData['servings']:
+        if 'servings' in recipeData and recipeData['servings']:
             servings = recipeData['servings']
         note = Note.objects.create(
           recipe = recipe,
