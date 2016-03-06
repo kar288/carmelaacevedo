@@ -155,7 +155,24 @@ def convertNotes(request):
 
         # setattr(note, 'difficulty', Note.NONE)
 
-        setattr(note, 'tags', note.tags.replace('\n', ','))
+        # setattr(note, 'tags', note.tags.replace('\n', ','))
+
+        req = urllib2.Request(note.url, headers={'User-Agent' : "Magic Browser"})
+        html = urllib2.urlopen(req)
+        soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+
+        ingredientElements = soup.findAll(attrs={'itemprop': 'recipeIngredient'})
+        if not len(ingredientElements):
+            ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
+        ingredients = traverse(ingredientElements, ' ')
+        if len(ingredients):
+            setattr(note, 'ingredients', '\n'.join(ingredients))
+
+        instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
+        instructions = traverse(instructionElements, '\n')
+        if len(instructions):
+            setattr(note, 'instructions', '\n'.join(instructions))
+
 
 
         # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
@@ -401,6 +418,48 @@ def getTagsForNote(note):
     longerWords = [word.lower() for word in words if len(word) > 2 and word[-3:] != 'ing']
     return longerWords + tags
 
+def traverse(nodes, separator):
+    texts = []
+    for node in nodes:
+        parts = []
+        for part in node.findAll(text=True):
+            stripped = part.strip()
+            if len(stripped):
+                parts.append(stripped)
+        texts.append(separator.join(parts))
+    return texts
+    # return '\n'.join(texts)
+
+
+def parseRecipe(request):
+    get = request.GET
+    recipeUrl = get['url']
+    recipe = {'url': recipeUrl}
+    req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
+    html = urllib2.urlopen(req)
+    soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+    recipe['image'] = getImage(soup)
+    parseNYT(recipeUrl, soup, recipe)
+    return JsonResponse(recipe)
+
+def parseNYT(url, soup, recipe):
+    tagContainer = soup.find(attrs={'class': 'tags-nutrition-container'})
+    print tagContainer
+    if 'nyt' in url:
+        tags = tagContainer.findAll('a')
+        tagVals = [tag.text.lower() for tag in tags]
+        recipe['tags'] = tagVals
+    recipe['title'] = soup.find(attrs={'property': 'og:title'})['content']
+    ingredientElements = soup.findAll(attrs={'itemprop': 'recipeIngredient'})
+    if not len(ingredientElements):
+        ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
+    recipe['ingredients'] = traverse(ingredientElements, ' ')
+
+    instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
+    recipe['instructions'] = traverse(instructionElements, '\n')
+
+    return recipe
+
 def addRecipeByUrl(recipeUser, recipeUrl, post):
     try:
         req = urllib2.Request(recipeUrl, headers={'User-Agent' : "Magic Browser"})
@@ -411,11 +470,11 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         ingredientElements = soup.findAll(attrs={"itemprop": "ingredients"})
         if not len(ingredientElements):
             ingredientElements = soup.findAll(attrs={"itemprop": "recipeIngredient"})
-        traverse(ingredientElements, ingredients)
-        instructions = []
+        ingredients = traverse(ingredientElements, ' ')
+
         instructionElements = \
           soup.findAll(attrs={"itemprop": "recipeInstructions"})
-        traverse(instructionElements, instructions)
+        instructions = traverse(instructionElements, '\n')
         extracted = tldextract.extract(recipeUrl)
         recipe = Recipe.objects.create(
           url = recipeUrl,
@@ -496,13 +555,6 @@ def processBulk(request):
         })
     context['urls'] = urls
     return render(request, 'addRecipes.html', context)
-
-def traverse(nodes, s):
-    for node in nodes:
-        for child in node.recursiveChildGenerator():
-            name = getattr(child, "name", None)
-            if name is None and not child.isspace(): # leaf node, don't print spaces
-                s.append(clean(child))
 
 
 def save_profile_picture(strategy, user, response, details,
