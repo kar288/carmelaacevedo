@@ -580,7 +580,7 @@ def parseSmittenKitchen(soup, recipe):
         node = node.nextSibling
         if isinstance(node, NavigableString):
             continue
-        if node.name == 'script':
+        if not node or node.name == 'script':
             break
 
         texts = node.findAll(text=True)

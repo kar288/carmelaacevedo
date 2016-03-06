@@ -128,17 +128,14 @@ body {
 }
 
 .recipe-details {
-  /*padding-top: 10px;*/
   font-size: 0.9em;
 }
 
-.recipe-details .col-xs-4 {
-  padding-left: 2px;
-  padding-right: 2px;
+.recipe-detail {
   overflow: hidden;
-  height: 1.4em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .long {
