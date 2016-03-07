@@ -1,41 +1,35 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
-from mimetypes import guess_type
-from django.conf import settings
-import csv
-import re
-from random import randint
-# import datetime
+# from django.http import HttpResponse
+# from mimetypes import guess_type
+# from django.conf import settings
+# import csv
+# import re
+# from random import randint
+# from topia.termextract import tag
+# from topia.termextract import extract
+# import urllib2
+# import tldextract
+# import xml.etree.ElementTree as ET
+# from django.template import loader
+# from django.http import JsonResponse
+# from django.shortcuts import redirect
+# from social.backends.oauth import BaseOAuth1, BaseOAuth2
+# from social.backends.google import GooglePlusAuth
+# from social.backends.utils import load_backends
+# from social.apps.django_app.utils import psa
+# from  django.db.models import Q
+# import re
+# from BeautifulSoup import BeautifulSoup, NavigableString
+
 from datetime import datetime
-from topia.termextract import tag
-from topia.termextract import extract
-
-import urllib2
-
-from urlparse import urlparse
-import tldextract
-import xml.etree.ElementTree as ET
-from django.template import loader
-from django.http import JsonResponse
-
-from django.shortcuts import redirect
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout, login
-
-from social.backends.oauth import BaseOAuth1, BaseOAuth2
-from social.backends.google import GooglePlusAuth
-from social.backends.utils import load_backends
-from social.apps.django_app.utils import psa
+from django.contrib.auth.decorators import login_required
+from django.db.models.functions import Lower
+from django.shortcuts import render, redirect, get_object_or_404
+from parse import *
 from recipes.models import Recipe, Note, RecipeUser
-from  django.db.models import Q
-from  django.db.models.functions import Lower
+from urlparse import urlparse
 
 import operator
-
-import re
-
-from BeautifulSoup import BeautifulSoup, NavigableString
-from parse import *
 
 def getTableFields(field):
     return [{
@@ -59,10 +53,6 @@ def getTableFields(field):
             'display': 'Servings',
             'selected': 'servings' == field
         }, {
-        #     'field': 'created_at',
-        #     'display': 'Date added',
-        #     'selected': 'date_added_formatted' == field
-        # }, {
             'field': 'rating',
             'display': 'Rating',
             'selected': 'rating' == field
@@ -95,7 +85,9 @@ def home(request):
     fields = ['tags', 'site']
     # fields = ['tags', 'site', 'rating']
     for field in fields:
-        context['filters'][field] = getTopValues(allNotes, field, get.getlist(field))
+        values = getTopValues(allNotes, field, get.getlist(field))
+        if values:
+            context['filters'][field] = values
     return render(request, 'index.html', context)
 
 def getTopValues(notes, field, selected):
@@ -123,64 +115,6 @@ def getTopValues(notes, field, selected):
     for el in sorted_vals_els:
         elements.append({'name': el, 'selected': el in selected})
     return elements
-
-def recrawlImages(request):
-    context = {}
-    recipes = Note.objects.all()
-    for recipe in recipes:
-        if not recipe.image:
-            req = urllib2.Request(recipe.url, headers={'User-Agent' : "Magic Browser"})
-            html = urllib2.urlopen(req)
-            soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
-            imageUrl = getImage(soup)
-            setattr(recipe, 'image', imageUrl)
-            recipe.save()
-    return render(request, 'index.html', context)
-
-def convertNotes(request):
-    context = {'notes': []}
-    notes = Note.objects.all()
-    site = request.GET['site']
-    for note in notes:
-        recipe = note.recipe
-        # setattr(note, 'url', recipe.url)
-        # setattr(note, 'title', recipe.title)
-        # setattr(note, 'image', recipe.image)
-        # setattr(note, 'ingredients', recipe.ingredients)
-        # setattr(note, 'instructions', recipe.instructions)
-        # setattr(note, 'date_added', recipe.date_added)
-        # parsed_uri = urlparse(recipe.url)
-        # domain = '{uri.netloc}'.format(uri = parsed_uri)
-        # setattr(note, 'site', domain)
-
-        # extracted = tldextract.extract(note.url)
-        # setattr(note, 'site', extracted.domain)
-
-        # setattr(note, 'difficulty', Note.NONE)
-
-        # setattr(note, 'tags', note.tags.replace('\n', ','))
-
-        if not site in note.url:
-            continue
-
-        recipeData = parseRecipe(note.url)
-
-        if len(recipeData['ingredients']) and note.ingredients == '':
-            setattr(note, 'ingredients', '\n'.join(recipeData['ingredients']))
-
-        if len(recipeData['instructions']) and note.instructions == '':
-            setattr(note, 'instructions', '\n'.join(recipeData['instructions']))
-
-        if 'servings' in recipeData and len(recipeData['servings']) and note.servings == '':
-            setattr(note, 'servings', recipeData['servings'])
-
-        if 'tags' in recipeData:
-            setattr(note, 'tags', ','.join(recipeData['tags']))
-        # date = datetime.strptime(recipe.date_added, "%Y-%m-%d %H:%M:%S.%f")
-        # setattr(note, 'created_at', date)
-        note.save()
-        context['notes'].append(note)
-    return render(request, 'index.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def table(request, field):
@@ -467,15 +401,14 @@ def processBulk(request):
                 'color': color
             })
         context['urls'] = urls
-    except:
+    except Exception as e:
+        print e
         return render(request, 'addRecipes.html', {'errors': ['Invalid bookmark file']})
     return render(request, 'addRecipes.html', context)
 
 
 def save_profile_picture(strategy, user, response, details,
                          is_new=False,*args,**kwargs):
-
-  # if strategy.backend.name == "google-oauth2":
     profile = user.userprofile
     profile.profile_photo.save('{0}_social.jpg'.format(user.username),
                            ContentFile(response.content))
@@ -483,7 +416,6 @@ def save_profile_picture(strategy, user, response, details,
 
 def save_profile(backend, user, response, *args, **kwargs):
   if backend.name == "google-oauth2":
-    recipeUser = None
     try:
       recipeUser = RecipeUser.objects.get(googleUser = user)
     except RecipeUser.DoesNotExist:

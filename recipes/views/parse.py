@@ -1,6 +1,6 @@
-import urllib2
 import tldextract
 import re
+import urllib2
 
 from BeautifulSoup import BeautifulSoup, NavigableString
 

@@ -1,5 +1,9 @@
 {% extends "recipeBase.html" %}
 
+{% block title %}
+Home
+{% endblock %}
+
 {% block content %}
   <div class="row">
     <div class="left-filters col s12 m3 l2">
@@ -7,22 +11,24 @@
         Table view
       </a>
       <div>
-        <form action="{% url 'recipesHome' %}" method="get">
-          {% for filter, vals in filters.items %}
-            <h5> {{filter}} </h5>
-            {% for el in vals %}
-              <input value="{{el.name}}"
-                name={{filter}}
-                type="checkbox"
-                id="{{filter}}-{{forloop.counter}}"
-                {% if el.selected %}checked="checked"{% endif %}
-              />
-              <label for="{{filter}}-{{forloop.counter}}">{{el.name}}</label>
-              </br>
+        {% if filters.items|length %}
+          <form action="{% url 'recipesHome' %}" method="get">
+            {% for filter, vals in filters.items %}
+              <h5> {{filter}} </h5>
+              {% for el in vals %}
+                <input value="{{el.name}}"
+                  name={{filter}}
+                  type="checkbox"
+                  id="{{filter}}-{{forloop.counter}}"
+                  {% if el.selected %}checked="checked"{% endif %}
+                />
+                <label for="{{filter}}-{{forloop.counter}}">{{el.name}}</label>
+                </br>
+              {% endfor %}
             {% endfor %}
-          {% endfor %}
-          <input class="btn purple" value="filter" type="submit"/>
-        </form>
+            <input class="btn purple" value="filter" type="submit"/>
+          </form>
+        {% endif %}
       </div>
     </div>
     <div class="col s12 m9 l10">
