@@ -124,7 +124,7 @@ if __name__ == "__main__":
     elif sys.argv[1] == 'getRecipesNYT':
         getRecipesNYT(17158, './media/urlsNYT.txt')
     elif sys.argv[1] == 'getRecipesFood52':
-        getRecipesFood52(37856, './media/recipesFood52.txt')
+        getRecipesFood52(40404, './media/recipesFood52.txt')
     elif sys.argv[1] == 'getUrls':
         getUrls()
     elif sys.argv[1] == 'getUrlsFood52':
