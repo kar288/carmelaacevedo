@@ -57,7 +57,7 @@ def getTags(soup, attr=None, link=None):
             break
     if tagContainer and len(tagContainer):
         tags = tagContainer[0].findAll('a')
-        tagVals = [tag.text.lower() for tag in tags]
+        tagVals = [tag.text.lower().replace(' ', '-') for tag in tags]
         tagsResult = tagVals
     else:
         for tagAttr in tagAttrs:
@@ -83,28 +83,6 @@ def traverse(nodes, separator):
     return texts
     # return '\n'.join(texts)
 
-def testRecipes(request):
-    testUrls = [
-        # 'http://smittenkitchen.com/blog/2016/02/roasted-yams-and-chickpeas-with-yogurt/',
-        # 'http://www.epicurious.com/recipes/food/views/chicken-skewers-with-meyer-lemon-salsa-380587',
-        # 'http://smittenkitchen.com/blog/2016/03/churros/#more-17497',
-        'http://www.thekitchn.com/recipe-crispy-garlic-pita-breads-recipes-from-the-kitchn-216127',
-        'http://www.thekitchn.com/recipe-blistered-tomato-toasts-228917',
-        'http://www.thekitchn.com/how-to-make-basic-white-sandwich-bread-cooking-lessons-from-the-kitchn-166588',
-        'http://www.thekitchn.com/how-to-make-brioche-224507',
-        # 'http://www.epicurious.com/recipes/food/views/fresh-coconut-layer-cake-241213',
-        # 'http://food52.com/recipes/41455-pudding-style-buttercream',
-        # 'http://www.bonappetit.com/recipe/colcannon',
-        # 'http://www.myrecipes.com/recipe/broccoli-casserole-3',
-        # 'http://www.davidlebovitz.com/2016/02/tangerine-sorbet-ice-cream-recipe/',
-        # 'http://cooking.nytimes.com/recipes/11631-soft-scrambled-eggs-with-pesto-and-fresh-ricotta?smid=fb-nytdining&smtyp=cur',
-        # 'http://www.chowhound.com/recipes/slow-cured-corned-beef-31292'
-    ]
-    results = []
-    for recipeUrl in testUrls:
-        results.append(parseRecipe(recipeUrl))
-    return JsonResponse({'results': results})
-
 def parseRecipe(url):
     #TEST
     # get = request.GET
@@ -115,7 +93,7 @@ def parseRecipe(url):
     req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
     html = urllib2.urlopen(req)
     soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
-    print url
+    # print url
     if 'nyt' in url:
         parseNYT(soup, recipe)
     elif 'food52' in url:
@@ -134,6 +112,8 @@ def parseRecipe(url):
         parseSmittenKitchen(soup, recipe)
     elif 'thekitchn' in url:
         parseTheKitchn(soup, recipe)
+    elif 'cookieandkate' in url:
+        parseCookieAndKate(soup, recipe)
     else:
         parseGeneral(url, soup, recipe)
     return recipe
@@ -198,6 +178,13 @@ def parseDavidLebovitz(soup, recipe):
         {'property': 'article:tag'},
         '',
         'recipeIngredient'
+    )
+
+def parseCookieAndKate(soup, recipe):
+    return parserTemplate(soup, recipe,
+        {},
+        'entry-categories',
+        'ingredients'
     )
 
 def parseSmittenKitchen(soup, recipe):

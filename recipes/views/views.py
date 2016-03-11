@@ -10,7 +10,6 @@
 # import tldextract
 # import xml.etree.ElementTree as ET
 # from django.template import loader
-# from django.http import JsonResponse
 # from django.shortcuts import redirect
 # from social.backends.oauth import BaseOAuth1, BaseOAuth2
 # from social.backends.google import GooglePlusAuth
@@ -24,6 +23,7 @@ from datetime import datetime
 from django.contrib.auth import logout as auth_logout, login
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from parse import *
 from recipes.models import Recipe, Note, RecipeUser
@@ -70,13 +70,15 @@ def home(request):
 
     get = request.GET
     notes_per_field = []
-    if get:
-        for field in get:
-            note_per_field = Note.objects.none()
-            vals = get.getlist(field)
-            for val in vals:
-                note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
-            notes_per_field.append(note_per_field)
+    # if not get:
+    #     get = []
+
+    for field in get:
+        note_per_field = Note.objects.none()
+        vals = get.getlist(field)
+        for val in vals:
+            note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
+        notes_per_field.append(note_per_field)
     for note_per_field in notes_per_field:
         notes &= note_per_field
 
@@ -314,30 +316,34 @@ def getTagsForNote(note):
 def addRecipeByUrl(recipeUser, recipeUrl, post):
     try:
         recipeData = parseRecipe(recipeUrl)
-        extracted = tldextract.extract(recipeUrl)
-        recipe = Recipe.objects.create(
-          url = recipeUrl,
-          image = recipeData['image'],
-          ingredients = '\n'.join(recipeData['ingredients']),
-          instructions = '\n'.join(recipeData['instructions']),
-          title = recipeData['title'],
-          date_added = datetime.now()
-        )
+        domain = tldextract.extract(recipeUrl).domain
+        image = recipeData.get('image', '')
+        instructions = '\n'.join(recipeData.get('instructions', []))
+        ingredients = '\n'.join(recipeData.get('ingredients', []))
+        title = recipeData.get('title')
         servings = post.get('servings', '')
         if 'servings' in recipeData and recipeData['servings']:
             servings = recipeData['servings']
+        recipe = Recipe.objects.create(
+          url = recipeUrl,
+          image = image,
+          ingredients = ingredients,
+          instructions = instructions,
+          title = title,
+          date_added = datetime.now()
+        )
         note = Note.objects.create(
           recipe = recipe,
           url = recipeUrl,
-          image = recipeData['image'],
-          ingredients = '\n'.join(recipeData['ingredients']),
-          instructions = '\n'.join(recipeData['instructions']),
-          title = recipeData['title'],
+          image = image,
+          ingredients = ingredients,
+          instructions = instructions,
+          title = title,
           date_added = datetime.now(),
           text = post.get('notes', ''),
           tags = post.get('tags', '') + ','.join(recipeData['tags']),
           rating = post.get('rating', -1),
-          site = extracted.domain,
+          site = domain,
           difficulty = post.get('difficulty', ''),
           servings = servings
         )
@@ -425,3 +431,30 @@ def logout(request):
     """Logs out user"""
     auth_logout(request)
     return redirect('/recipes/')
+
+
+
+def testRecipes(request):
+    testUrls = [
+        # 'http://cookieandkate.com/2014/feta-fiesta-kale-salad-with-avocado-and-crispy-tortilla-strips/',
+        # 'http://cookieandkate.com/2016/lemon-curd-recipe/',
+        # 'http://smittenkitchen.com/blog/2016/02/roasted-yams-and-chickpeas-with-yogurt/',
+        # 'http://www.epicurious.com/recipes/food/views/chicken-skewers-with-meyer-lemon-salsa-380587',
+        # 'http://smittenkitchen.com/blog/2016/03/churros/#more-17497',
+        # 'http://www.thekitchn.com/recipe-crispy-garlic-pita-breads-recipes-from-the-kitchn-216127',
+        # 'http://www.thekitchn.com/recipe-blistered-tomato-toasts-228917',
+        # 'http://www.thekitchn.com/how-to-make-basic-white-sandwich-bread-cooking-lessons-from-the-kitchn-166588',
+        # 'http://www.thekitchn.com/how-to-make-brioche-224507',
+        # 'http://www.epicurious.com/recipes/food/views/fresh-coconut-layer-cake-241213',
+        # 'http://food52.com/recipes/41455-pudding-style-buttercream',
+        # 'http://www.bonappetit.com/recipe/colcannon',
+        # 'http://www.myrecipes.com/recipe/broccoli-casserole-3',
+        # 'http://www.davidlebovitz.com/2016/02/tangerine-sorbet-ice-cream-recipe/',
+        # 'http://cooking.nytimes.com/recipes/11631-soft-scrambled-eggs-with-pesto-and-fresh-ricotta?smid=fb-nytdining&smtyp=cur',
+        'http://cooking.nytimes.com/recipes/5598-aligot',
+        # 'http://www.chowhound.com/recipes/slow-cured-corned-beef-31292'
+    ]
+    results = []
+    for recipeUrl in testUrls:
+        results.append(parseRecipe(recipeUrl))
+    return JsonResponse({'results': results})
