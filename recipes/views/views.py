@@ -228,6 +228,8 @@ def getSeasonRecipes(request, month):
         ingredients = month[0].ingredients.split(',')
         for ingredient in ingredients:
             notes |= recipeUser.notes.filter(ingredients__icontains = ingredient)
+        context['selected'] = date(1900, month[0].index, 1).strftime('%b')
+        context['selectedIndex'] = month[0].index
     months = Month.objects.all()
     ingredientSeasons = {}
     for month in months:
@@ -243,7 +245,7 @@ def getSeasonRecipes(request, month):
         months = []
         for i in range(1, 13):
             if i in ingredientSeasons[ingredient]:
-                months.append(True)
+                months.append(i)
             else:
                 months.append(False)
         context['ingredientSeasons'][ingredient] = months

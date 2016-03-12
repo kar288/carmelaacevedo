@@ -22,12 +22,21 @@ body {
 
 .in-season {
   background-color: #FFC107;
-  opacity: 0.5;
+  opacity: 0.3;
   border: #B6B6B6 solid 1px;
 }
 
-.season-table {
-  line-height: 1em;
+.in-season.selected {
+  opacity: 1;
+}
+
+.in-season-ingredient {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  padding: 5px;
+  line-height: 1.5em;
 }
 
 .recipe .left-filters {

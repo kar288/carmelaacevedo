@@ -10,7 +10,7 @@ Seasonal
     <table class="striped season-table">
       <thead>
         {% for month in months %}
-          <th class="table-header">
+          <th class="table-header {% if selected == month %} selected{% endif %}">
             <a href="/recipes/season/{{month}}"> {{month}} </a>
           </th>
         {% endfor %}
@@ -18,11 +18,11 @@ Seasonal
       <tbody>
         {% for ingredient, months in ingredientSeasons.items %}
         <tr>
-          <td>
+          <td class="in-season-ingredient">
             {{ingredient}}
           </td>
           {% for month in months %}
-            <td {% if month %}class="in-season"{% endif %}>
+            <td class="{% if month %}in-season{% endif %}{% if month == selectedIndex %} selected{% endif %}">
             </td>
           {% endfor %}
         </tr>
