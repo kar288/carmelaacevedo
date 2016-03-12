@@ -19,14 +19,14 @@
 # import re
 # from BeautifulSoup import BeautifulSoup, NavigableString
 
-from datetime import datetime
+from datetime import datetime, date
 from django.contrib.auth import logout as auth_logout, login
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from parse import *
-from recipes.models import Recipe, Note, RecipeUser
+from recipes.models import Recipe, Note, RecipeUser, Month
 from urlparse import urlparse
 
 import operator
@@ -217,6 +217,44 @@ def ingredients(request, ingredients):
         notes |= recipeUser.notes.filter(recipe__ingredients__icontains = ingredient)
     context['notes'] = notes
     return render(request, 'index.html', context)
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+def getSeasonRecipes(request, month):
+    context = {}
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    notes = Note.objects.none()
+    month = Month.objects.filter(name__icontains=month)
+    if len(month):
+        ingredients = month[0].ingredients.split(',')
+        for ingredient in ingredients:
+            notes |= recipeUser.notes.filter(ingredients__icontains = ingredient)
+    months = Month.objects.all()
+    ingredientSeasons = {}
+    for month in months:
+        ingredients = month.ingredients.split(',')
+        for ingredient in ingredients:
+            seasons = {}
+            if ingredient in ingredientSeasons:
+                seasons = ingredientSeasons[ingredient]
+            seasons[month.index] = True
+            ingredientSeasons[ingredient] = seasons
+    context['ingredientSeasons'] = {}
+    for ingredient in ingredientSeasons:
+        months = []
+        for i in range(1, 13):
+            if i in ingredientSeasons[ingredient]:
+                months.append(True)
+            else:
+                months.append(False)
+        context['ingredientSeasons'][ingredient] = months
+    context['months'] = ['']
+    for i in range(1, 13):
+        context['months'].append(date(1900, i, 1).strftime('%b'))
+
+    context['notes'] = notes
+    # context['success'] = ingredients
+    return render(request, 'seasonal.html', context)
+
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def editNoteHtml(request, noteId):

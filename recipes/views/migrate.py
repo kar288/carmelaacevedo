@@ -1,10 +1,49 @@
+import datetime
 import tldextract
 import urllib2
 
 from BeautifulSoup import BeautifulSoup, NavigableString
 from django.shortcuts import render, redirect, get_object_or_404
 from parse import *
-from recipes.models import Recipe, Note, RecipeUser
+from recipes.models import Recipe, Note, RecipeUser, Month
+
+def getSeasonIngredients(request):
+    url = 'http://www.bbcgoodfood.com/seasonal-calendar/all'
+    req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+    html = urllib2.urlopen(req)
+    soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+    table = soup.find('table')
+    monthLists = {}
+    for i in range(12):
+        monthLists[i + 1] = []
+
+    for row in table.findAll('tr'):
+        ingredient = ''
+        for i, cell in enumerate(row.findAll('td')):
+            if i == 0:
+                ingredient = cell.find('a').text.lower()
+            else:
+                status = cell.find('i')
+                if status:
+                    status = status.text.lower()
+                    monthLists[i].append(ingredient)
+    for month in monthLists:
+        monthObject = Month.objects.filter(index=month)
+        if monthObject:
+            ingredients = monthObject.ingredients.split(',')
+            ingredients += monthLists[month]
+            setattr(monthObject, 'ingredients', ','.join(ingredients))
+        else:
+            monthObject = Month.objects.create(
+                index = month,
+                name = datetime.date(1900, month, 1).strftime('%B'),
+                ingredients = ','.join(monthLists[month])
+            )
+        monthObject.save()
+    # for month in Month.objects.all():
+    #     month.delete()
+    return render(request, 'index.html', {})
+
 
 def recrawlImages(request):
     context = {}

@@ -20,6 +20,16 @@ body {
 .divider-color         { border-color: #B6B6B6; }
 /**************************************/
 
+.in-season {
+  background-color: #FFC107;
+  opacity: 0.5;
+  border: #B6B6B6 solid 1px;
+}
+
+.season-table {
+  line-height: 1em;
+}
+
 .recipe .left-filters {
   border-right: grey solid 1px;
   padding-top: 10px;

@@ -1,0 +1,41 @@
+{% extends "recipeBase.html" %}
+
+{% block title %}
+Seasonal
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col s12 m6 l6">
+    <table class="striped season-table">
+      <thead>
+        {% for month in months %}
+          <th class="table-header">
+            <a href="/recipes/season/{{month}}"> {{month}} </a>
+          </th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for ingredient, months in ingredientSeasons.items %}
+        <tr>
+          <td>
+            {{ingredient}}
+          </td>
+          {% for month in months %}
+            <td {% if month %}class="in-season"{% endif %}>
+            </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="col s12 m6 l6">
+    <div class="row notes-container">
+      {% for note in notes %}
+        {% include 'smallRecipe.html' %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
