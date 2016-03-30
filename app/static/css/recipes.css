@@ -1,7 +1,7 @@
 body {
   background-color: rgba(0,0,0,0.02);
   color: #727272;
-	font-family: RobotoDraft, Helvetica Neue;
+	font-family: Merriweather Sans, RobotoDraft, Helvetica Neue;
   /*font-size: 1.4em;*/
 	/*font-weight: 200;*/
   /*font-weight: 100;*/
@@ -305,7 +305,13 @@ input[type=text]:focus {
 
 .recipe-card .col.recipe-info {
   line-height: 1.8em;
-  padding: 20px;
+  padding: 1em 2em;
+}
+
+.recipe-card .col.recipe-info.instructions br {
+  content: "";
+  display: block;
+  margin: 2em;
 }
 
 .recipe-card.recipe-large {

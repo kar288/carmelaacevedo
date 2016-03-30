@@ -165,7 +165,6 @@ def addSharedRecipe(request, noteId):
     except:
         try:
             note = get_object_or_404(Note, id = noteId)
-
             if not note.shared:
                 context = {}
                 context['errors'] = ['No such recipe']
@@ -201,7 +200,8 @@ def note(request, noteId):
     except:
         note = get_object_or_404(Note, id = noteId)
         context['shared'] = True
-        if note.shared == False:
+        print int(request.GET.get('share', '0'))
+        if note.shared == False or not int(request.GET.get('share', '0')):
             raise Http404("No such recipe.")
     context['note'] = note
     context['shareUrl'] = \
@@ -216,7 +216,7 @@ def tags(request, tags):
     notes = Note.objects.none()
     for tag in tags:
         notes |= recipeUser.notes.filter(tags__icontains = tag)
-    context['notes'] = notes
+    pagination(request, context, int(request.GET.get('page', '1')), notes)
     return render(request, 'index.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
