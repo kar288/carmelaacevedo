@@ -10,6 +10,9 @@ Home
       <a href="{% url 'table' title %}" class="btn special-yellow recipe-form">
         Table view
       </a>
+      <a href="{% url 'season' %}" class="btn special-yellow recipe-form">
+        Seasonal Recipes
+      </a>
       <div>
         {% if filters.items|length %}
           <form class="filter-form" action="{% url 'recipesHome' %}" method="get">

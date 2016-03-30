@@ -289,6 +289,9 @@ def getSeasonRecipes(request, month):
     context = {}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     notes = Note.objects.none()
+    if not month:
+        month = datetime.now().strftime("%b")
+        print month
     month = Month.objects.filter(name__icontains=month)
     if len(month):
         ingredients = month[0].ingredients.split(',')
