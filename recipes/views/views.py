@@ -23,13 +23,16 @@ from datetime import datetime, date
 from django.contrib.auth import logout as auth_logout, login
 from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from parse import *
 from recipes.models import Recipe, Note, RecipeUser, Month
 from urlparse import urlparse
 
+import math
 import operator
+
+PAGE_SIZE = 12
 
 def getTableFields(field):
     return [{
@@ -58,7 +61,22 @@ def getTableFields(field):
             'selected': 'rating' == field
         }]
 
-# Create your views here.
+
+def pagination(request, context, page, notes):
+    queries_without_page = request.GET.copy()
+    if queries_without_page.has_key('page'):
+        del queries_without_page['page']
+    start = (page - 1) * PAGE_SIZE
+    end = min(len(notes), start + PAGE_SIZE)
+    pages = range(1, int(math.ceil(len(notes) / (PAGE_SIZE * 1.0))) + 1)
+    context['notes'] = notes[start:end]
+    context['pages'] = pages
+    context['page'] = page
+    context['filters'] = {}
+    context['queries'] = queries_without_page
+    context['previous'] = page - 1 if page - 1 > 0 else 0
+    context['next'] = page + 1 if page + 1 <= pages[-1] else 0
+
 def home(request):
     context = {}
     if not request.user.is_authenticated():
@@ -70,20 +88,20 @@ def home(request):
 
     get = request.GET
     notes_per_field = []
-    # if not get:
-    #     get = []
 
+    page = 1
     for field in get:
         note_per_field = Note.objects.none()
         vals = get.getlist(field)
+        if field == 'page':
+            page = int(get.get(field))
+            continue
         for val in vals:
             note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
         notes_per_field.append(note_per_field)
     for note_per_field in notes_per_field:
         notes &= note_per_field
-
-    context['notes'] = notes
-    context['filters'] = {}
+    pagination(request, context, page, notes)
     fields = ['tags', 'site']
     # fields = ['tags', 'site', 'rating']
     for field in fields:
@@ -123,9 +141,47 @@ def table(request, field):
     context = {}
     field = field if field else 'title'
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    context['notes'] = recipeUser.notes.all().order_by(Lower(field))
-    context['fields'] = getTableFields(field)
+    note = recipeUser.notes.find(id = noteId)
+
     return render(request, 'table.html', context)
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+def shareNote(request, noteId):
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    try:
+        note = recipeUser.notes.get(id = noteId)
+    except:
+        return JsonResponse({'success': False})
+    setattr(note, 'shared', True)
+    note.save()
+    return JsonResponse({'success': True})
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+def addSharedRecipe(request, noteId):
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    try:
+        note = recipeUser.notes.find(id = noteId)
+        return redirect('/recipes/note/' + noteId)
+    except:
+        try:
+            note = get_object_or_404(Note, id = noteId)
+
+            if not note.shared:
+                context = {}
+                context['errors'] = ['No such recipe']
+                return redirect('/recipes/')
+        except:
+            context = {}
+            context['errors'] = ['No such recipe']
+            return redirect('/recipes/')
+    note.pk = None
+    recipe = note.recipe
+    recipe.pk = None
+    recipe.save()
+    note.recipe = recipe
+    note.save()
+    recipeUser.notes.add(note)
+    return redirect('/recipes/note/' + str(note.id))
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def tableAll(request, field):
@@ -139,8 +195,17 @@ def tableAll(request, field):
 def note(request, noteId):
     context = {}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    note = get_object_or_404(Note, id = noteId)
+    note = None
+    try:
+        note = recipeUser.notes.get(id = noteId)
+    except:
+        note = get_object_or_404(Note, id = noteId)
+        context['shared'] = True
+        if note.shared == False:
+            raise Http404("No such recipe.")
     context['note'] = note
+    context['shareUrl'] = \
+        request.build_absolute_uri('/')[:-1] + request.get_full_path() + '?share=1'
     return render(request, 'note.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
@@ -172,7 +237,8 @@ def search(request):
         notes |= recipeUser.notes.filter(difficulty__icontains = term)
         notes |= recipeUser.notes.filter(servings__icontains = term)
         notes |= recipeUser.notes.filter(site__icontains = term)
-    context['notes'] = notes
+    page = int(get.get('page', '1'))
+    pagination(request, context, page, notes)
     return render(request, 'index.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
@@ -293,7 +359,7 @@ def deleteNote(request, noteId):
         recipe.delete()
         note.delete()
         context['notes'] = recipeUser.notes.all()
-    return render(request, 'index.html', context)
+    return redirect('/recipes/')
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def advancedSearchHtml(request, field):
@@ -430,7 +496,7 @@ def processBulk(request):
 
     try:
         bookmarks = request.FILES['bookmarks'].read()
-        soup = BeautifulSoup(bookmarks, convertEntities=BeautifulSoup.HTML_ENTITIES)
+        soup = BeautifulSoup(bookmarks)
         urls = []
         tags = soup.findAll('a')
         for tag in tags:

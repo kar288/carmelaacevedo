@@ -1,8 +1,10 @@
 import tldextract
 import re
+import requests
 import urllib2
 
-from BeautifulSoup import BeautifulSoup, NavigableString
+from bs4 import BeautifulSoup, NavigableString
+# from BeautifulSoup import BeautifulSoup, NavigableString
 
 def getImage(soup, attr=None, key=None):
     imageUrl = ''
@@ -92,7 +94,7 @@ def parseRecipe(url):
     recipe = {'url': url}
     req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
     html = urllib2.urlopen(req)
-    soup = BeautifulSoup(html, convertEntities=BeautifulSoup.HTML_ENTITIES)
+    soup = BeautifulSoup(html)
     # print url
     if 'nyt' in url:
         parseNYT(soup, recipe)
@@ -126,8 +128,8 @@ def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
     ingredientElements = soup.findAll(attrs={'itemprop': ingredientAttr})
     recipe['ingredients'] = traverse(ingredientElements, ' ')
     recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
-    servings = soup.findAll(attrs={'itemprop': 'recipeYield'})
-    recipe['servings'] = ' '.join(traverse(servings, ' '))
+    servings = soup.find(attrs={'itemprop': 'recipeYield'})
+    recipe['servings'] = servings.text
     return recipe
 
 

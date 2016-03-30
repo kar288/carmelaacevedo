@@ -28,9 +28,31 @@
           class="recipe-image"
           style="background-image: url('{{note.image}}')"
         ></div>
-        <a class="btn-floating btn-large amber recipe-edit-button" href="{% url 'editNoteHtml' note.id %}">
-          <i class="material-icons">edit</i>
-        </a>
+        {% if shared %}
+          <a class="tooltipped btn-floating btn-large special-yellow recipe-edit-button"
+            data-position="top"
+            data-delay="50"
+            data-tooltip="Add recipe"
+            href="{% url 'addSharedRecipe' note.id %}">
+            <i class="material-icons">add</i>
+          </a>
+        {% else %}
+          <a class="tooltipped btn-floating btn-large special-yellow recipe-edit-button"
+            data-position="top"
+            data-delay="50"
+            data-tooltip="Edit recipe"
+            href="{% url 'editNoteHtml' note.id %}">
+            <i class="material-icons">edit</i>
+          </a>
+          <a class="modal-trigger tooltipped btn-floating btn-large special-yellow recipe-share-button"
+            data-position="top"
+            data-delay="50"
+            href="#share-modal"
+            data-tooltip="Share recipe"
+            onclick="$.ajax('{% url 'shareNote' note.id %}')">
+            <i class="material-icons">link</i>
+          </a>
+        {% endif %}
       </div>
       <!-- <div class="card-wash"></div> -->
     </div>
@@ -90,4 +112,17 @@
    </div>
    {% endif %}
  </div>
+
+ <div id="share-modal" class="modal">
+  <div class="modal-content">
+    <h4>Share recipe</h4>
+    <p>Copy the given link and share it with your friends</p>
+    <blockquote class="share-link">
+      {{shareUrl}}
+    </blockquote>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+  </div>
+</div>
 {% endblock %}

@@ -14,7 +14,7 @@
       <input class="recipe-form btn btn-success" type="submit"/>
     </form>
   {% else %}
-    Export your chrome bookmarks and add them here, they will be processed so that you can choose which to import.
+    Export your chrome or firefox bookmarks as an HTML file and add them here, they will be processed so that you can choose which to import.
     <br>
     <form enctype="multipart/form-data" action="{% url 'processBulk' %}" method="post">
 
@@ -24,7 +24,7 @@
           <input name="bookmarks" type="file">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" placeholder="Chrome bookmark HTML file" type="text">
+          <input class="file-path validate" placeholder="Chrome or Firefox bookmark HTML file" type="text">
         </div>
       </div>
       <!-- <label class="recipe-form">

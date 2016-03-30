@@ -58,6 +58,7 @@ class Note(models.Model):
     rating = models.IntegerField()
     servings = models.CharField(max_length=200)
     site = models.CharField(max_length=200)
+    shared = models.BooleanField(default=False)
 
     def difficulty_long(self):
         if self.difficulty == '':
