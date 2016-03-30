@@ -75,7 +75,7 @@ def pagination(request, context, page, notes):
     context['filters'] = {}
     context['queries'] = queries_without_page
     context['previous'] = page - 1 if page - 1 > 0 else 0
-    context['next'] = page + 1 if page + 1 <= pages[-1] else 0
+    context['next'] = page + 1 if page + 1 <= len(pages) else 0
 
 def home(request):
     context = {}
@@ -141,8 +141,8 @@ def table(request, field):
     context = {}
     field = field if field else 'title'
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    note = recipeUser.notes.find(id = noteId)
-
+    context['notes'] = recipeUser.notes.all().order_by(Lower(field))
+    context['fields'] = getTableFields(field)
     return render(request, 'table.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')

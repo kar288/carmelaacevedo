@@ -23,6 +23,11 @@ body {
 .divider-color         { border-color: #B6B6B6; }
 /**************************************/
 
+.no-recipes {
+  /*margin: 100%;*/
+  text-align: center;
+}
+
 input[type=text]:focus {
   border-color: #FFC107;
   box-shadow: 0 1px 0 0 #FFC107;
@@ -46,7 +51,10 @@ input[type=text]:focus {
 .dropdown-content li>a:hover, .dropdown-content li>span:hover {
   background-color: inherit;
 }
-
+.materialize-tags.active {
+  border-bottom-color: #FFC107;
+  box-shadow: 0 1px 0 0 #FFC107;
+}
  .input-field label {
    /*color: #FFC107;*/
  }
@@ -210,8 +218,18 @@ input[type=text]:focus {
   font-size: 2em;
   font-weight: 100;
   margin: 0 auto;
+  padding: 5em 0;
   text-align: center;
-  width: 400px;
+  width: 600px;
+}
+
+.recipe-general-description .detail{
+  font-size: 0.5em;
+  padding: 1em;
+}
+
+.table-container, .seasonal-content {
+  padding: 2em;
 }
 
 .recipe-content {

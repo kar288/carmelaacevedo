@@ -37,6 +37,7 @@ Home
           {% include 'smallRecipe.html' %}
         {% endfor %}
       </div>
+      {% if pages %}
       <ul class="pagination">
         <li class="{% if previous %}waves-effect{% else %}disabled{% endif %}"><a href="{% if previous %}?{{queries.urlencode}}&amp;page={{previous}}{% endif %}"><i class="material-icons">chevron_left</i></a></li>
         {% for i in pages %}
@@ -44,6 +45,11 @@ Home
         {% endfor %}
         <li class="{% if next %}waves-effect{% else %}disabled{% endif %}"><a href="{% if next %}?{{queries.urlencode}}&amp;page={{next}}{% endif %}"><i class="material-icons">chevron_right</i></a></li>
       </ul>
+      {% else %}
+        <div class="no-recipes">
+          There are no recipes here!
+        </div>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
