@@ -1,5 +1,7 @@
 {% extends "recipeBase.html" %}
 
+{% block title %}Table{% endblock %}
+
 {% block content %}
 <div class="center">
   <!-- <h5>
@@ -14,9 +16,15 @@
       <thead>
         <tr>
           {% for field in fields%}
-            <th class="table-header{% if field.selected %} selected{% endif %}">
-              <a href="/recipes/table/{{field.field}}">
+            <th class="table-header {{field.field}} {% if field.selected %} selected{% endif %}">
+              <a href="{% url 'table' field.field field.selected %}">
                 {{field.display}}
+                {% if field.selected == 1 %}
+                  <i class="material-icons">arrow_drop_up</i>
+                {% endif %}
+                {% if field.selected == 2 %}
+                  <i class="material-icons">arrow_drop_down</i>
+                {% endif %}
               </a>
             </th>
           {% endfor %}

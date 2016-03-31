@@ -34,32 +34,33 @@ import operator
 
 PAGE_SIZE = 12
 
-def getTableFields(field):
-    return [{
+def getTableFields(field, direction):
+    fields =  [{
             'field': 'image',
             'display': '',
-            'selected': 'image' == field
+            'selected': direction if 'image' == field else 0
         }, {
             'field': 'title',
             'display': 'Title',
-            'selected': 'title' == field
+            'selected': direction if 'title' == field else 0
         }, {
             'field': 'site',
             'display': 'Site',
-            'selected': 'site' == field
+            'selected': direction if 'site' == field else 0
         }, {
             'field': 'difficulty',
             'display': 'Difficulty',
-            'selected': 'difficulty' == field
+            'selected': direction if 'difficulty' == field else 0
         }, {
             'field': 'servings',
             'display': 'Servings',
-            'selected': 'servings' == field
+            'selected': direction if 'servings' == field else 0
         }, {
             'field': 'rating',
             'display': 'Rating',
-            'selected': 'rating' == field
+            'selected': direction if 'rating' == field else 0
         }]
+    return fields
 
 
 def pagination(request, context, page, notes):
@@ -137,12 +138,19 @@ def getTopValues(notes, field, selected):
     return elements
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
-def table(request, field):
+def table(request, field, direction):
     context = {}
     field = field if field else 'title'
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     context['notes'] = recipeUser.notes.all().order_by(Lower(field))
-    context['fields'] = getTableFields(field)
+    direction = int(direction)
+    if direction == 1:
+        context['notes'] = context['notes'].reverse()
+    if direction == 1:
+        direction = 2
+    elif direction == 2 or direction == 0:
+        direction = 1
+    context['fields'] = getTableFields(field, direction)
     return render(request, 'table.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')

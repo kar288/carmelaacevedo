@@ -407,7 +407,15 @@ input[type=text]:focus {
   background-color: #F8F8F8;
   height: 50px;
   padding: 0;
-  /*cursor: pointer;*/
+  width: 300px;
+}
+
+.table-header.rating {
+  width: 105px;
+}
+
+.table-header.difficulty {
+  min-width: 120px;
 }
 
 .table-header a {
@@ -420,6 +428,15 @@ input[type=text]:focus {
 
 .table-header.selected {
   background-color: #DDD;
+  padding: 7px 5px;
+}
+
+.table-header.image {
+  width: 30px;
+}
+
+.table-header i {
+  float: right;
 }
 
 .notes-container table {
