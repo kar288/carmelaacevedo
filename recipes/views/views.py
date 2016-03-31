@@ -406,11 +406,10 @@ def editNote(request, noteId):
         context['errors'] = ['Note not found']
     else:
         for field in post:
-            if field == 'difficulty':
-                setattr(note, 'difficulty', post.get('difficulty', '-'))
-            else:
+            if not field == 'difficulty' and not field == 'rating':
                 setattr(note, field, clean(post.get(field, '')))
         setattr(note, 'rating', post.get('rating', -1))
+        setattr(note, 'difficulty', post.get('difficulty', '-'))
         note.save()
         context['note'] = note
     return redirect('/recipes/note/' + noteId)

@@ -37,7 +37,7 @@
       </div>
       <div class="input-field col s4">
           <select id="difficulty" name="difficulty">
-            <option value="-" disabled {% if note.difficulty == "-" %}selected{% endif %}>Choose your option</option>
+            <option value="-" {% if note.difficulty == "-" %}selected{% endif %}>Choose your option</option>
             <option value="E" {% if note.difficulty == "E" %}selected{% endif %}>Easy</option>
             <option value="M" {% if note.difficulty == "M" %}selected{% endif %}>Medium</option>
             <option value="H" {% if note.difficulty == "H" %}selected{% endif %}>High</option>
