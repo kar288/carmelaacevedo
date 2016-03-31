@@ -5,8 +5,16 @@ Seasonal
 {% endblock %}
 
 {% block content %}
+<div class="center">
+  <h5>
+    Seasonal recipes
+  </h5>
+  <p>
+    Choose a month and find recipes that have the ingredients that are in season.
+  </p>
+</div>
 <div class="row seasonal-content">
-  <div class="col s12 m6 l6">
+  <div class="col s12 m8 l6">
     <table class="striped season-table">
       <thead>
         {% for month in months %}
@@ -30,7 +38,7 @@ Seasonal
       </tbody>
     </table>
   </div>
-  <div class="col s12 m6 l6">
+  <div class="col s12 m4 l6">
     <div class="row notes-container">
       {% for note in notes %}
         {% include 'smallRecipe.html' %}

@@ -1,44 +1,17 @@
-# python-getting-started
+# Portfolio and other applications
 
-A barebones Python app, which can easily be deployed to Heroku.
+This github repository contains all code related to my portfolio.
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+There are several other applications and projects that are bundled into this repository.
 
-## Running Locally
+## Resume
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+The HTML version of my resume is built using paper components.
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
+## Photography
 
-$ pip install -r requirements.txt
+Is a simple page with a bit of javascript to showcase some of my photographic projects.
 
-$ createdb python_getting_started
+## Recipes
 
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+Is the project I am currently working on. It is a django application to organize and keep track of recipes. I am trying to build it with as little javascript as possible (although materializecss already has a lot). 
