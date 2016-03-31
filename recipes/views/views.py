@@ -148,7 +148,7 @@ def table(request, field, direction):
     context = {}
     field = field if field else 'title'
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    
+
     if field == 'rating':
         context['notes'] = recipeUser.notes.all().order_by(field)
     else:
@@ -206,7 +206,7 @@ def tableAll(request, field):
     context = {}
     field = field if field else 'title'
     context['notes'] = Note.objects.all().order_by(Lower(field))
-    context['fields'] = getTableFields(field)
+    context['fields'] = getTableFields(field, 1)
     return render(request, 'table.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
