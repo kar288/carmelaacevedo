@@ -236,6 +236,10 @@ input[type=text]:focus {
   padding: 2em;
 }
 
+.seasonal-content .col {
+  min-width: 595px;
+}
+
 .recipe-content {
   margin: 0 auto;
   width: 600px;
@@ -428,7 +432,7 @@ input[type=text]:focus {
 
 .table-header.selected {
   background-color: #DDD;
-  padding: 7px 5px;
+  /*padding: 7px 5px;*/
 }
 
 .table-header.image {

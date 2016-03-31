@@ -77,6 +77,7 @@ def pagination(request, context, page, notes):
     context['queries'] = queries_without_page
     context['previous'] = page - 1 if page - 1 > 0 else 0
     context['next'] = page + 1 if page + 1 <= len(pages) else 0
+    context['rates'] = range(5, 0, -1)
 
 def home(request):
     context = {}
@@ -97,8 +98,13 @@ def home(request):
         if field == 'page':
             page = int(get.get(field))
             continue
-        for val in vals:
-            note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
+        if field == 'rating':
+            rating = int(get.get(field))
+            context['ratingFilter'] = rating
+            note_per_field |= recipeUser.notes.filter(rating__gte = rating)
+        else:
+            for val in vals:
+                note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
         notes_per_field.append(note_per_field)
     for note_per_field in notes_per_field:
         notes &= note_per_field
