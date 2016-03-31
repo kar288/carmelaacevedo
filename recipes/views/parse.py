@@ -92,9 +92,11 @@ def parseRecipe(url):
     if not url.startswith('http'):
         url = 'http://' + url
     recipe = {'url': url}
-    req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
-    html = urllib2.urlopen(req)
-    soup = BeautifulSoup(html)
+    # req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+    # html = urllib2.urlopen(req)
+    result = requests.get(url)
+    html = result.content
+    soup = BeautifulSoup(html, "html.parser")
     # print url
     if 'nyt' in url:
         parseNYT(soup, recipe)
@@ -121,6 +123,7 @@ def parseRecipe(url):
     return recipe
 
 def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
+    print  soup
     recipe['title'] = soup.find(attrs={'property': 'og:title'})['content']
     recipe['tags'] = getTags(soup, tagAttr, tagLink)
     instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})

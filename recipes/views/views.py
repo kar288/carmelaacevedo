@@ -148,7 +148,12 @@ def table(request, field, direction):
     context = {}
     field = field if field else 'title'
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    context['notes'] = recipeUser.notes.all().order_by(Lower(field))
+    
+    if field == 'rating':
+        context['notes'] = recipeUser.notes.all().order_by(field)
+    else:
+        context['notes'] = recipeUser.notes.all().order_by(Lower(field))
+
     direction = int(direction)
     if direction == 1:
         context['notes'] = context['notes'].reverse()
