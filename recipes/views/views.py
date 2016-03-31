@@ -200,7 +200,6 @@ def note(request, noteId):
     except:
         note = get_object_or_404(Note, id = noteId)
         context['shared'] = True
-        print int(request.GET.get('share', '0'))
         if note.shared == False or not int(request.GET.get('share', '0')):
             raise Http404("No such recipe.")
     context['note'] = note
@@ -289,26 +288,18 @@ def getSeasonRecipes(request, month):
     context = {}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     notes = Note.objects.none()
-    if not month:
-        month = datetime.now().strftime("%b")
-        print month
-    month = Month.objects.filter(name__icontains=month)
-    if len(month):
-        ingredients = month[0].ingredients.split(',')
-        for ingredient in ingredients:
-            notes |= recipeUser.notes.filter(ingredients__icontains = ingredient)
-        context['selected'] = date(1900, month[0].index, 1).strftime('%b')
-        context['selectedIndex'] = month[0].index
+
     months = Month.objects.all()
     ingredientSeasons = {}
-    for month in months:
-        ingredients = month.ingredients.split(',')
+    for m in months:
+        ingredients = m.ingredients.split(',')
         for ingredient in ingredients:
             seasons = {}
             if ingredient in ingredientSeasons:
                 seasons = ingredientSeasons[ingredient]
-            seasons[month.index] = True
+            seasons[m.index] = True
             ingredientSeasons[ingredient] = seasons
+
     context['ingredientSeasons'] = {}
     for ingredient in ingredientSeasons:
         months = []
@@ -321,6 +312,17 @@ def getSeasonRecipes(request, month):
     context['months'] = ['']
     for i in range(1, 13):
         context['months'].append(date(1900, i, 1).strftime('%b'))
+
+    if not month:
+        month = datetime.now().strftime("%b")
+    month = Month.objects.filter(name__icontains = month)
+    if len(month):
+        ingredients = month[0].ingredients.split(',')
+        for ingredient in ingredients:
+            if len(ingredientSeasons[ingredient]) < 6 and not ingredient == 'garlic':
+                notes |= recipeUser.notes.filter(ingredients__icontains = ingredient)
+        context['selected'] = date(1900, month[0].index, 1).strftime('%b')
+        context['selectedIndex'] = month[0].index
 
     context['notes'] = notes
     # context['success'] = ingredients
