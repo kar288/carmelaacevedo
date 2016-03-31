@@ -42,6 +42,9 @@ Home
                 {% endfor %}
               </fieldset>
             </label>
+            <span class="rating-clear">
+              <i onclick="$('input[name=rating]').attr('checked',false)" class="material-icons">clear</i>
+            </span>
             <br>
             <input class="btn light-primary-color" value="filter" type="submit"/>
           </form>

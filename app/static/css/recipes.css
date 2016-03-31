@@ -496,6 +496,12 @@ input[type=text]:focus {
   padding: 0;
 }
 
+.rating-clear {
+  position: relative;
+  top: 7px;
+  cursor: pointer;
+}
+
 .rating > input { display: none; }
 .rating > label:before {
   margin: 5px;
