@@ -31,6 +31,7 @@ from urlparse import urlparse
 
 import math
 import operator
+import traceback
 
 PAGE_SIZE = 12
 
@@ -385,6 +386,22 @@ def deleteNote(request, noteId):
         context['notes'] = recipeUser.notes.all()
     return redirect('/recipes/')
 
+def deleteRecipes(request):
+    context = {}
+    get = request.GET
+    ids = get.getlist('recipe')
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    for noteId in ids:
+        try:
+            note = recipeUser.notes.get(id = noteId)
+        except:
+            context['errors'] = ['Note not found']
+        recipe = note.recipe
+        context['success'] = ['Recipe was deleted: ' + note.title]
+        recipe.delete()
+        note.delete()
+    return redirect('/recipes/table/title/1')
+
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def advancedSearchHtml(request, field):
     return render(request, 'advancedSearch.html')
@@ -442,6 +459,8 @@ def getTagsForNote(note):
     return longerWords + tags
 
 def addRecipeByUrl(recipeUser, recipeUrl, post):
+    if recipeUser.notes.filter(url = recipeUrl).exists():
+        return 'Recipe already exists!'
     try:
         recipeData = parseRecipe(recipeUrl)
         domain = tldextract.extract(recipeUrl).domain
@@ -480,6 +499,9 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         return 'Could not get recipe: ' + recipeUrl
     except urllib2.HTTPError, err:
         return 'Could not get recipe: ' + recipeUrl
+    except Exception as e:
+        traceback.print_exc()
+        return e
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addBulk(request):
@@ -518,7 +540,7 @@ def processBulk(request):
 
     try:
         bookmarks = request.FILES['bookmarks'].read()
-        soup = BeautifulSoup(bookmarks)
+        soup = BeautifulSoup(bookmarks, "html.parser")
         urls = []
         tags = soup.findAll('a')
         for tag in tags:

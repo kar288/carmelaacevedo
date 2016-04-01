@@ -12,56 +12,68 @@
   </p>
 </div>
   <div class="row table-container notes-container">
-    <table class="highlight">
-      <thead>
-        <tr>
-          {% for field in fields%}
-            <th class="table-header {{field.field}} {% if field.selected %} selected{% endif %}">
-              <a href="{% url 'table' field.field field.selected %}">
-                {{field.display}}
-                {% if field.selected == 1 %}
-                  <i class="material-icons">arrow_drop_up</i>
-                {% endif %}
-                {% if field.selected == 2 %}
-                  <i class="material-icons">arrow_drop_down</i>
-                {% endif %}
-              </a>
-            </th>
-          {% endfor %}
-        </tr>
-      </thead>
-      <tbody>
-        {% for note in notes %}
+    <form class="filter-form" action="{% url 'deleteRecipes' %}" method="get">
+      <table class="highlight">
+        <thead>
           <tr>
-            <td>
-              <div
-                class="recipe-image small"
-                style="background-image: url('{{note.image}}')"
-              ></div>
-            </td>
-            <td>
-              <a href="{% url 'note' note.id %}">
-                {{note.title}}
-              </a>
-            </td>
-            <td>
-              {{note.site}}
-            </td>
-            <td>
-              {{note.difficulty}}
-            </td>
-            <td>
-              {{note.servings}}
-            </td>
-            <!-- <td>
-              {{note.date_added_formatted}}
-            </td> -->
-            <td>
-              {% include 'ratingStars.html' %}
-            </td>
+            <th></th>
+            {% for field in fields%}
+              <th class="table-header {{field.field}} {% if field.selected %} selected{% endif %}">
+                <a href="{% url 'table' field.field field.selected %}">
+                  {{field.display}}
+                  {% if field.selected == 1 %}
+                    <i class="material-icons">arrow_drop_up</i>
+                  {% endif %}
+                  {% if field.selected == 2 %}
+                    <i class="material-icons">arrow_drop_down</i>
+                  {% endif %}
+                </a>
+              </th>
+            {% endfor %}
           </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {% for note in notes %}
+            <tr>
+              <td>
+                <input value="{{note.id}}"
+                  name="recipe"
+                  type="checkbox"
+                  id="{{note.id}}"
+                />
+                <label for="{{note.id}}"></label>
+              </td>
+              <td>
+                <div
+                  class="recipe-image small"
+                  style="background-image: url('{{note.image}}')"
+                ></div>
+              </td>
+              <td>
+                <a href="{% url 'note' note.id %}">
+                  {{note.title}}
+                </a>
+              </td>
+              <td>
+                {{note.site}}
+              </td>
+              <td>
+                {{note.difficulty}}
+              </td>
+              <td>
+                {{note.servings}}
+              </td>
+              <!-- <td>
+                {{note.date_added_formatted}}
+              </td> -->
+              <td>
+                {% include 'ratingStars.html' %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <input class="btn light-primary-color" value="delete" type="submit"/>
+    </form>
   </div>
 {% endblock %}

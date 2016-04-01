@@ -23,7 +23,7 @@ def getImage(soup, attr=None, key=None):
         image = soup.find(attrs={"property": "og:image"})
         if image:
             for key in keys:
-                if image.has_key(key):
+                if image.has_attr(key):
                     imageUrl = image[key]
                     break
         if imageUrl:
@@ -39,6 +39,7 @@ def getTags(soup, attr=None, link=None):
     tagsResult = []
     tagAttrs = [attr] if attr is not None else [
         {'itemprop': 'keywords'},
+        {'itemprop': 'recipeCategory'},
         {'name': 'keywords'},
         {'property': 'article:tag'},
         {'name': 'sailthru.tags'},
@@ -65,7 +66,15 @@ def getTags(soup, attr=None, link=None):
     else:
         for tagAttr in tagAttrs:
             tags = soup.findAll(attrs=tagAttr)
-            tagsArray = [tag['content'].lower() for tag in tags if tag and tag.has_key('content')]
+            print tags
+            tagsArray = [tag['content'].lower() for tag in tags if tag and tag.has_attr('content')]
+            print tagsArray
+            if len(tags) and not len(tagsArray):
+                for tag in tags:
+                    el = traverse(tag, '')
+                    if len(el):
+                        tagsArray.append(el[0].lower())
+            print tagsArray
             if len(tagsArray) == 1 and ',' in tagsArray[0]:
                 tagsArray = tagsArray[0].split(',')
             tagsArray = [tag.strip() for tag in tagsArray]
@@ -93,10 +102,10 @@ def parseRecipe(url):
     if not url.startswith('http'):
         url = 'http://' + url
     recipe = {'url': url}
-    # req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
-    # html = urllib2.urlopen(req)
-    result = requests.get(url)
-    html = result.content
+    req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+    html = urllib2.urlopen(req)
+    # result = requests.get(url)
+    # html = result.content
     soup = BeautifulSoup(html, "html.parser")
     # print url
     if 'nyt' in url:
@@ -119,12 +128,13 @@ def parseRecipe(url):
         parseTheKitchn(soup, recipe)
     elif 'cookieandkate' in url:
         parseCookieAndKate(soup, recipe)
+    elif 'foodnetwork' in url:
+        parseFoodNetwork(soup, recipe)
     else:
         parseGeneral(url, soup, recipe)
     return recipe
 
 def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
-    print  soup
     recipe['title'] = soup.find(attrs={'property': 'og:title'})['content']
     recipe['tags'] = getTags(soup, tagAttr, tagLink)
     instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
@@ -133,7 +143,11 @@ def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
     recipe['ingredients'] = traverse(ingredientElements, ' ')
     recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
     servings = soup.find(attrs={'itemprop': 'recipeYield'})
-    recipe['servings'] = servings.text
+    if servings.has_attr('content'):
+        print servings
+        recipe['servings'] = servings['content']
+    else:
+        recipe['servings'] = servings.text
     return recipe
 
 
@@ -193,6 +207,19 @@ def parseCookieAndKate(soup, recipe):
         'ingredients'
     )
 
+def parseFoodNetwork(soup, recipe):
+    recipe = parserTemplate(soup, recipe,
+        {'itemprop': 'recipeCategory'},
+        '',
+        'ingredients'
+    )
+    if len(recipe['instructions']):
+        instructions = recipe['instructions'][0]
+        if 'CATEGORIES' in instructions:
+            instructions = instructions.split('CATEGORIES')[0]
+        recipe['instructions'] = [instructions]
+    return recipe
+
 def parseSmittenKitchen(soup, recipe):
     recipe['title'] = soup.find('a', attrs={'rel': 'bookmark'}).text
     recipe['tags'] = getTags(soup, {}, re.compile(r'.*postmetadata.*'))
@@ -202,7 +229,7 @@ def parseSmittenKitchen(soup, recipe):
     recipe['ingredients'] = ingredients
     recipe['instructions'] = instructions
 
-    servings = soup.body.find(text=re.compile('^(Serve|Yield|Make)[s]*.*'))
+    servings = soup.find(text=re.compile('^(Serve|Yield|Make)[s]*.*'))
     if not servings:
         return recipe
     node = servings.parent
@@ -265,6 +292,9 @@ def parseTheKitchn(soup, recipe):
     return recipe
 
 def parseGeneral(url, soup, recipe):
+    if not soup:
+        return
+
     recipe['image'] = getImage(soup)
     ogTitle = soup.find(attrs={'property': 'og:title'})
     if ogTitle:
@@ -281,6 +311,9 @@ def parseGeneral(url, soup, recipe):
     recipe['ingredients'] = traverse(ingredientElements, ' ')
 
     servings = soup.findAll(attrs={'itemprop': 'recipeYield'})
-    recipe['servings'] = ' '.join(traverse(servings, ' '))
+    if len(servings) and servings[0].has_attr('content'):
+        recipe['servings'] = servings[0]['content']
+    else:
+        recipe['servings'] = ' '.join(traverse(servings, ' '))
 
     return recipe

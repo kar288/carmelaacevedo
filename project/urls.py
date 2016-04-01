@@ -50,4 +50,5 @@ urlpatterns = [
     url(r'^recipes/editNoteHtml/(?P<noteId>[0-9]+)/$', recipes.views.editNoteHtml, name='editNoteHtml'),
     url(r'^recipes/deleteNote/(?P<noteId>[0-9]+)/$', recipes.views.deleteNote, name='deleteNote'),
     url(r'^recipes/deleteNoteHtml/(?P<noteId>[0-9]+)/$', recipes.views.deleteNoteHtml, name='deleteNoteHtml'),
+    url(r'^recipes/deleteRecipes/$', recipes.views.deleteRecipes, name='deleteRecipes'),
 ]
