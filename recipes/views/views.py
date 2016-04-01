@@ -157,7 +157,7 @@ def table(request, field, direction):
     field = field if field else 'title'
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
 
-    if field == 'rating':
+    if field == 'rating' or field == 'created_at':
         context['notes'] = recipeUser.notes.all().order_by(field)
     else:
         context['notes'] = recipeUser.notes.all().order_by(Lower(field))
