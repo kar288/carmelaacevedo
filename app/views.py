@@ -59,6 +59,13 @@ def home(request):
       'Find out which movies or series of an IMDB list are in Netflix.'
     ]
   }, {
+    'title': 'Recipe Manager',
+    'url': '/recipes/',
+    'image': 'images/recipe-manager.png',
+    'text': ['Personal project:',
+      'Organizing recipes and being able to take notes for each of them. A django application that will be able to tag recipes, recommend seasonal ones and let users share their recipes and notes with others.'
+    ]
+  }, {
     'title': 'Photography',
     'url': '/pictures',
     'image': 'images/photography-thumbnail.png',
