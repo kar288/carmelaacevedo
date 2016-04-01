@@ -29,6 +29,7 @@ from parse import *
 from recipes.models import Recipe, Note, RecipeUser, Month
 from urlparse import urlparse
 
+import logging
 import math
 import operator
 import traceback
@@ -59,6 +60,10 @@ def getTableFields(field, direction):
         }, {
             'field': 'rating',
             'display': 'Rating',
+            'selected': direction if 'rating' == field else 0
+        }, {
+            'field': 'created_at',
+            'display': 'Date',
             'selected': direction if 'rating' == field else 0
         }]
     return fields
@@ -104,8 +109,10 @@ def home(request):
             context['ratingFilter'] = rating
             note_per_field |= recipeUser.notes.filter(rating__gte = rating)
         else:
+            print vals
             for val in vals:
                 note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
+                print note_per_field
         notes_per_field.append(note_per_field)
     for note_per_field in notes_per_field:
         notes &= note_per_field
@@ -417,6 +424,15 @@ def addRecipeHtml(request):
 def addRecipesHtml(request):
     return render(request, 'addRecipes.html')
 
+def addRecipeAsync(request):
+    context = {}
+    get = request.GET
+    url = get.get('url', '')
+    print url
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    context['error'] = addRecipeByUrl(recipeUser, url, get)
+    return JsonResponse(context)
+
 def editNote(request, noteId):
     context = {}
     post = request.POST
@@ -439,7 +455,6 @@ def editNote(request, noteId):
 def clean(str):
     return str.replace('\r', '').strip()
 
-# Create your views here.
 def addNote(request):
     post = request.POST
     if not post or not 'recipeUrl' in post or not len(post['recipeUrl']):
@@ -511,10 +526,10 @@ def addBulk(request):
         return redirect('/recipes/addRecipes/')
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     bookmarks = post.getlist('bookmark')
-    for recipeUrl in bookmarks:
-        error = addRecipeByUrl(recipeUser, recipeUrl, post)
-        context['errors'].append(error)
-    return redirect('/recipes/')
+    # for recipeUrl in bookmarks:
+    #     error = addRecipeByUrl(recipeUser, recipeUrl, post)
+    #     context['errors'].append(error)
+    return render(request, 'addRecipes.html', {'recipes': bookmarks})
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def processBulk(request):

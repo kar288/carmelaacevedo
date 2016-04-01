@@ -135,7 +135,7 @@ def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
     recipe['title'] = soup.title.string
     title = soup.find(attrs={'property': 'og:title'})
     if title:
-        recipe['title'] = ['content']
+        recipe['title'] = title['content']
     recipe['tags'] = getTags(soup, tagAttr, tagLink)
     instructionElements = soup.findAll(attrs={'itemprop': 'recipeInstructions'})
     recipe['instructions'] = traverse(instructionElements, '\n')

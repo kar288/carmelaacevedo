@@ -9,7 +9,7 @@
   <div class="light-primary-color card-content">
     <span class="card-title grey-text text-darken-4">
       <a target="_blank" class="primary-text-color" href="{{note.url}}">
-        {{note.title}}
+        {{note.title}} - {{note.site}}
       </a>
 
       <a class="recipe-original-link" href="{% url 'deleteNoteHtml' note.id %}">

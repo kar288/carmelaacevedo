@@ -556,3 +556,23 @@ input[type=text]:focus {
 
 /*[type="radio"] {*/
 /*}*/
+
+.recipe-add-row {
+  border-bottom: 1px solid grey;
+  line-height: 2em;
+  height: 2em;
+  overflow: hidden;
+}
+
+.recipe-url-add {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.preloader-wrapper.mini {
+  height: 20px;
+  width: 20px;
+}
