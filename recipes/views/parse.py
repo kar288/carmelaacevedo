@@ -30,7 +30,8 @@ def getImage(soup, attr=None, key=None):
             break
     if not imageUrl:
         images = soup.findAll('img')
-        imageUrl = images[0]['src']
+        if len(images):
+            imageUrl = images[0]['src']
 
     return imageUrl
 
