@@ -63,21 +63,17 @@ def getTags(soup, attr=None, link=None):
         tags = tagContainer[0].findAll('a')
         tagVals = [tag.text.lower().replace(' ', '-') for tag in tags]
         tagsResult = tagVals
-    else:
-        for tagAttr in tagAttrs:
-            tags = soup.findAll(attrs=tagAttr)
-            tagsArray = [tag['content'].lower() for tag in tags if tag and tag.has_attr('content')]
-            if len(tags) and not len(tagsArray):
-                for tag in tags:
-                    el = traverse(tag, '')
-                    if len(el):
-                        tagsArray.append(el[0].lower())
-            if len(tagsArray) == 1 and ',' in tagsArray[0]:
-                tagsArray = tagsArray[0].split(',')
-            tagsArray = [tag.strip() for tag in tagsArray]
-            tagsResult = tagsArray
-            if len(tagsArray):
-                break
+
+    for tagAttr in tagAttrs:
+        tags = soup.findAll(attrs=tagAttr)
+        tagsArray = [tag['content'].lower() for tag in tags if tag and tag.has_attr('content')]
+        if len(tags) and not len(tagsArray):
+            els = traverse(tags, '')
+            tagsArray = [el.lower() for el in els]
+        if len(tagsArray) == 1 and ',' in tagsArray[0]:
+            tagsArray = tagsArray[0].split(',')
+        tagsArray = [tag.strip() for tag in tagsArray]
+        tagsResult += tagsArray
     return tagsResult
 
 def traverse(nodes, separator):
