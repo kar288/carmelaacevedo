@@ -3,6 +3,9 @@
 {% block content %}
 <div class="recipe-form centered small">
   {% if urls %}
+    <a class="btn" onclick="$('input[name=bookmark]').attr('checked',true)">
+      Select all
+    </a>
     <form action="{% url 'addBulk' %}" method="post">
       {% for url in urls %}
         <p style="background-color: {{url.color}}">
