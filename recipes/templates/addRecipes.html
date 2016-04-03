@@ -23,7 +23,7 @@
           {{recipe}}
         </div>
         <div class="col s1 m1 l1">
-          <i id="check-{{forloop.counter0}}" class="hidden material-icons">check</i>
+          <i id="check-{{forloop.counter0}}" class="green-text hidden material-icons">check</i>
           <i class="tooltipped hidden material-icons"
             data-position="top"
             data-delay="50"
@@ -60,19 +60,33 @@
           return;
         }
         $('#spinner-' + index).removeClass('hidden');
-        $.get('/recipes/addRecipeAsync/',
-          {url: links[index].innerText},
-          function(data) {
+        $.get('/recipes/addRecipeAsync/', {url: links[index].innerText})
+          .done(function(data) {
             $('#spinner-' + index).addClass('hidden');
             if (!data.error) {
               $('#check-' + index).removeClass('hidden');
             } else {
-              $('#error-' + index)
-                .attr('data-tooltip', data.error)
+              var error = $('#error-' + index);
+              if (data.error.level === 0) {
+                error.addClass('green-text');
+              } else if (data.error.level === 2) {
+                error.addClass('orange-text');
+              } else {
+                error.addClass('red-text');
+              }
+              error
+                .attr('data-tooltip', data.error.error)
                 .removeClass('hidden');
             }
             return addRecipe(links, index + 1)
-        });
+          }).fail(function(e) {
+            $('#spinner-' + index).addClass('hidden');
+            var error = $('#error-' + index);
+            error.addClass('red-text');
+            error
+              .attr('data-tooltip', e)
+              .removeClass('hidden');
+          });
       }
       addRecipe(links, 0);
     </script>

@@ -1,6 +1,7 @@
 import tldextract
 import re
 import requests
+import traceback
 import urllib2
 
 from bs4 import BeautifulSoup, NavigableString
@@ -37,7 +38,7 @@ def getImage(soup, attr=None, key=None):
 
 def getTags(soup, attr=None, link=None):
     tagsResult = []
-    tagAttrs = [attr] if attr is not None else [
+    tagAttrs = [
         {'itemprop': 'keywords'},
         {'itemprop': 'recipeCategory'},
         {'name': 'keywords'},
@@ -45,6 +46,8 @@ def getTags(soup, attr=None, link=None):
         {'name': 'sailthru.tags'},
         {'name': 'parsely-tags'}
     ]
+    if attr is not None and attr:
+        tagAttrs = [attr]
     tagLinks = []
     if link is None:
         tagLinks = [
@@ -54,11 +57,13 @@ def getTags(soup, attr=None, link=None):
         ]
     elif link:
         tagLinks = [link]
+
     tagContainer = None
     for tagLink in tagLinks:
         tagContainer = soup.findAll(attrs={'class': tagLink})
         if tagContainer:
             break
+
     if tagContainer and len(tagContainer):
         tags = tagContainer[0].findAll('a')
         tagVals = [tag.text.lower().replace(' ', '-') for tag in tags]
@@ -73,7 +78,8 @@ def getTags(soup, attr=None, link=None):
             tagsArray = tagsArray[0].split(',')
         tagsArray = [tag.strip().lower() for tag in tagsArray]
         tagsResult += tagsArray
-    return tagsResult
+
+    return list(set(tagsResult))
 
 def traverse(nodes, separator):
     texts = []
@@ -91,11 +97,19 @@ def parseRecipe(url):
     #TEST
     # get = request.GET
     # recipeUrl = get['url']
+    print 'parseRecipe'
     if not url.startswith('http'):
         url = 'http://' + url
     recipe = {'url': url}
-    req = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
-    html = urllib2.urlopen(req)
+    try:
+        print 'NORMAL'
+        req = urllib2.Request(url.encode("utf8"), headers={'accept': '*/*', 'User-Agent' : "Magic Browser"})
+        html = urllib2.urlopen(req)
+    except urllib2.HTTPError, err:
+        print 'NEW'
+        traceback.print_exc()
+        html = urllib2.build_opener(urllib2.HTTPCookieProcessor).open(url)
+    #
     # result = requests.get(url)
     # html = result.content
     soup = BeautifulSoup(html, "html.parser")
@@ -147,11 +161,12 @@ def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
 
 
 def parseNYT(soup, recipe):
-    return parserTemplate(soup, recipe,
+    recipe =  parserTemplate(soup, recipe,
         {},
         'tags-nutrition-container',
         'recipeIngredient'
     )
+    return recipe
 
 def parseBonAppetit(soup, recipe):
     return parserTemplate(soup, recipe,
@@ -293,7 +308,7 @@ def parseTheKitchn(soup, recipe):
     return recipe
 
 def parseGeneral(url, soup, recipe):
-    if not soup:
+    if not soup or not soup.title:
         return
 
     recipe['image'] = getImage(soup)

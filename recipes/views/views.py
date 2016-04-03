@@ -32,6 +32,7 @@ from urlparse import urlparse
 import logging
 import math
 import operator
+import sys
 import traceback
 
 PAGE_SIZE = 12
@@ -109,10 +110,8 @@ def home(request):
             context['ratingFilter'] = rating
             note_per_field |= recipeUser.notes.filter(rating__gte = rating)
         else:
-            print vals
             for val in vals:
                 note_per_field |= recipeUser.notes.filter(**{field + '__icontains': val})
-                print note_per_field
         notes_per_field.append(note_per_field)
     for note_per_field in notes_per_field:
         notes &= note_per_field
@@ -278,15 +277,16 @@ def advancedSearch(request):
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     notes = Note.objects.all()
     for field in query:
-        q = query.get(field, '').strip().split(' ')
+        q = query.get(field, '').strip().split(',')
         if not len(q):
             continue
         for term in q:
+            term = term.strip()
             if field == 'tags':
                 notes &= recipeUser.notes.filter(tags__icontains = term)
             if field == 'title':
                 notes &= recipeUser.notes.filter(recipe__title__icontains = term)
-            if field == 'ingredients':
+            if field == 'ingredients' and not 'onlyIngredients' in query:
                 notes &= recipeUser.notes.filter(recipe__ingredients__icontains = term)
             if field == 'instructions':
                 notes &= recipeUser.notes.filter(recipe__instructions__icontains = term)
@@ -296,7 +296,25 @@ def advancedSearch(request):
                 notes &= recipeUser.notes.filter(difficulty__icontains = term)
             if field == 'servings':
                 notes &= recipeUser.notes.filter(servings__icontains = term)
+    if 'onlyIngredients' in query:
+        endNotes = []
+        queryIngredients = ['oil', 'salt', 'pepper', 'butter'] \
+            + query.get('ingredients', '').split(',')
+        for note in notes:
+            if not note.ingredients:
+                continue
+            recipeIngredientsStr = note.ingredients
+            recipeIngredients = recipeIngredientsStr.split('\n')
+            inRecipe = 0
+            for ingredient in queryIngredients:
+                ingredient = ingredient.strip()
+                if ingredient in recipeIngredientsStr:
+                    inRecipe += 1
+            if len(recipeIngredients) - inRecipe < 3:
+                endNotes.append(note)
+        notes = endNotes
     context['notes'] = notes
+    context['rates'] = range(5, 0, -1)
     return render(request, 'advancedSearch.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
@@ -358,7 +376,7 @@ def getSeasonRecipes(request, month):
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def editNoteHtml(request, noteId):
-    context = {'edit': True, 'rates': [5, 4, 3, 2, 1]}
+    context = {'edit': True, 'rates': range(5, 0, -1)}
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     note = get_object_or_404(Note, id = noteId)
     context['tags'] = getTagsForNote(note)
@@ -416,7 +434,7 @@ def advancedSearchHtml(request, field):
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addRecipeHtml(request):
     return render(request, 'addRecipe.html', {
-        'rates': [5, 4, 3, 2, 1],
+        'rates': range(5, 0, -1),
         'note': {'rating': -1}
     })
 
@@ -430,7 +448,10 @@ def addRecipeAsync(request):
     url = get.get('url', '')
     print url
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
-    context['error'] = addRecipeByUrl(recipeUser, url, get)
+    try:
+        context['error'] = addRecipeByUrl(recipeUser, url, get)
+    except:
+        context['error'] = {'error': 'An unexpected error occured!', 'level': 2}
     return JsonResponse(context)
 
 def editNote(request, noteId):
@@ -474,10 +495,15 @@ def getTagsForNote(note):
     return longerWords + tags
 
 def addRecipeByUrl(recipeUser, recipeUrl, post):
+    print 'logging'
+    logging.info(recipeUrl)
     if recipeUser.notes.filter(url = recipeUrl).exists():
-        return 'Recipe already exists!'
+        print 'exists'
+        return {'error': 'Recipe already exists!', 'level': 0}
     try:
         recipeData = parseRecipe(recipeUrl)
+        if not recipeData or len(recipeData) == 1:
+            return {'error': 'Empty recipe?', 'level': 3}
         domain = tldextract.extract(recipeUrl).domain
         image = recipeData.get('image', '')
         instructions = '\n'.join(recipeData.get('instructions', []))
@@ -511,12 +537,21 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         )
         recipeUser.notes.add(note)
     except urllib2.URLError, err:
-        return 'Could not get recipe: ' + recipeUrl
-    except urllib2.HTTPError, err:
-        return 'Could not get recipe: ' + recipeUrl
-    except Exception as e:
+        print 'aaaaaaaaaa'
         traceback.print_exc()
-        return e
+        if err.code == 404:
+            return {'error': 'The recipe was not found, it might have been removed!', \
+                'level': 3 }
+        return {'error': 'Could not get recipe: ' + recipeUrl, 'level': 3}
+    except urllib2.HTTPError, err:
+        traceback.print_exc()
+        if err.code == 404:
+            return {'error': 'The rcipe was not found, it might have been removed!', 'level': 3}
+        return {'error': 'Could not get recipe: ' + recipeUrl, 'level': 3}
+    except Exception as e:
+        print 'exception'
+        traceback.print_exc()
+        return {'error': sys.exc_info()[0], 'level': 3}
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addBulk(request):
