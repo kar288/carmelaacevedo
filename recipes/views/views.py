@@ -303,7 +303,7 @@ def advancedSearch(request):
         for note in notes:
             if not note.ingredients:
                 continue
-            recipeIngredientsStr = note.ingredients
+            recipeIngredientsStr = note.ingredients.lower()
             recipeIngredients = recipeIngredientsStr.split('\n')
             inRecipe = 0
             for ingredient in queryIngredients:
