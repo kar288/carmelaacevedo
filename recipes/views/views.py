@@ -289,6 +289,10 @@ def advancedSearch(request):
             continue
         for term in q:
             term = term.strip()
+            if field == 'rating':
+                rating = int(context['advancedQuery']['rating'])
+                notes &= recipeUser.notes.filter(rating__gte = rating)
+                context['rating'] = rating
             if field == 'tags':
                 notes &= recipeUser.notes.filter(tags__icontains = term)
             if field == 'title':
@@ -436,7 +440,7 @@ def deleteRecipes(request):
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def advancedSearchHtml(request, field):
-    return render(request, 'advancedSearch.html')
+    return render(request, 'advancedSearch.html', {'rates': range(5, 0, -1)})
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def addRecipeHtml(request):

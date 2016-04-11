@@ -51,7 +51,7 @@
           Rated better than:<br>
           <fieldset class="rating">
             {% for i in rates %}
-              {% if ratingFilter == i %}
+              {% if rating == i %}
                 <input checked type="radio" id="star{{i}}" name="rating" value="{{i}}"><label class="full" for="star{{i}}" title=""></label>
               {% else %}
                 <input type="radio" id="star{{i}}" name="rating" value="{{i}}"><label class="full" for="star{{i}}" title=""></label>
