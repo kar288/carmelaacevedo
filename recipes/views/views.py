@@ -523,23 +523,23 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
           image = image,
           ingredients = ingredients,
           instructions = instructions,
-          title = title,
+          title = title[:200],
           date_added = datetime.now()
         )
         note = Note.objects.create(
           recipe = recipe,
           url = recipeUrl,
-          image = image,
+          image = image[:400],
           ingredients = ingredients,
           instructions = instructions,
-          title = title,
+          title = title[:200],
           date_added = datetime.now(),
           text = post.get('notes', ''),
           tags = post.get('tags', '') + ','.join(recipeData['tags']),
           rating = post.get('rating', -1),
           site = domain,
           difficulty = post.get('difficulty', ''),
-          servings = servings
+          servings = servings[:100]
         )
         recipeUser.notes.add(note)
     except urllib2.URLError, err:
