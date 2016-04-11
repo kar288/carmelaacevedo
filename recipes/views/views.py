@@ -25,6 +25,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from django.http import JsonResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import render_to_string
 from parse import *
 from recipes.models import Recipe, Note, RecipeUser, Month
 from urlparse import urlparse
@@ -69,6 +70,10 @@ def getTableFields(field, direction):
         }]
     return fields
 
+def normalizeURL(url):
+    if not url[-1] == '/':
+        return url + '/'
+    return url
 
 def pagination(request, context, page, notes):
     queries_without_page = request.GET.copy()
@@ -264,6 +269,8 @@ def search(request):
         notes |= recipeUser.notes.filter(site__icontains = term)
     page = int(get.get('page', '1'))
     pagination(request, context, page, notes)
+    for note in notes:
+        print note.url
     return render(request, 'index.html', context)
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
@@ -446,7 +453,6 @@ def addRecipeAsync(request):
     context = {}
     get = request.GET
     url = get.get('url', '')
-    print url
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     try:
         context['error'] = addRecipeByUrl(recipeUser, url, get)
@@ -537,7 +543,6 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         )
         recipeUser.notes.add(note)
     except urllib2.URLError, err:
-        print 'aaaaaaaaaa'
         traceback.print_exc()
         if err.code == 404:
             return {'error': 'The recipe was not found, it might have been removed!', \
@@ -559,12 +564,9 @@ def addBulk(request):
     post = request.POST
     if not post:
         return redirect('/recipes/addRecipes/')
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     bookmarks = post.getlist('bookmark')
-    # for recipeUrl in bookmarks:
-    #     error = addRecipeByUrl(recipeUser, recipeUrl, post)
-    #     context['errors'].append(error)
-    return render(request, 'addRecipes.html', {'recipes': bookmarks})
+    rendered = render_to_string('addRecipesList.html', {'recipes': bookmarks})
+    return JsonResponse({'rendered': rendered})
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def processBulk(request):
@@ -588,25 +590,39 @@ def processBulk(request):
     if not request.FILES['bookmarks'].name.endswith('.html'):
         return render(request, 'addRecipes.html', {'errors': ['Please upload an html file']})
 
+    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     try:
         bookmarks = request.FILES['bookmarks'].read()
         soup = BeautifulSoup(bookmarks, "html.parser")
         urls = []
+        done = []
         tags = soup.findAll('a')
         for tag in tags:
-            href = tag.get('href')
+            href = normalizeURL(tag.get('href'))
             text = tag.text if tag.text else href
-            parsed_uri = urlparse(href)
-            domain = '{uri.netloc}'.format(uri=parsed_uri)
-            color = 'white'
-            if domain in cookingDomains or 'recipe' in text.lower():
-                color = 'rgba(38, 166, 154, 0.3)'
-            urls.append({
-                'url': href,
-                'name': text,
-                'color': color
-            })
+
+            note = recipeUser.notes.filter(url = href)
+
+            if note.exists():
+                done.append(note[0])
+            else:
+                parsed_uri = urlparse(href)
+                domain = '{uri.netloc}'.format(uri=parsed_uri)
+                color = 'white'
+                if domain in cookingDomains or 'recipe' in text.lower():
+                    color = 'rgba(38, 166, 154, 0.3)'
+                urls.append({
+                    'url': href,
+                    'name': text,
+                    'color': color
+                })
         context['urls'] = urls
+        context['done'] = done
+        context['pages'] = []
+        for i in range(int(math.ceil(len(urls) / 10)) + 1):
+            context['pages'].append( \
+                urls[i * 10 : min((i + 1) * 10, len(urls))])
+        context['stepSize'] = 100.0 / len(context['pages'])
     except Exception as e:
         print e
         return render(request, 'addRecipes.html', {'errors': ['Invalid bookmark file']})

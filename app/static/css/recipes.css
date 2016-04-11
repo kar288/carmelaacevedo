@@ -28,6 +28,12 @@ body {
   text-align: center;
 }
 
+.done-recipes {
+  margin: 20px;
+  max-height: 100px;
+  overflow: auto;
+}
+
 input[type=text]:focus {
   border-color: #FFC107;
   box-shadow: 0 1px 0 0 #FFC107;
@@ -569,7 +575,7 @@ input[type=text]:focus {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .preloader-wrapper.mini {
