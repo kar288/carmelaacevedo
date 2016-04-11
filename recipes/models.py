@@ -42,7 +42,7 @@ class Note(models.Model):
         default=NONE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    url = models.CharField(max_length=200)
+    url = models.CharField(db_index=True, max_length=200)
     title = models.CharField(max_length=400)
     image = models.CharField(max_length=400)
     ingredients = models.TextField()
