@@ -9,7 +9,7 @@ class Month(models.Model):
   ingredients = models.TextField()
 
 class Recipe(models.Model):
-  url = models.CharField(max_length=400)
+  url = models.CharField(max_length=200)
   title = models.CharField(max_length=400)
   image = models.CharField(max_length=400)
   ingredients = models.TextField()
@@ -42,7 +42,7 @@ class Note(models.Model):
         default=NONE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    url = models.CharField(max_length=400)
+    url = models.CharField(max_length=200)
     title = models.CharField(max_length=400)
     image = models.CharField(max_length=400)
     ingredients = models.TextField()
