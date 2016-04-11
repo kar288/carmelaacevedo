@@ -206,6 +206,11 @@ LOGGING = {
             'filename': 'recipeParsing.log',
             'formatter': 'verbose'
         },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
     },
     'loggers': {
         'django': {
@@ -218,7 +223,7 @@ LOGGING = {
             'level': 'DEBUG',
         },
         'recipesParsing': {
-            'handlers': ['parsing'],
+            'handlers': ['parsing', 'console'],
             'level': 'INFO',
         },
     }
