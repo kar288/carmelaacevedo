@@ -88,11 +88,16 @@
         var width = parseFloat(progress.attr('stepSize')) * index;
         progress.css('width', width + '%');
         progress.attr('index', index);
-        if (width >= 100) {
+        if (width > 100) {
           window.location = "/recipes/";
         }
-        $('.next').attr('data-tooltip', 'Skip').css('margin-top', '200px');
         $('#content-' + index).removeClass('hidden');
+        var margin = Math.min(
+          parseInt($('#content-' + index).css('height')) / 2,
+          200
+        );
+        $('.next').attr('data-tooltip', 'Skip')
+          .css('margin-top', margin + 'px');
       });
     </script>
   {% else %}
