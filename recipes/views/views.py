@@ -33,10 +33,13 @@ from urlparse import urlparse
 import logging
 import math
 import operator
+import socket
 import sys
 import traceback
 
 PAGE_SIZE = 12
+
+logger = logging.getLogger('recipesParsing')
 
 def getTableFields(field, direction):
     fields =  [{
@@ -506,9 +509,10 @@ def getTagsForNote(note):
 
 def addRecipeByUrl(recipeUser, recipeUrl, post):
     print 'logging'
-    logging.info(recipeUrl)
+    socket.setdefaulttimeout(30)
+    logger.info(recipeUrl)
     if recipeUser.notes.filter(url = recipeUrl).exists():
-        print 'exists'
+        logger.info(recipeUrl + ' Recipe exists')
         return {'error': 'Recipe already exists!', 'level': 0}
     try:
         recipeData = parseRecipe(recipeUrl)
@@ -548,17 +552,22 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         recipeUser.notes.add(note)
     except urllib2.URLError, err:
         traceback.print_exc()
-        if err.code == 404:
+        logger.exception('urlerror')
+        if 'code' in err and err.code == 404:
             return {'error': 'The recipe was not found, it might have been removed!', \
                 'level': 3 }
-        return {'error': 'Could not get recipe: ' + recipeUrl, 'level': 3}
+        return {'error': 'Could not get recipe. The site might be down.', 'level': 3}
     except urllib2.HTTPError, err:
         traceback.print_exc()
+        logger.exception('httperror')
         if err.code == 404:
             return {'error': 'The rcipe was not found, it might have been removed!', 'level': 3}
-        return {'error': 'Could not get recipe: ' + recipeUrl, 'level': 3}
-    except Exception as e:
-        print 'exception'
+        return {'error': 'Could not get recipe. The site might be down.', 'level': 3}
+    except socket.timeout:
+        logger.exception('timeout')
+        return {'error': 'It took too long to get recipe. The site might be down.', 'level': 3}
+    except e:
+        logger.exception('another exception')
         traceback.print_exc()
         return {'error': sys.exc_info()[0], 'level': 3}
 
@@ -574,6 +583,7 @@ def addBulk(request):
 
 @login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def processBulk(request):
+    start = datetime.now()
     context = {}
     post = request.POST
     cookingDomains = {
@@ -590,9 +600,11 @@ def processBulk(request):
         'allrecipes.com': True,
     }
     if not post or not 'bookmarks' in request.FILES:
+        logger.info('No bookmarks file')
         return render(request, 'addRecipes.html', context)
     if not request.FILES['bookmarks'].name.endswith('.html'):
-        return render(request, 'addRecipes.html', {'errors': ['Please upload an html file']})
+        logger.info('Bookmarks not an html file: ' + request.FILES['bookmarks'].name)
+        return render(request, 'addRecipes.html', {'errors': [{'error': 'Please upload an html file'}]})
 
     recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
     try:
@@ -601,6 +613,9 @@ def processBulk(request):
         urls = []
         done = 0
         tags = soup.findAll('a')
+        if len(tags) == 0:
+            logger.info('No bookmarks in file: ' + request.FILES['bookmarks'].name)
+            return render(request, 'addRecipes.html', {'errors': [{'error': 'No bookmarks or links in the file!'}]})
         for tag in tags:
             href = normalizeURL(tag.get('href'))
             text = tag.text if tag.text else href
@@ -626,8 +641,9 @@ def processBulk(request):
                 urls[i * 10 : min((i + 1) * 10, len(urls))])
         context['stepSize'] = 100.0 / len(context['pages'])
     except Exception as e:
-        print e
+        logger.exception(e)
         return render(request, 'addRecipes.html', {'errors': ['Invalid bookmark file']})
+    logger.info('Processing bulk time: ' + str((datetime.now() - start).seconds))
     return render(request, 'addRecipes.html', context)
 
 

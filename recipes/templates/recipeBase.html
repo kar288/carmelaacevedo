@@ -105,7 +105,11 @@
 <main>
   {% for error in errors %}
     <div class='recipe-general-error'>
-      {{error}}
+      {% if error %}
+        {{error.error}}
+      {% else %}
+        {{error}}
+      {% endif %}
     </div>
   {% endfor %}
   {% for s in success %}
