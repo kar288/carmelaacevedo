@@ -599,16 +599,14 @@ def processBulk(request):
         bookmarks = request.FILES['bookmarks'].read()
         soup = BeautifulSoup(bookmarks, "html.parser")
         urls = []
-        done = []
+        done = 0
         tags = soup.findAll('a')
         for tag in tags:
             href = normalizeURL(tag.get('href'))
             text = tag.text if tag.text else href
 
-            note = recipeUser.notes.filter(url = href)
-
-            if note.exists():
-                done.append(note[0])
+            if recipeUser.notes.filter(url = href):
+                done += 1
             else:
                 parsed_uri = urlparse(href)
                 domain = '{uri.netloc}'.format(uri=parsed_uri)
@@ -653,6 +651,14 @@ def logout(request):
     return redirect('/recipes/')
 
 
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+def about(request):
+    return render(request, 'about.html')
+
+
+@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+def contact(request):
+    return render(request, 'contact.html')
 
 def testRecipes(request):
     testUrls = [

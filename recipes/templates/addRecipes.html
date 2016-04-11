@@ -46,12 +46,7 @@
     </div>
     {% if done %}
       <div class="done-recipes">
-        We found some links that are already in your recipes!
-        {% for note in done %}
-          <div>
-            <a href="{% url 'note' note.id %}">{{note.title}}</a>
-          </div>
-        {% endfor %}
+        We found {{done}} links that are already in your recipes!
       </div>
     {% endif %}
     <script>

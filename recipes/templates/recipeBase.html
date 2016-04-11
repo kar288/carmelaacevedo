@@ -19,6 +19,7 @@
   <title>{% block title %}{% endblock %} - Recipe Managing</title>
 </head>
 <body class="recipe">
+  <header>
   <ul id="dropdown1" class="add-recipe-content dropdown-content">
     <li><a href="{% url 'addRecipe' %}">Add recipe</a></li>
     <li><a href="{% url 'addRecipes' %}">Add recipes bulk</a></li>
@@ -30,7 +31,6 @@
       </a>
     </li>
   </ul>
-
   <div class="navbar-fixed">
     <nav class="dark-primary-color">
       <div class="nav-wrapper">
@@ -101,6 +101,8 @@
       </div>
     </nav>
   </div>
+</header>
+<main>
   {% for error in errors %}
     <div class='recipe-general-error'>
       {{error}}
@@ -121,6 +123,29 @@
       </div>
     {% endblock %}
   </div>
+</main>
+  <footer class="page-footer light-primary-color">
+     <div class="container">
+       <div class="row">
+         <!-- <div class="col l6 s12">
+           <h5 class="white-text">About</h5>
+           <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+         </div> -->
+         <div class="col l4 m4 s12">
+           <a class="grey-text text-lighten-3" href="{% url 'about' %}">About</a>
+         </div>
+         <div class="col l4 m4 s12">
+           <a class="grey-text text-lighten-3" href="{% url 'contact' %}">Contact</a>
+         </div>
+       </div>
+     </div>
+     <div class="footer-copyright">
+       <!-- <div class="container">
+       © 2016 Copyright Text
+       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+       </div> -->
+     </div>
+   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script>
     $('select').material_select();

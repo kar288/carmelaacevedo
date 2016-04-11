@@ -4,6 +4,13 @@ body {
 	font-family: Merriweather Sans, RobotoDraft, Helvetica Neue;
   font-size: 0.9em;
   letter-spacing: 0.05em;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 /****************************************/
@@ -11,7 +18,7 @@ body {
  /*#FFC107*/
 .dark-primary-color    { background: #7B1FA2; }
 .default-primary-color { background: #9C27B0; }
-.light-primary-color   { background: #E1BEE7; }
+.light-primary-color   { background: #E1BEE7 !important; }
 .text-primary-color    { color: #FFFFFF; }
 .accent-color          { background: #FFC107; }
 .primary-text-color    { color: #212121; }
@@ -22,6 +29,10 @@ body {
 .no-recipes {
   /*margin: 100%;*/
   text-align: center;
+}
+
+.footer-copyright {
+  height: 0 !important;
 }
 
 .done-recipes {
