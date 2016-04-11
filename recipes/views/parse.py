@@ -242,7 +242,7 @@ def parseSmittenKitchen(soup, recipe):
     recipe['ingredients'] = ingredients
     recipe['instructions'] = instructions
 
-    servings = soup.find(text=re.compile('^(Serve|Yield|Make)[s]*.*'))
+    servings = soup.find(text=re.compile('^(Serves|Yields|Makes|Yield).*'))
     if not servings:
         return recipe
     node = servings.parent
