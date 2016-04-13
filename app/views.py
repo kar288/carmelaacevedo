@@ -73,7 +73,7 @@ def home(request):
       'It includes a project studying linear photography inspired by Gego.'
     ]
   }];
-  print(els)
+  print request.META['HTTP_USER_AGENT']
   return render(request, 'homePortfolio.html', {'homeCards': els});
 
 def resume(request):

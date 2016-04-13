@@ -21,7 +21,7 @@ def getImage(soup, attr=None, key=None):
         'href'
     ]
     for attr in attrs:
-        image = soup.find(attrs={"property": "og:image"})
+        image = soup.find(attrs=attr)
         if image:
             for key in keys:
                 if image.has_attr(key):
@@ -94,26 +94,19 @@ def traverse(nodes, separator):
     # return '\n'.join(texts)
 
 def parseRecipe(url):
-    #TEST
-    # get = request.GET
-    # recipeUrl = get['url']
-    print 'parseRecipe'
     if not url.startswith('http'):
         url = 'http://' + url
     recipe = {'url': url}
     try:
-        print 'NORMAL'
         req = urllib2.Request(url.encode("utf8"), headers={'accept': '*/*', 'User-Agent' : "Magic Browser"})
         html = urllib2.urlopen(req)
     except urllib2.HTTPError, err:
-        print 'NEW'
         traceback.print_exc()
         html = urllib2.build_opener(urllib2.HTTPCookieProcessor).open(url)
     #
     # result = requests.get(url)
     # html = result.content
     soup = BeautifulSoup(html, "html.parser")
-    # print url
     if 'nyt' in url:
         parseNYT(soup, recipe)
     elif 'food52' in url:
@@ -140,7 +133,9 @@ def parseRecipe(url):
         parseGeneral(url, soup, recipe)
     return recipe
 
-def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
+def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr,\
+    image={"property": "og:image"}, imageKey='content'):
+
     recipe['title'] = soup.title.string
     title = soup.find(attrs={'property': 'og:title'})
     if title:
@@ -150,13 +145,14 @@ def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr):
     recipe['instructions'] = traverse(instructionElements, '\n')
     ingredientElements = soup.findAll(attrs={'itemprop': ingredientAttr})
     recipe['ingredients'] = traverse(ingredientElements, ' ')
-    recipe['image'] = getImage(soup, {"property": "og:image"}, 'content')
+    recipe['image'] = getImage(soup, image, imageKey)
     servings = soup.find(attrs={'itemprop': 'recipeYield'})
     if servings:
         if servings.has_attr('content'):
             recipe['servings'] = servings['content']
         else:
             recipe['servings'] = servings.text
+        recipe['servings'] = recipe['servings'].strip()
     return recipe
 
 
@@ -193,7 +189,9 @@ def parseFood52(soup, recipe):
     return parserTemplate(soup, recipe,
         {'name': 'sailthru.tags'},
         '',
-        'ingredients'
+        'ingredients',
+        {'itemprop': 'image'},
+        'src'
     )
 
 def parseMyRecipes(soup, recipe):
@@ -275,12 +273,17 @@ def parseTheKitchn(soup, recipe):
     recipe['servings'] = ' '.join(traverse(servings, ' '))
 
     ingredientElements = soup.findAll(attrs={'itemprop': 'ingredients'})
-    recipe['ingredients'] = traverse(ingredientElements, ' ')
+
+    # THIS IS A HACK BUT SOME INGREDIENTS DONT HAVE ITEMPROPS WHILE OTHERS DO
+    recipe['ingredients'] = []
+    ingredients = traverse(ingredientElements[0].parent, '\n')
+    for ingredient in ingredients:
+        recipe['ingredients'] += ingredient.split('\n')
 
     instructions = []
     ingredients = []
 
-    node = soup.body.find(text=re.compile('^(Serves|Yield|Makes)[s]*[: ].*'))
+    node = soup.body.find(text=re.compile('^[ ]*(Serves|Yield|Makes)[s]*[: ].*'))
     recipe['servings'] = node
     if not node or node == None:
         return recipe
