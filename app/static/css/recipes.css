@@ -172,8 +172,8 @@ input[type=text]:focus {
   margin: 10px 0px;
 }
 
-.recipe .content {
-  /*padding: 30px;*/
+.recipe .content.padding {
+  padding: 30px;
 }
 
 .recipe nav * {
@@ -366,7 +366,7 @@ input[type=text]:focus {
 
 .recipe-card.recipe-large {
   height: 100%;
-  margin: 45px auto;
+  margin: 15px auto;
   max-width: 920px;
   width: calc(100% - 90px);
 }
@@ -502,7 +502,7 @@ input[type=text]:focus {
 }
 
 .small {
-  width: 600px;
+  max-width: 600px;
 }
 
 

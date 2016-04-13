@@ -18,7 +18,7 @@
   <br>
   <div class="{% block form-class %}{% endblock %}">
     <div class="row">
-      <div class="col s4">
+      <div class="col s12 m4">
         <label class="recipe-form">
           Rating:<br>
           <fieldset class="rating">
@@ -35,7 +35,7 @@
           <i onclick="$('input[name=rating]').attr('checked',false)" class="material-icons">clear</i>
         </span>
       </div>
-      <div class="input-field col s4">
+      <div class="input-field col s12 m4">
           <select id="difficulty" name="difficulty">
             <option value="-" {% if note.difficulty == "-" %}selected{% endif %}>Choose your option</option>
             <option value="E" {% if note.difficulty == "E" %}selected{% endif %}>Easy</option>
@@ -44,7 +44,7 @@
           </select>
           <label for="difficulty">Difficulty</label>
       </div>
-      <div class="col s4">
+      <div class="col s12 m4">
         <div class="recipe-form input-field">
           <input placeholder="" value="{{note.servings}}" name="servings" id="servings" type="text"/>
           <label>Servings</label>
