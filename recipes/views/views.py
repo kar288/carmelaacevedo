@@ -106,6 +106,8 @@ def home(request):
     context = {}
     if not request.user.is_authenticated():
         return render(request, 'recipeBase.html', context)
+    print request.user
+    # auth_logout(request)
     recipeUser = getUser(request.user)
     notes = recipeUser.notes.all().order_by('-recipe__date_added')
 
@@ -665,35 +667,46 @@ def save_profile_picture(strategy, user, response, details,
 def save_profile(backend, user, response, *args, **kwargs):
   # print user.__class__;
   # print kwargs['social']
-  # print response
-  pic = None
-  name = None;
-  if backend.name == "google-oauth2":
-    pic = response['image']['url']
-    if 'displayName' in response:
-        name = response['displayName']
-    try:
-      recipeUser = RecipeUser.objects.get(googleUser = user)
-    except RecipeUser.DoesNotExist:
-      recipeUser = RecipeUser.objects.create(googleUser = user, profilePic = pic, name = name)
-  elif backend.name == 'facebook':
-      pic = 'http://graph.facebook.com/' + response['id'] + '/picture?type=square'
-      if 'name' in response:
-          name = response['name']
-      try:
-        recipeUser = RecipeUser.objects.get(facebookUser = user)
-      except RecipeUser.DoesNotExist:
-        recipeUser = RecipeUser.objects.create(facebookUser = user, profilePic = pic, name = name)
+    # print response
+    data = {}
+    if backend.name == "google-oauth2":
+        data['profilePic'] = response.get('image', {}).get('url', None)
+        data['name'] = response.get('displayName', None)
+        data['email'] = response.get('emails', [{}])[0].get('value', None)
+        data['googleUser'] = user
+        recipeUser = RecipeUser.objects.filter(googleUser = user)
+    elif backend.name == 'facebook':
+        if 'id' in response:
+            data['profilePic'] = 'http://graph.facebook.com/' + response['id'] + '/picture?type=square'
+        data['name'] = response.get('name', None)
+        data['email'] = response.get('email', None)
+        data['facebookUser'] = user
+        recipeUser = RecipeUser.objects.filter(facebookUser = user)
+        recipeUser.delete()
+        return
 
-  changed = False
-  if not recipeUser.profilePic and pic:
-      setattr(recipeUser, 'profilePic', pic)
-      changed = True
-  if not recipeUser.name and name:
-      setattr(recipeUser, 'name', name)
-      changed = True
-  if changed:
-      recipeUser.save()
+    if not recipeUser.exists():
+        userByEmail = RecipeUser.objects.filter(email = data['email'])
+        if userByEmail.exists():
+            logging.info('email exists, joining account')
+            recipeUser = userByEmail
+        else:
+            RecipeUser.objects.create(
+                googleUser = data.get('googleUser', None),
+                facebookUser = data.get('facebookUser', None),
+                profilePic = data.get('profilePic', None),
+                name = datadata.get('name', None),
+                email = datadata.get('email', None)
+            )
+            return;
+    recipeUser = recipeUser[0]
+    changed = False
+    for attr in data:
+        if not getattr(recipeUser, attr) and data[attr]:
+            setattr(recipeUser, attr, data[attr])
+            changed = True
+    if changed:
+        recipeUser.save()
 
 def logout(request):
     """Logs out user"""

@@ -87,6 +87,7 @@ class RecipeUser(models.Model):
   facebookUser = models.OneToOneField(User,related_name='facebookUser', on_delete=models.CASCADE, null=True)
   profilePic = models.CharField(max_length=400, null=True)
   name = models.CharField(max_length=200, null=True)
+  email = models.CharField(max_length=200, null=True)
   notes = models.ManyToManyField(
     Note
   )
