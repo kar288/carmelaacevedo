@@ -663,20 +663,37 @@ def save_profile_picture(strategy, user, response, details,
     profile.save()
 
 def save_profile(backend, user, response, *args, **kwargs):
-  print user.__class__;
-  print kwargs['social']
-  print response['image']['url']
+  # print user.__class__;
+  # print kwargs['social']
+  # print response
+  pic = None
+  name = None;
   if backend.name == "google-oauth2":
+    pic = response['image']['url']
+    if 'displayName' in response:
+        name = response['displayName']
     try:
       recipeUser = RecipeUser.objects.get(googleUser = user)
     except RecipeUser.DoesNotExist:
-      recipeUser = RecipeUser.objects.create(googleUser = user)
+      recipeUser = RecipeUser.objects.create(googleUser = user, profilePic = pic, name = name)
   elif backend.name == 'facebook':
+      pic = 'http://graph.facebook.com/' + response['id'] + '/picture?type=square'
+      if 'name' in response:
+          name = response['name']
       try:
         recipeUser = RecipeUser.objects.get(facebookUser = user)
       except RecipeUser.DoesNotExist:
-        pic = 'http://graph.facebook.com/' + response['id'] + '/picture?type=square'
-        recipeUser = RecipeUser.objects.create(facebookUser = user, profilePic = pic)
+        recipeUser = RecipeUser.objects.create(facebookUser = user, profilePic = pic, name = name)
+
+  changed = False
+  if not recipeUser.profilePic and pic:
+      setattr(recipeUser, 'profilePic', pic)
+      changed = True
+  if not recipeUser.name and name:
+      setattr(recipeUser, 'name', name)
+      changed = True
+  if changed:
+      recipeUser.save()
 
 def logout(request):
     """Logs out user"""
