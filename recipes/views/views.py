@@ -693,8 +693,8 @@ def save_profile(backend, user, response, *args, **kwargs):
                 googleUser = data.get('googleUser', None),
                 facebookUser = data.get('facebookUser', None),
                 profilePic = data.get('profilePic', None),
-                name = datadata.get('name', None),
-                email = datadata.get('email', None)
+                name = data.get('name', None),
+                email = data.get('email', None)
             )
             return;
     recipeUser = recipeUser[0]
