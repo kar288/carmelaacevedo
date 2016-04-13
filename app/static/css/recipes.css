@@ -365,10 +365,10 @@ input[type=text]:focus {
 
 .recipe-card.recipe-large {
   height: 100%;
-  margin: 10px auto;
+  margin: 3em auto;
   max-width: 1080px;
   min-width: 600px;
-  width: calc(100% - 20px);
+  width: calc(100% - 6em);
 }
 
 .recipe-card.recipe-large .recipe-image {
