@@ -30,9 +30,11 @@ from parse import *
 from recipes.models import Recipe, Note, RecipeUser, Month
 from urlparse import urlparse
 
+import hashlib
 import logging
 import math
 import operator
+import requests
 import socket
 import sys
 import traceback
@@ -78,6 +80,12 @@ def normalizeURL(url):
         return url + '/'
     return url
 
+def getUser(user):
+    recipeUser = RecipeUser.objects.filter(googleUser = user) | RecipeUser.objects.filter(facebookUser = user)
+    if not recipeUser.exists():
+        raise Http404("No such user.")
+    return recipeUser[0]
+
 def pagination(request, context, page, notes):
     queries_without_page = request.GET.copy()
     if queries_without_page.has_key('page'):
@@ -98,7 +106,7 @@ def home(request):
     context = {}
     if not request.user.is_authenticated():
         return render(request, 'recipeBase.html', context)
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     notes = recipeUser.notes.all().order_by('-recipe__date_added')
 
     allNotes = recipeUser.notes.all().order_by('-recipe__date_added')
@@ -158,11 +166,11 @@ def getTopValues(notes, field, selected):
         elements.append({'name': el, 'selected': el in selected})
     return elements
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def table(request, field, direction):
     context = {}
     field = field if field else 'title'
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
 
     if field == 'rating' or field == 'created_at':
         context['notes'] = recipeUser.notes.all().order_by(field)
@@ -179,9 +187,9 @@ def table(request, field, direction):
     context['fields'] = getTableFields(field, direction)
     return render(request, 'table.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def shareNote(request, noteId):
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     try:
         note = recipeUser.notes.get(id = noteId)
     except:
@@ -190,9 +198,9 @@ def shareNote(request, noteId):
     note.save()
     return JsonResponse({'success': True})
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def addSharedRecipe(request, noteId):
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     try:
         note = recipeUser.notes.find(id = noteId)
         return redirect('/recipes/note/' + noteId)
@@ -216,7 +224,7 @@ def addSharedRecipe(request, noteId):
     recipeUser.notes.add(note)
     return redirect('/recipes/note/' + str(note.id))
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def tableAll(request, field):
     context = {}
     field = field if field else 'title'
@@ -224,10 +232,10 @@ def tableAll(request, field):
     context['fields'] = getTableFields(field, 1)
     return render(request, 'table.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def note(request, noteId):
     context = {}
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     note = None
     try:
         note = recipeUser.notes.get(id = noteId)
@@ -241,18 +249,18 @@ def note(request, noteId):
         request.build_absolute_uri('/')[:-1] + request.get_full_path() + '?share=1'
     return render(request, 'note.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def tags(request, tags):
     context = {}
     tags = tags.split(',')
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     notes = Note.objects.none()
     for tag in tags:
         notes |= recipeUser.notes.filter(tags__icontains = tag)
     pagination(request, context, int(request.GET.get('page', '1')), notes)
     return render(request, 'index.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def search(request):
     context = {}
     get = request.GET
@@ -261,7 +269,7 @@ def search(request):
     query = get.get('query', '')
     context['query'] = query
     terms = query.split(' ')
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     notes = Note.objects.none()
     for term in terms:
         notes |= recipeUser.notes.filter(tags__icontains = term)
@@ -276,7 +284,7 @@ def search(request):
         print note.url
     return render(request, 'index.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def advancedSearch(request):
     context = {}
     get = request.GET
@@ -284,7 +292,7 @@ def advancedSearch(request):
         return redirect('/recipes/')
     query = get
     context['advancedQuery'] = get
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     notes = Note.objects.all()
     for field in query:
         q = query.get(field, '').strip().split(',')
@@ -331,21 +339,21 @@ def advancedSearch(request):
     context['rates'] = range(5, 0, -1)
     return render(request, 'advancedSearch.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def ingredients(request, ingredients):
     context = {}
     ingredients = ingredients.split(',')
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     notes = Note.objects.none()
     for ingredient in ingredients:
         notes |= recipeUser.notes.filter(recipe__ingredients__icontains = ingredient)
     context['notes'] = notes
     return render(request, 'index.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def getSeasonRecipes(request, month):
     context = {}
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     notes = Note.objects.none()
 
     months = Month.objects.all()
@@ -388,10 +396,10 @@ def getSeasonRecipes(request, month):
     return render(request, 'seasonal.html', context)
 
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def editNoteHtml(request, noteId):
     context = {'edit': True, 'rates': range(5, 0, -1)}
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     note = get_object_or_404(Note, id = noteId)
     context['tags'] = getTagsForNote(note)
     if not note in recipeUser.notes.all():
@@ -400,10 +408,10 @@ def editNoteHtml(request, noteId):
         context['note'] = note
     return render(request, 'note.html', context)
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def deleteNoteHtml(request, noteId):
     context = {}
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     note = get_object_or_404(Note, id = noteId)
     if not note in recipeUser.notes.all():
         context['errors'] = ['Note not found']
@@ -413,7 +421,7 @@ def deleteNoteHtml(request, noteId):
 
 def deleteNote(request, noteId):
     context = {}
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     note = get_object_or_404(Note, id = noteId)
     if not note in recipeUser.notes.all():
         context['errors'] = ['Note not found']
@@ -429,7 +437,7 @@ def deleteRecipes(request):
     context = {}
     get = request.GET
     ids = get.getlist('recipe')
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     for noteId in ids:
         try:
             note = recipeUser.notes.get(id = noteId)
@@ -441,18 +449,18 @@ def deleteRecipes(request):
         note.delete()
     return redirect('/recipes/table/title/1')
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def advancedSearchHtml(request, field):
     return render(request, 'advancedSearch.html', {'rates': range(5, 0, -1)})
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def addRecipeHtml(request):
     return render(request, 'addRecipe.html', {
         'rates': range(5, 0, -1),
         'note': {'rating': -1}
     })
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def addRecipesHtml(request):
     return render(request, 'addRecipes.html')
 
@@ -460,7 +468,7 @@ def addRecipeAsync(request):
     context = {}
     get = request.GET
     url = get.get('url', '')
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     try:
         context['error'] = addRecipeByUrl(recipeUser, url, get)
     except:
@@ -472,7 +480,7 @@ def editNote(request, noteId):
     post = request.POST
     if not post:
         return redirect('/recipes/note/' + noteId)
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     note = get_object_or_404(Note, id = noteId)
     if not note in recipeUser.notes.all():
         context['errors'] = ['Note not found']
@@ -493,7 +501,7 @@ def addNote(request):
     post = request.POST
     if not post or not 'recipeUrl' in post or not len(post['recipeUrl']):
         return redirect('/recipes/addRecipe/')
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     recipeUrl = post['recipeUrl']
     error = addRecipeByUrl(recipeUser, recipeUrl, post)
     if error:
@@ -571,7 +579,7 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         traceback.print_exc()
         return {'error': sys.exc_info()[0], 'level': 3}
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def addBulk(request):
     context = {'errors': []}
     post = request.POST
@@ -581,7 +589,7 @@ def addBulk(request):
     rendered = render_to_string('addRecipesList.html', {'recipes': bookmarks})
     return JsonResponse({'rendered': rendered})
 
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
+@login_required(login_url='/recipes/')
 def processBulk(request):
     start = datetime.now()
     context = {}
@@ -606,7 +614,7 @@ def processBulk(request):
         logger.info('Bookmarks not an html file: ' + request.FILES['bookmarks'].name)
         return render(request, 'addRecipes.html', {'errors': [{'error': 'Please upload an html file'}]})
 
-    recipeUser = get_object_or_404(RecipeUser, googleUser = request.user)
+    recipeUser = getUser(request.user)
     try:
         bookmarks = request.FILES['bookmarks'].read()
         soup = BeautifulSoup(bookmarks, "html.parser")
@@ -660,43 +668,87 @@ def save_profile(backend, user, response, *args, **kwargs):
       recipeUser = RecipeUser.objects.get(googleUser = user)
     except RecipeUser.DoesNotExist:
       recipeUser = RecipeUser.objects.create(googleUser = user)
+  elif backend.name == 'facebook':
+      try:
+        recipeUser = RecipeUser.objects.get(facebookUser = user)
+      except RecipeUser.DoesNotExist:
+        recipeUser = RecipeUser.objects.create(facebookUser = user)
+    #   profile = user.get_profile()
+    #   if profile is None:
+    #       profile = Profile(user_id=user.id)
+    #   profile.gender = response.get('gender')
+    #   profile.link = response.get('link')
+    #   profile.timezone = response.get('timezone')
+    #   profile.save()
 
 def logout(request):
     """Logs out user"""
     auth_logout(request)
     return redirect('/recipes/')
 
-
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def about(request):
     return render(request, 'about.html')
 
-
-@login_required(login_url='/soc/login/google-oauth2/?next=/recipes/')
 def contact(request):
     return render(request, 'contact.html')
 
-def testRecipes(request):
-    testUrls = [
-        # 'http://cookieandkate.com/2014/feta-fiesta-kale-salad-with-avocado-and-crispy-tortilla-strips/',
-        # 'http://cookieandkate.com/2016/lemon-curd-recipe/',
-        # 'http://smittenkitchen.com/blog/2016/02/roasted-yams-and-chickpeas-with-yogurt/',
-        # 'http://www.epicurious.com/recipes/food/views/chicken-skewers-with-meyer-lemon-salsa-380587',
-        # 'http://smittenkitchen.com/blog/2016/03/churros/#more-17497',
-        # 'http://www.thekitchn.com/recipe-crispy-garlic-pita-breads-recipes-from-the-kitchn-216127',
-        # 'http://www.thekitchn.com/recipe-blistered-tomato-toasts-228917',
-        # 'http://www.thekitchn.com/how-to-make-basic-white-sandwich-bread-cooking-lessons-from-the-kitchn-166588',
-        # 'http://www.thekitchn.com/how-to-make-brioche-224507',
-        # 'http://www.epicurious.com/recipes/food/views/fresh-coconut-layer-cake-241213',
-        # 'http://food52.com/recipes/41455-pudding-style-buttercream',
-        # 'http://www.bonappetit.com/recipe/colcannon',
-        # 'http://www.myrecipes.com/recipe/broccoli-casserole-3',
-        # 'http://www.davidlebovitz.com/2016/02/tangerine-sorbet-ice-cream-recipe/',
-        # 'http://cooking.nytimes.com/recipes/11631-soft-scrambled-eggs-with-pesto-and-fresh-ricotta?smid=fb-nytdining&smtyp=cur',
-        'http://cooking.nytimes.com/recipes/5598-aligot',
-        # 'http://www.chowhound.com/recipes/slow-cured-corned-beef-31292'
-    ]
-    results = []
-    for recipeUrl in testUrls:
-        results.append(parseRecipe(recipeUrl))
-    return JsonResponse({'results': results})
+def facebook_phone(request):
+    return render(request, 'facebook_phone.html')
+
+api_version = "v1.0"
+app_id = '628799940553227'
+app_secret = '0897c3f8adf25943bc6c8f8bf849a823';
+me_endpoint_base_url = 'https://graph.accountkit.com/v1.0/me';
+token_exchange_base_url = 'https://graph.accountkit.com/v1.0/access_token';
+import hmac
+import hashlib
+import base64
+
+def genAppSecretProof(app_secret, access_token):
+    h = hmac.new (
+        app_secret.encode('utf-8'),
+        msg=access_token.encode('utf-8'),
+        digestmod=hashlib.sha256
+    )
+    return h.hexdigest()
+
+def accountkit_login(request):
+    app_access_token = '|'.join(['AA', app_id, app_secret])
+    print app_access_token
+    params = \
+        'grant_type=' + 'authorization_code' + \
+        '&code=' + request.POST.get('code') + \
+        '&access_token=' + app_access_token
+
+    token_exchange_url = token_exchange_base_url + '?' + params;
+    print token_exchange_url
+    response = requests.get(token_exchange_url)
+    data = response.json()
+    # Request.get({url: token_exchange_url, json: true}, function(err, resp, respBody) {
+    #   var view = {
+    #     user_access_token: respBody.access_token,
+    #     expires_at: respBody.expires_at,
+    #     user_id: respBody.id,
+    #   };
+    #
+    #   // get account details at /me endpoint
+    print data
+
+    appsecret_proof = genAppSecretProof('fe9a75f00a6bb46eca43cb04388139e3', data['access_token'])
+    me_endpoint_url = me_endpoint_base_url + '?access_token=' + data['access_token'] + '&appsecret_proof=' + appsecret_proof;
+    me_endpoint_url = me_endpoint_base_url + '?access_token=' + data['access_token'];
+    print me_endpoint_url
+    response = requests.get(me_endpoint_url)
+    print response.text
+    #   Request.get({url: me_endpoint_url, json:true }, function(err, resp, respBody) {
+    #     // send login_success.html
+    #     if (respBody.phone) {
+    #       view.phone_num = respBody.phone.number;
+    #     } else if (respBody.email) {
+    #       view.email_addr = respBody.email.address;
+    #     }
+    #     var html = Mustache.to_html(loadLoginSuccess(), view);
+    #     response.send(html);
+    #   });
+    # });
+    return render(request, 'index.html')

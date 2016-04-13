@@ -83,7 +83,8 @@ class Note(models.Model):
         return self.created_at.strftime("%d/%b/%y")
 
 class RecipeUser(models.Model):
-  googleUser = models.OneToOneField(User, on_delete=models.CASCADE)
+  googleUser = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+  facebookUser = models.OneToOneField(User,related_name='facebookUser', on_delete=models.CASCADE, null=True)
   notes = models.ManyToManyField(
     Note
   )

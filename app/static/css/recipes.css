@@ -26,6 +26,16 @@ main {
 .divider-color         { border-color: #B6B6B6; }
 /**************************************/
 
+.sign-in {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.sign-in .btn {
+  margin: 10px auto;
+  width: 100%;
+}
+
 .no-recipes {
   /*margin: 100%;*/
   text-align: center;
@@ -235,7 +245,7 @@ input[type=text]:focus {
   font-size: 2em;
   font-weight: 100;
   margin: 0 auto;
-  padding: 5em 0;
+  padding: 5em 0 1em 0;
   text-align: center;
   width: 600px;
 }

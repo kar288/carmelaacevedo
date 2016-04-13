@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'^login/$', recipes.views.home),
     url(r'^logout/$', recipes.views.logout, name='logout'),
     url(r'^done/$', recipes.views.home, name='done'),
-    url(r'^recipes/testRecipes/$', recipes.views.testRecipes, name='testRecipes'),
     url(r'^recipes/getSeasonIngredients/$', recipes.views.getSeasonIngredients, name='getSeasonIngredients'),
     url(r'^recipes/season/(?P<month>[\w]+)?/$', recipes.views.getSeasonRecipes, name='season'),
     url(r'^recipes/recrawlImages/$', recipes.views.recrawlImages, name='recrawlImages'),
@@ -40,6 +39,8 @@ urlpatterns = [
     url(r'^recipes/note/(?P<noteId>[0-9]+)/$', recipes.views.note, name='note'),
     url(r'^recipes/tags/(?P<tags>.+)/$', recipes.views.tags, name='tags'),
     url(r'^recipes/search/$', recipes.views.search, name='search'),
+    url(r'^recipes/accountkit_login/$', recipes.views.accountkit_login, name='accountkit_login'),
+    url(r'^recipes/facebook_phone/$', recipes.views.facebook_phone, name='facebook_phone'),
     url(r'^recipes/about/$', recipes.views.about, name='about'),
     url(r'^recipes/contact/$', recipes.views.contact, name='contact'),
     url(r'^recipes/table/(?P<field>[\w]*)/(?P<direction>[0-9]*)/$', recipes.views.table, name='table'),
@@ -54,4 +55,5 @@ urlpatterns = [
     url(r'^recipes/deleteNote/(?P<noteId>[0-9]+)/$', recipes.views.deleteNote, name='deleteNote'),
     url(r'^recipes/deleteNoteHtml/(?P<noteId>[0-9]+)/$', recipes.views.deleteNoteHtml, name='deleteNoteHtml'),
     url(r'^recipes/deleteRecipes/$', recipes.views.deleteRecipes, name='deleteRecipes'),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 ]
