@@ -76,19 +76,19 @@
     </div>
   </div>
   <div class="row">
-    <div  class="recipe-info col s4">
+    <div  class="recipe-info col s12 m4">
       Rating:
       {% include 'ratingStars.html' %}
     </div>
-    <div class="recipe-info col s4">
+    <div class="recipe-info col s12 m4">
       Difficulty: {{note.difficulty_long}}
     </div>
-    <div class="recipe-info col s4">
+    <div class="recipe-info col s12 m4">
       Servings: {% if note.servings %} {{note.servings}} {% else %} - {% endif %}
     </div>
   </div>
   <div class="row">
-    <div class="recipe-info col s4">
+    <div class="recipe-info col s12 m4">
       <div class="card-title grey-text text-darken-4">
         Ingredients
       </div>
@@ -96,7 +96,7 @@
           <p>{{ ingredient }}</p>
       {% endfor %}
     </div>
-    <div class="recipe-info col s8">
+    <div class="recipe-info col s12 m8">
       <div class="card-title grey-text text-darken-4">
         Instructions
       </div>

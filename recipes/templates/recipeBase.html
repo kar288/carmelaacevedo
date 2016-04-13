@@ -54,9 +54,9 @@
     <nav class="dark-primary-color">
       <div class="nav-wrapper">
         <a href="{% url 'recipesHome' %}" class="brand-logo">Recipe Manager</a>
+        {% if user.is_authenticated %}
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          {% if user.is_authenticated %}
             <li>
               <form action="{% url 'search' %}" method="get" >
                 <div class="input-field">
@@ -76,10 +76,8 @@
             <li>
               <a id="logout" href="{% url 'logout' %}" class="">Logout</a>
             </li>
-          {% endif %}
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          {% if user.is_authenticated %}
             <li>
               <form action="{% url 'search' %}" method="get" >
                 <div class="input-field">
@@ -103,8 +101,8 @@
             <li>
               <a id="logout" href="{% url 'logout' %}" class="">Logout</a>
             </li>
-          {% endif %}
         </ul>
+      {% endif %}
       </div>
     </nav>
   </div>
@@ -159,10 +157,10 @@
            <h5 class="white-text">About</h5>
            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
          </div> -->
-         <div class="col l4 m4 s12">
+         <div class="col l4 m4 s4">
            <a class="grey-text text-lighten-3" href="{% url 'about' %}">About</a>
          </div>
-         <div class="col l4 m4 s12">
+         <div class="col l4 m4 s4">
            <a class="grey-text text-lighten-3" href="{% url 'contact' %}">Contact</a>
          </div>
        </div>

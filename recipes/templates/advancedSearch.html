@@ -5,7 +5,7 @@
     Advanced Search
   </h5>
   <div class="row">
-    <div class="col s7 m7 l4">
+    <div class="col s12 m7 l4">
       <form class="" action="{% url 'advancedSearch' %}" method="get">
         <label class="recipe-form">
           Title contains:
@@ -106,7 +106,7 @@
         <input class="recipe-form btn btn-success" value="Search" type="submit"></input>
       </form>
     </div>
-    <div class="col s5 m5 l8">
+    <div class="col s12 m5 l8">
       <div class="row notes-container">
         {% for note in notes %}
           {% include 'smallRecipe.html' %}
