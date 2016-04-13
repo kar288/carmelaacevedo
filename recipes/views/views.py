@@ -663,6 +663,9 @@ def save_profile_picture(strategy, user, response, details,
     profile.save()
 
 def save_profile(backend, user, response, *args, **kwargs):
+  print user.__class__;
+  print kwargs['social']
+  print response['image']['url']
   if backend.name == "google-oauth2":
     try:
       recipeUser = RecipeUser.objects.get(googleUser = user)
@@ -672,14 +675,8 @@ def save_profile(backend, user, response, *args, **kwargs):
       try:
         recipeUser = RecipeUser.objects.get(facebookUser = user)
       except RecipeUser.DoesNotExist:
-        recipeUser = RecipeUser.objects.create(facebookUser = user)
-    #   profile = user.get_profile()
-    #   if profile is None:
-    #       profile = Profile(user_id=user.id)
-    #   profile.gender = response.get('gender')
-    #   profile.link = response.get('link')
-    #   profile.timezone = response.get('timezone')
-    #   profile.save()
+        pic = 'http://graph.facebook.com/' + response['id'] + '/picture?type=square'
+        recipeUser = RecipeUser.objects.create(facebookUser = user, profilePic = pic)
 
 def logout(request):
     """Logs out user"""
@@ -696,8 +693,8 @@ def facebook_phone(request):
     return render(request, 'facebook_phone.html')
 
 api_version = "v1.0"
-app_id = '628799940553227'
-app_secret = '0897c3f8adf25943bc6c8f8bf849a823';
+app_id = ''
+app_secret = '';
 me_endpoint_base_url = 'https://graph.accountkit.com/v1.0/me';
 token_exchange_base_url = 'https://graph.accountkit.com/v1.0/access_token';
 import hmac
@@ -734,7 +731,7 @@ def accountkit_login(request):
     #   // get account details at /me endpoint
     print data
 
-    appsecret_proof = genAppSecretProof('fe9a75f00a6bb46eca43cb04388139e3', data['access_token'])
+    appsecret_proof = genAppSecretProof('', data['access_token'])
     me_endpoint_url = me_endpoint_base_url + '?access_token=' + data['access_token'] + '&appsecret_proof=' + appsecret_proof;
     me_endpoint_url = me_endpoint_base_url + '?access_token=' + data['access_token'];
     print me_endpoint_url
