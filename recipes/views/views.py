@@ -107,7 +107,7 @@ def home(request):
     if not request.user.is_authenticated():
         return render(request, 'recipeBase.html', context)
     print request.user
-    # auth_logout(request)
+    auth_logout(request)
     recipeUser = getUser(request.user)
     notes = recipeUser.notes.all().order_by('-recipe__date_added')
 
@@ -682,8 +682,6 @@ def save_profile(backend, user, response, *args, **kwargs):
         data['email'] = response.get('email', None)
         data['facebookUser'] = user
         recipeUser = RecipeUser.objects.filter(facebookUser = user)
-        recipeUser.delete()
-        return
 
     if not recipeUser.exists():
         userByEmail = RecipeUser.objects.filter(email = data['email'])
