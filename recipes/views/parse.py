@@ -186,13 +186,14 @@ def parseEpicurious(soup, recipe):
     )
 
 def parseFood52(soup, recipe):
-    return parserTemplate(soup, recipe,
+    recipe = parserTemplate(soup, recipe,
         {'name': 'sailthru.tags'},
         '',
         'ingredients',
         {'itemprop': 'image'},
         'src'
     )
+    return recipe
 
 def parseMyRecipes(soup, recipe):
     return parserTemplate(soup, recipe,
