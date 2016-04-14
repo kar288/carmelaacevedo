@@ -1,5 +1,12 @@
 <form class="recipe-form centered small" action="{% block url %}{% endblock %}" method="post">
   {% block form-top %}
+  {% endblock %}
+  <div class="{% block form-class %}{% endblock %}">
+    <label class="recipe-form">
+      Title:
+      <input type="text" name="title" value="{{note.title}}"></input>
+    </label>
+    <br>
     <label class="recipe-form">
       Ingredients:
       <textarea class="materialize-textarea" name="ingredients">{{note.ingredients}}</textarea>
@@ -14,9 +21,7 @@
       Image url:
       <input type="text" name="image" value="{{note.image}}"></input>
     </label>
-  {% endblock %}
-  <br>
-  <div class="{% block form-class %}{% endblock %}">
+    <br>
     <div class="row">
       <div class="col s12 m4">
         <label class="recipe-form">

@@ -52,12 +52,13 @@ class Note(models.Model):
         Recipe,
         on_delete=models.CASCADE,
         verbose_name="recipe",
+        null=True
     )
     text = models.TextField()
     tags = models.TextField()
     rating = models.IntegerField()
     servings = models.CharField(max_length=400)
-    site = models.CharField(max_length=200)
+    site = models.CharField(max_length=200, null=True)
     shared = models.BooleanField(default=False)
 
     def difficulty_long(self):

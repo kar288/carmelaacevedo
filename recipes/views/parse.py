@@ -131,6 +131,8 @@ def parseRecipe(url):
         parseFoodNetwork(soup, recipe)
     else:
         parseGeneral(url, soup, recipe)
+    recipe['instructions'] = '\n'.join(recipe.get('instructions', []))
+    recipe['ingredients'] = '\n'.join(recipe.get('ingredients', []))
     return recipe
 
 def parserTemplate(soup, recipe, tagAttr, tagLink, ingredientAttr,\
@@ -277,9 +279,9 @@ def parseTheKitchn(soup, recipe):
 
     # THIS IS A HACK BUT SOME INGREDIENTS DONT HAVE ITEMPROPS WHILE OTHERS DO
     recipe['ingredients'] = []
-    ingredients = traverse(ingredientElements[0].parent, '\n')
-    for ingredient in ingredients:
-        recipe['ingredients'] += ingredient.split('\n')
+    # ingredients = traverse(ingredientElements[0].parent, '\n')
+    # for ingredient in ingredients:
+    #     recipe['ingredients'] += ingredient.split('\n')
 
     instructions = []
     ingredients = []

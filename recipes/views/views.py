@@ -109,9 +109,9 @@ def home(request):
     print request.user
     # auth_logout(request)
     recipeUser = getUser(request.user)
-    notes = recipeUser.notes.all().order_by('-recipe__date_added')
+    notes = recipeUser.notes.all().order_by('-date_added')
 
-    allNotes = recipeUser.notes.all().order_by('-recipe__date_added')
+    allNotes = recipeUser.notes.all().order_by('-date_added')
 
     get = request.GET
     notes_per_field = []
@@ -218,10 +218,10 @@ def addSharedRecipe(request, noteId):
             context['errors'] = ['No such recipe']
             return redirect('/recipes/')
     note.pk = None
-    recipe = note.recipe
-    recipe.pk = None
-    recipe.save()
-    note.recipe = recipe
+    # recipe = note.recipe
+    # recipe.pk = None
+    # recipe.save()
+    # note.recipe = recipe
     note.save()
     recipeUser.notes.add(note)
     return redirect('/recipes/note/' + str(note.id))
@@ -309,11 +309,11 @@ def advancedSearch(request):
             if field == 'tags':
                 notes &= recipeUser.notes.filter(tags__icontains = term)
             if field == 'title':
-                notes &= recipeUser.notes.filter(recipe__title__icontains = term)
+                notes &= recipeUser.notes.filter(title__icontains = term)
             if field == 'ingredients' and not 'onlyIngredients' in query:
-                notes &= recipeUser.notes.filter(recipe__ingredients__icontains = term)
+                notes &= recipeUser.notes.filter(ingredients__icontains = term)
             if field == 'instructions':
-                notes &= recipeUser.notes.filter(recipe__instructions__icontains = term)
+                notes &= recipeUser.notes.filter(instructions__icontains = term)
             if field == 'notes':
                 notes &= recipeUser.notes.filter(text__icontains = term)
             if field == 'difficulty':
@@ -348,7 +348,7 @@ def ingredients(request, ingredients):
     recipeUser = getUser(request.user)
     notes = Note.objects.none()
     for ingredient in ingredients:
-        notes |= recipeUser.notes.filter(recipe__ingredients__icontains = ingredient)
+        notes |= recipeUser.notes.filter(ingredients__icontains = ingredient)
     context['notes'] = notes
     return render(request, 'index.html', context)
 
@@ -430,7 +430,8 @@ def deleteNote(request, noteId):
     else:
         recipe = note.recipe
         context['success'] = ['Recipe was deleted: ' + note.title]
-        recipe.delete()
+        if recipe:
+            recipe.delete()
         note.delete()
         context['notes'] = recipeUser.notes.all()
     return redirect('/recipes/')
@@ -447,7 +448,8 @@ def deleteRecipes(request):
             context['errors'] = ['Note not found']
         recipe = note.recipe
         context['success'] = ['Recipe was deleted: ' + note.title]
-        recipe.delete()
+        if recipe:
+            recipe.delete()
         note.delete()
     return redirect('/recipes/table/title/1')
 
@@ -501,7 +503,7 @@ def clean(str):
 
 def addNote(request):
     post = request.POST
-    if not post or not 'recipeUrl' in post or not len(post['recipeUrl']):
+    if not post:
         return redirect('/recipes/addRecipe/')
     recipeUser = getUser(request.user)
     recipeUrl = post['recipeUrl']
@@ -525,39 +527,39 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
         logger.info(recipeUrl + ' Recipe exists')
         return {'error': 'Recipe already exists!', 'level': 0}
     try:
-        recipeData = parseRecipe(recipeUrl)
-        if not recipeData or len(recipeData) == 1:
-            return {'error': 'Empty recipe?', 'level': 3}
-        domain = tldextract.extract(recipeUrl).domain
-        image = recipeData.get('image', '')
-        instructions = '\n'.join(recipeData.get('instructions', []))
-        ingredients = '\n'.join(recipeData.get('ingredients', []))
-        title = recipeData.get('title')
-        servings = post.get('servings', '')
-        if 'servings' in recipeData and recipeData['servings']:
-            servings = recipeData['servings']
-        recipe = Recipe.objects.create(
-          url = recipeUrl,
-          image = image,
-          ingredients = ingredients,
-          instructions = instructions,
-          title = title[:200],
-          date_added = datetime.now()
-        )
+        domain = ''
+        recipeData = {}
+        print recipeUrl
+        if recipeUrl:
+            recipeData = parseRecipe(recipeUrl)
+            if not recipeData or len(recipeData) == 1:
+                return {'error': 'Empty recipe?', 'level': 3}
+            domain = tldextract.extract(recipeUrl).domain
+        # recipe = Recipe.objects.create(
+        #   url = recipeUrl,
+        #   image = image,
+        #   ingredients = ingredients,
+        #   instructions = instructions,
+        #   title = title[:200],
+        #   date_added = datetime.now()
+        # )
+        tags = ','.join(recipeData.get('tags', []))
+        if post.get('tags', ''):
+            tags += ',' + post.get('tags', '')
         note = Note.objects.create(
-          recipe = recipe,
+        #   recipe = recipe,
           url = recipeUrl,
-          image = image[:400],
-          ingredients = ingredients,
-          instructions = instructions,
-          title = title[:200],
+          image = recipeData.get('image', post.get('image', ''))[:400],
+          ingredients = recipeData.get('ingredients', post.get('ingredients', '')),
+          instructions = recipeData.get('instructions', post.get('instructions', '')),
+          title = recipeData.get('title', post.get('title', 'No name'))[:200],
           date_added = datetime.now(),
           text = post.get('notes', ''),
-          tags = post.get('tags', '') + ','.join(recipeData['tags']),
+          tags = tags,
           rating = post.get('rating', -1),
           site = domain,
           difficulty = post.get('difficulty', ''),
-          servings = servings[:100]
+          servings = recipeData.get('servings', post.get('servings', ''))[:100]
         )
         recipeUser.notes.add(note)
     except urllib2.URLError, err:
@@ -576,7 +578,7 @@ def addRecipeByUrl(recipeUser, recipeUrl, post):
     except socket.timeout:
         logger.exception('timeout')
         return {'error': 'It took too long to get recipe. The site might be down.', 'level': 3}
-    except e:
+    except Exception:
         logger.exception('another exception')
         traceback.print_exc()
         return {'error': sys.exc_info()[0], 'level': 3}
