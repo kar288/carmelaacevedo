@@ -44,7 +44,11 @@ a:hover .movie-infos {
   display: block;
 }
 .movie-info-row {
+  display: -webkit-box;
+  overflow: hidden;
   padding: 10px 15px;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 .movie-year {
   text-align: right;
