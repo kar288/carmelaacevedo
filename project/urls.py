@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^recipes/convertNotes/$', recipes.views.convertNotes, name='convertNotes'),
     url(r'^recipes/addNote/$', recipes.views.addNote, name='addNote'),
     url(r'^recipes/addBulk/$', recipes.views.addBulk, name='addBulk'),
+    url(r'^recipes/recipeExists/$', recipes.views.recipeExists, name='recipeExists'),
     url(r'^recipes/processBulk/$', recipes.views.processBulk, name='processBulk'),
     url(r'^recipes/addRecipe/$', recipes.views.addRecipeHtml, name='addRecipe'),
     url(r'^recipes/addRecipeAsync/$', recipes.views.addRecipeAsync, name='addRecipeAsync'),

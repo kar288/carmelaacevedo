@@ -595,6 +595,15 @@ def addBulk(request):
     return JsonResponse({'rendered': rendered})
 
 @login_required(login_url='/recipes/')
+def recipeExists(request):
+    get = request.GET
+    url = get.get('url')
+    if not url:
+        return JsonResponse({'exists': False})
+    recipeUser = getUser(request.user)
+    return JsonResponse({'exists': recipeUser.notes.filter(url = url).exists()})
+
+@login_required(login_url='/recipes/')
 def processBulk(request):
     start = datetime.now()
     context = {}
@@ -633,9 +642,8 @@ def processBulk(request):
         for tag in tags:
             href = normalizeURL(tag.get('href'))
             text = tag.text if tag.text else href
-
-            if done < 0 and recipeUser.notes.filter(url = href):
-                # print 'DOING CHEKC'
+            if (datetime.now() - start).seconds < 20 and recipeUser.notes.filter(url = href):
+            # if done < 0 and recipeUser.notes.filter(url = href):
                 done += 1
             else:
                 parsed_uri = urlparse(href)

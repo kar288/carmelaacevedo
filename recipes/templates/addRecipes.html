@@ -20,7 +20,11 @@
             class="bookmarks"
             index="{{forloop.counter}}">
             {% for url in page %}
-              <p style="background-color: {{url.color}}; overflow: hidden;">
+              <p class="exists-tooltip"
+                data-position="top"
+                data-delay="50"
+                data-tooltip="You already have this recipe!"
+                style="background-color: {{url.color}}; overflow: hidden;">
                 <input name="bookmark" type="checkbox" id="bookmark-{{forloop.counter}}" value="{{url.url}}"/>
                 <label style="height: 100%; width: 100%;" for="bookmark-{{forloop.counter}}">{{url.name}}</label>
               </p>
@@ -50,6 +54,27 @@
       </div>
     {% endif %}
     <script>
+      var checkRecipes = function(urls) {
+        urls.forEach(url => {
+          console.log('check')
+          $.ajax({
+            url: '/recipes/recipeExists/',
+            type: 'get',
+            data: {'url': url.value},
+            dataType: 'json',
+            success: function(data) {
+              if (data.exists) {
+                $(this).parent().tooltip({delay: 50});
+                $(this).attr('disabled', 'disabled');
+              }
+            }.bind(url),
+            error: function(error) {
+              debugger;
+            }
+          });
+        });
+      }
+      checkRecipes($('#content-1').find('[name=bookmark]').toArray());
       $('.bookmarks').on('submit', function(e) {
         var index = this.getAttribute('index');
         var form = $(this);
@@ -87,6 +112,8 @@
           window.location = "/recipes/";
         }
         $('#content-' + index).removeClass('hidden');
+        var urls = $('#content-' + index).find('[name=bookmark]').toArray();
+        checkRecipes(urls);
         var margin = Math.min(
           parseInt($('#content-' + index).css('height')) / 2,
           200
