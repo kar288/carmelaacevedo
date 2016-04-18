@@ -1,6 +1,6 @@
 # Portfolio and other applications
 
-This github repository contains all code related to my [www.carmelaacevedo.com portfolio].
+This github repository contains all code related to my [portfolio](http://www.carmelaacevedo.com).
 
 There are several other applications and projects that are bundled into this repository.
 
