@@ -46,7 +46,7 @@
     </div>
     {% if done %}
       <div class="done-recipes">
-        We found {{done}} links that are already in your recipes!
+        We found {{done}} {% if done >= 200 %}or more {% endif %} links that are already in your recipes!
       </div>
     {% endif %}
     <script>

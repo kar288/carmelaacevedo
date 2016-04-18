@@ -590,6 +590,7 @@ def addBulk(request):
     if not post:
         return redirect('/recipes/addRecipes/')
     bookmarks = post.getlist('bookmark')
+
     rendered = render_to_string('addRecipesList.html', {'recipes': bookmarks})
     return JsonResponse({'rendered': rendered})
 
@@ -628,11 +629,13 @@ def processBulk(request):
         if len(tags) == 0:
             logger.info('No bookmarks in file: ' + request.FILES['bookmarks'].name)
             return render(request, 'addRecipes.html', {'errors': [{'error': 'No bookmarks or links in the file!'}]})
+        print len(tags)
         for tag in tags:
             href = normalizeURL(tag.get('href'))
             text = tag.text if tag.text else href
 
-            if recipeUser.notes.filter(url = href):
+            if done < 200 and recipeUser.notes.filter(url = href):
+                # print 'DOING CHEKC'
                 done += 1
             else:
                 parsed_uri = urlparse(href)
