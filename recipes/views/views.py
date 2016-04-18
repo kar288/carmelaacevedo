@@ -103,7 +103,7 @@ def pagination(request, context, page, notes):
     context['next'] = page + 1 if page + 1 <= len(pages) else 0
     context['rates'] = range(5, 0, -1)
 
-@xframe_options_exempt
+# @xframe_options_exempt
 def home(request):
     context = {}
     if not request.user.is_authenticated():

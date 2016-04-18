@@ -81,6 +81,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'project.urls'
+X_FRAME_OPTIONS = 'ALLOW-FROM http://www.saltedlime.de'
 
 TEMPLATES = [
     {
