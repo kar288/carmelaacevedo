@@ -129,7 +129,7 @@
       </div>
       <ul class="sign-in">
         <li>
-          <a target="_blank" id="google_login" href="/soc/login/google-oauth2/?next=/recipes/" class="btn">
+          <a target="_blank" id="google_login" href="javascript:poptastic('https://accounts.google.com/o/oauth2/auth?scope=https://www.google.com/m8/feeds&client_id=788135140677-2vnmeqsbec9jrviu10l61i69sg3p2u3b.apps.googleusercontent.com&redirect_uri=http://www.saltedlime.de/back&response_type=token');" class="btn">
             Sign in with Google
           </a>
         </li>
@@ -183,6 +183,16 @@
     $('.tooltipped').tooltip({delay: 50});
     $('.modal-trigger').leanModal();
   </script>
+
+<script>
+    function poptastic(url) {
+      var newWindow = window.open(url, 'name', 'height=600,width=450');
+      if (window.focus) {
+        newWindow.focus();
+      }
+    }
+
+</script>
 </body>
 <link rel="shortcut icon" type="image/x-icon" href="/media/favicon.ico">
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
