@@ -634,7 +634,7 @@ def processBulk(request):
             href = normalizeURL(tag.get('href'))
             text = tag.text if tag.text else href
 
-            if done < 200 and recipeUser.notes.filter(url = href):
+            if done < 0 and recipeUser.notes.filter(url = href):
                 # print 'DOING CHEKC'
                 done += 1
             else:
