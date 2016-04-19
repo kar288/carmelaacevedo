@@ -60,7 +60,7 @@ def home(request):
     ]
   }, {
     'title': 'Recipe Manager',
-    'url': '/recipes/',
+    'url': 'http://www.saltedlime.de',
     'image': 'images/recipe-manager.png',
     'text': ['Personal project:',
       'Organizing recipes and being able to take notes for each of them. A django application that will be able to tag recipes, recommend seasonal ones and let users share their recipes and notes with others.'
