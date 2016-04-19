@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^recipes/search/$', recipes.views.search, name='search'),
     url(r'^recipes/accountkit_login/$', recipes.views.accountkit_login, name='accountkit_login'),
     url(r'^recipes/facebook_phone/$', recipes.views.facebook_phone, name='facebook_phone'),
+    url(r'^recipes/back/$', recipes.views.back, name='back'),
     url(r'^recipes/about/$', recipes.views.about, name='about'),
     url(r'^recipes/contact/$', recipes.views.contact, name='contact'),
     url(r'^recipes/table/(?P<field>[\w]*)/(?P<direction>[0-9]*)/$', recipes.views.table, name='table'),

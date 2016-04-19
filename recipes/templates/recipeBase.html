@@ -129,7 +129,7 @@
       </div>
       <ul class="sign-in">
         <li>
-          <a target="_blank" id="google_login" href="javascript:poptastic('https://accounts.google.com/o/oauth2/auth?scope=https://www.google.com/m8/feeds&client_id=788135140677-2vnmeqsbec9jrviu10l61i69sg3p2u3b.apps.googleusercontent.com&redirect_uri=http://www.saltedlime.de/back&response_type=token');" class="btn">
+          <a target="_blank" id="google_login" href="javascript:poptastic()" class="btn">
             Sign in with Google
           </a>
         </li>
@@ -185,7 +185,8 @@
   </script>
 
 <script>
-    function poptastic(url) {
+    function poptastic() {
+      var url = '/soc/login/google-oauth2/?next=/recipes/'
       var newWindow = window.open(url, 'name', 'height=600,width=450');
       if (window.focus) {
         newWindow.focus();
