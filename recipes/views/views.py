@@ -144,9 +144,8 @@ def home(request):
             context['filters'][field] = values
     return render(request, 'index.html', context)
 
-def back(request):
-    print request.GET
-    return render(request, 'index.html', {})
+def doneLogin(request):
+    return render(request, 'doneLogin.html', {})
 
 def getTopValues(notes, field, selected):
     vals = {}

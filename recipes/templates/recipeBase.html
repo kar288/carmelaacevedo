@@ -129,12 +129,12 @@
       </div>
       <ul class="sign-in">
         <li>
-          <a target="_blank" id="google_login" href="javascript:poptastic('/soc/login/google-oauth2/?next=/recipes/')" class="btn">
+          <a target="_blank" id="google_login" href="javascript:poptastic('/soc/login/google-oauth2/?next={% url 'doneLogin' %}')" class="btn">
             Sign in with Google
           </a>
         </li>
         <li>
-          <a target="_blank" href="javascript:poptastic('{% url 'social:begin' 'facebook' %}?next=/recipes/')" class="btn">
+          <a target="_blank" href="javascript:poptastic('{% url 'social:begin' 'facebook' %}?next={% url 'doneLogin' %}')" class="btn">
             Sign in with Facebook
           </a>
         </li>
@@ -149,27 +149,19 @@
           var win;
           var checkConnect;
           function poptastic(url) {
-            win = window.open(url, 'SomeAuthentication', 'width=972,height=660,modal=yes,alwaysRaised=yes');
+            win = window.open(url, 'SomeAuthentication', 'width=400,height=660,modal=yes,alwaysRaised=yes');
             if (window.focus) {
               win.focus();
             }
           };
 
-          setTimeout(function() {
             checkConnect = setInterval(function() {
-              if (!win) {
+              if (!win || !win.closed) {
                 return;
               }
-              try {
-                win.document;
-                clearInterval(checkConnect);
-                window.location.reload();
-                win.close();
-              } catch(e) {
-                  return
-              }
+              clearInterval(checkConnect);
+              window.location.reload();
             }, 100);
-          }, 6000)
       </script>
     {% endblock %}
   </div>
