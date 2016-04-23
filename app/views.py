@@ -59,9 +59,9 @@ def home(request):
       'Find out which movies or series of an IMDB list are in Netflix.'
     ]
   }, {
-    'title': 'Recipe Manager',
+    'title': 'Salted Lime',
     'url': 'http://www.saltedlime.de',
-    'image': 'images/recipe-manager.png',
+    'image': 'images/saltedlimebw copy.png',
     'text': ['Personal project:',
       'Organizing recipes and being able to take notes for each of them. A django application that will be able to tag recipes, recommend seasonal ones and let users share their recipes and notes with others.'
     ]
