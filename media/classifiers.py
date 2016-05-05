@@ -1,4 +1,6 @@
 import csv
+import datetime
+import os
 from collections import Counter
 
 import matplotlib.pyplot as plt
@@ -46,8 +48,9 @@ def parse_docs_and_tags(fname):
     tfidf = TfidfVectorizer(stop_words='english', min_df=100)
     X = tfidf.fit_transform(docs).toarray()
 
-    counter = TfidfVectorizer(min_df=100, tokenizer=str.split)
-    y = normalize(counter.fit_transform(tags).toarray(), norm='l1')
+    counter = CountVectorizer(min_df=100, binary=True, tokenizer=str.split)
+    y = counter.fit_transform(tags).toarray()
+    # y = (y != 0)
 
     n_labels = y.shape[1]
     tag_index = {idx: tag for tag, idx in counter.vocabulary_.items()}
@@ -89,21 +92,29 @@ def dnn(X_train, X_test, y_train, y_test):
 
     with tf.name_scope('Dense_Out'):
         model.add(Dense(n_tags))
-        model.add(Activation('softmax'))
+        model.add(Activation('sigmoid'))
 
     with tf.name_scope('Optimize_Model'):
-        model.compile(loss='categorical_crossentropy', optimizer='sgd')
-
-    # tsb = TensorBoard(
-    #     log_dir=os.path.join(self.out_dir, 'model'),
-    #     histogram_freq=1)
+        model.compile(
+            loss='binary_crossentropy',
+            optimizer='SGD',
+            metrics=['accuracy'])
 
     with tf.name_scope('Fit_Model'):
+        now = datetime.datetime.now()
+        date = now.strftime('%Y-%m-%d')
+        time = now.strftime('%H-%M-%S')
+
+        tsb = TensorBoard(
+            log_dir=os.path.join('tensorboard', date, time),
+            histogram_freq=1)
+
         model.fit(
             X_train,
             y_train,
             batch_size=50,
-            nb_epoch=10,
+            nb_epoch=3,
+            callbacks=[tsb],
             verbose=1,
             validation_data=(X_test, y_test))
 
