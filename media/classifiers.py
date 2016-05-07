@@ -13,6 +13,10 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.naive_bayes import MultinomialNB
 
+now = datetime.datetime.now()
+date = now.strftime('%Y-%m-%d')
+time = now.strftime('%H-%M-%S')
+
 
 def parse_docs_and_tags():
     titles = []
@@ -21,13 +25,15 @@ def parse_docs_and_tags():
 
     tags = []
 
-    reader = csv.DictReader(sys.stdin)
-    for recipe in reader:
-        titles.append(recipe['title'])
-        ingredients.append(recipe['ingredients'])
-        preparations.append(recipe['preparation'])
+    fname = sys.argv[1] if len(sys.argv) > 1 else './allrecipes.csv'
+    with open(fname) as f:
+        reader = csv.DictReader(f)
+        for recipe in reader:
+            titles.append(recipe['title'])
+            ingredients.append(recipe['ingredients'])
+            preparations.append(recipe['preparation'])
 
-        tags.append(recipe['tags'])
+            tags.append(recipe['tags'])
 
     tfidf = TfidfVectorizer(max_features=5000)
     tfidf_prep = TfidfVectorizer(max_features=5000, stop_words='english')
@@ -36,7 +42,7 @@ def parse_docs_and_tags():
     X_ingredients = tfidf.fit_transform(ingredients).toarray()
     X_preparation = tfidf_prep.fit_transform(preparations).toarray()
 
-    counter = CountVectorizer(min_df=1, binary=True, tokenizer=str.split)
+    counter = CountVectorizer(min_df=100, binary=True, tokenizer=str.split)
     y = counter.fit_transform(tags).toarray()
 
     n_labels = y.shape[1]
@@ -93,10 +99,6 @@ def dnn(X, y):
             metrics=['accuracy'])
 
     with tf.name_scope('Fit_Model'):
-        now = datetime.datetime.now()
-        date = now.strftime('%Y-%m-%d')
-        time = now.strftime('%H-%M-%S')
-
         tsb = TensorBoard(
             log_dir=os.path.join('tensorboard', date, time),
             histogram_freq=1)
