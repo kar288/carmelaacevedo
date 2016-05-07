@@ -35,8 +35,8 @@ def parse_docs_and_tags():
 
             tags.append(recipe['tags'])
 
-    tfidf = TfidfVectorizer(max_features=5000)
-    tfidf_prep = TfidfVectorizer(max_features=5000, stop_words='english')
+    tfidf = TfidfVectorizer(max_features=1024)
+    tfidf_prep = TfidfVectorizer(max_features=1024, stop_words='english')
 
     X_title = tfidf.fit_transform(titles).toarray()
     X_ingredients = tfidf.fit_transform(ingredients).toarray()
@@ -87,7 +87,7 @@ def dnn(X, y):
         X_input = merge([title_input, ingr_input, prep_input], mode='concat')
 
     with tf.name_scope('Dense_Hidden'):
-        hidden = Dense(output_dim=4096, activation='relu')(X_input)
+        hidden = Dense(output_dim=512, activation='relu')(X_input)
 
     with tf.name_scope('Dropout'):
         dropout = Dropout(p=0.5)(hidden)
