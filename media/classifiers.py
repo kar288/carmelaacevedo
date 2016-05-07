@@ -75,6 +75,10 @@ def print_tags(tags, y_true, y_pred):
 def dnn(X, y):
     X_title, X_ingr, X_prep = X
 
+    X_title_tr, X_title_te, X_ingr_tr, X_ingr_te, \
+        X_prep_tr, X_prep_te, y_tr, y_te = train_test_split(
+            X_title, X_ingr, X_prep, y, train_size=.7)
+
     with tf.name_scope('Input_Merge'):
         title_input = Input(shape=(X_title.shape[1],), name='title_in')
         ingr_input = Input(shape=(X_ingr.shape[1],), name='ingr_in')
@@ -103,22 +107,33 @@ def dnn(X, y):
             log_dir=os.path.join('tensorboard', date, time),
             histogram_freq=1)
 
-    feed_dict = {'title_in': X_title, 'ingr_in': X_ingr, 'prep_in': X_prep}
+    feed_dict_tr = {
+        'title_in': X_title_tr,
+        'ingr_in': X_ingr_tr,
+        'prep_in': X_prep_tr}
+
+    feed_dict_te = {
+        'title_in': X_title_te,
+        'ingr_in': X_ingr_te,
+        'prep_in': X_prep_te}
+
     model.fit(
-        feed_dict,
-        y,
+        feed_dict_tr,
+        y_tr,
         batch_size=50,
         nb_epoch=30,
         callbacks=[tsb],
         verbose=1,
-        validation_split=0.7)
+        validation_data=(feed_dict_te, y_te))
 
-    return model.predict(feed_dict)
+    return model
 
 
 def main():
     X, y, tags = parse_docs_and_tags()
-    y_pred = dnn(X, y)
+    model = dnn(X, y)
+    y_pred = model.predict([X[0], X[1], X[2]])
+
     print_tags(tags, y, y_pred)
 
 
