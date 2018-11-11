@@ -10,40 +10,18 @@ Resume
 	Creating innovative user interfaces.
 {% endblock %}
 
-{% block polymer %}
-  {% include "polymer-element.html" %}
-{% endblock %}
-
 {% block rightDetail %}
 <div class="row">
-  <div class="col-xs-1">
-    <i class="fa fa-envelope contact-icon"></i>
-  </div>
-  <div class="col-xs-9">
+  <div class="col-lg-12">
     Carmela.Acevedo@gmail.com
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-1">
-    <i class="fa fa-mobile-phone contact-icon"></i>
-  </div>
-  <div class="col-xs-9">
+  <div class="col-lg-12">
     +49 176 304 93 108
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-1">
-      <i class="fa fa-github contact-icon"></i>
-  </div>
-  <div class="col-xs-9">
+  <div class="col-lg-12">
     <a href="//github.com/kar288/">kar288</a>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-1">
-      <i class="fa fa-github contact-icon"></i>
-  </div>
-  <div class="col-xs-9">
+  <div class="col-lg-12">
     <a href="{% url 'resume' %}">pdf version</a>
   </div>
 </div>
@@ -51,14 +29,71 @@ Resume
 
 
 {% block chips %}
-<card-demo></card-demo>
+  {% load staticfiles %}
+  <div class="chips-container">
+    {% for item in items %}
+      <div class="chip-wrapper">
+        <div class="chip">
+          <div class="chip-top ratio" style="background-color:{{item.color}};">
+          </div>
+          <div class="chip-bottom">
+            <div class="card-title">
+              <div class="chip-album-artist">
+                <div class="card-icon" style="background:{{item.color}};"></div>
+                <span>{{item.title}}</span>
+              </div>
+            </div>
+            <div class="details">
+              {% for element in item.content %}
+                <div>
+                  <div>
+                    <div class="row">
+                      <div class="col-md-7 title">
+                        <h5>
+                          {{element.main}}
+                        </h5>
+                      </div>
+                      <div class="col-md-5 date">
+                        {{element.date}}
+                      </div>
+                    </div>
+                  </div>
+                  <div if="{{element.place}}">
+                    <div class="place">
+                      {{element.place}}
+                    </div>
+                  </div>
+                  {% if element.description %}
+                  <div>
+                    {{element.description}}
+                  </div>
+                  <div>
+                    {{element.description2}}
+                  </div>
+                  {% endif %}
+                  {% if element.vals %}
+                    <div class="row">
+                      {% for val in element.vals %}
+                        <div class="col-md-12 col-lg-3">
+                          {{val}}
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+                {% if not forloop.last %}
+                  <hr>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 {% endblock %}
 
 {% block extraDependencies %}
 
 {% load staticfiles %}
-<link rel="import" href="{% static 'polymer-tutorial-master/components/polymer-ui-card.html'%}">
-<link rel="import" href="{% static 'polymer-tutorial-master/components/core-animated-pages.html'%}">
-<script src="{% static 'js/carmela.js'%}"></script>
-
 {% endblock %}

@@ -2,7 +2,7 @@
 <div class="chip-wrapper">
   <a class="chip-link" target="_top;" href="{{homeCard.url}}">
     <div class="chip">
-      <div class="chip-top ratio" style="background-image:url('{% static homeCard.image %}');">
+      <div class="chip-top ratio" style="{% if homeCard.image %}background-image:url('{% static homeCard.image %}');{% else %}background-color: #222;{% endif %}">
       </div>
       <div class="description">
         {% for t in homeCard.text %}

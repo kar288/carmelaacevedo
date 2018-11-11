@@ -1,14 +1,14 @@
-html {
-  height: 100%;
-}
 body {
   color: #333;
 	font-family: Roboto, Helvetica Neue;
   font-size: 1.6em;
 	font-weight: lighter;
-  height: 100%;
   letter-spacing: 0.05em;
   padding-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .name {
@@ -23,10 +23,28 @@ h1 > a:hover {
 	text-decoration: none;
 }
 
+.background {
+  height:100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.detail {
+  margin-top: 28px;
+  text-align: right;
+}
+
 .info-header {
-	margin: 0px 50px;
 	border-bottom-width: 2px;
 	border-bottom-style: inset;
+  position: fixed;
+  top: 0;
+  z-index: 300;
+  background: white;
+  width: 100%;
+  padding: 80px;
+  padding-bottom: 16px;
 }
 
 .info-footer {
@@ -39,30 +57,6 @@ h1 > a:hover {
 	font-weight: lighter;
 }
 
-.name {
-	padding-left: 50px;
-	padding-top: 86px;
-}
-
-.resume .detail {
-  padding-top: 110px;
-}
-
-.detail {
-	padding-top: 130px;
-	padding-right: 50px;
-  text-align: right;
-}
-/*
-.detail-text {
-	text-align: right;
-}*/
-
-.detail-small {
-	padding-bottom: 5px;
-	margin-left: 65px;
-}
-
 .contact {
 	padding-top: 80px;
 }
@@ -73,7 +67,6 @@ h1 > a:hover {
 
 h5 {
   display: block;
-  /*font-size: 0.83em;*/
   -webkit-margin-before: 1.67em;
   -webkit-margin-after: 1.67em;
   -webkit-margin-start: 0px;
@@ -121,12 +114,8 @@ h5 {
 }
 
 .chips-container {
-  /*position: absolute;*/
-  top: 20px;
-  right: 0;
-  left: 0;
   text-align: center;
-  margin-top:118px;
+  margin: 64px;
 }
 
 .chip {
@@ -139,10 +128,41 @@ h5 {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
 }
 
+.expanded .card-title {
+  padding-bottom: 12px;
+}
+
+.expanded .chip {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 100px);
+  align-self: stretch;
+  margin: 64px auto;
+}
+
+.details,
+.card-icon {
+  display: none;
+}
+
+.expanded .details{
+  display: block;
+}
+
+.expanded .card-icon {
+  display: inline-block;
+}
+
 .chip-bottom {
-  padding: 8px;
-  line-height: 1.5;
+  padding: 12px;
+  line-height: 1.4;
   font-weight: normal;
+
+}
+
+.expanded .chip-bottom {
+  flex: 1;
+  padding: 36px;
 }
 
 a .chip-bottom {
@@ -156,10 +176,16 @@ a .chip-bottom {
 .ratio {
   position: relative;
   height: 0;
-  padding-bottom: 100% ;
+  padding-bottom: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+}
+
+.expanded .chip-top {
+  flex: 1;
+  height: inherit;
+  padding: 0;
 }
 
 .description {
@@ -195,6 +221,12 @@ a .chip-bottom {
   width: 250px;
 }
 
+.expanded.chip-wrapper {
+  width: 100%;
+  display: block;
+  /* height: calc(100% - 500px); */
+}
+
 #details {
   /*top: -230px;*/
   padding: 20px 10% 0;
@@ -226,10 +258,7 @@ a .chip-bottom {
   width: 60px;
   height: 60px;
   margin-right: 16px;
-}
-
-.card-title {
-  font-size: 2em;
+  min-width: 60px;
 }
 
 .elements {
@@ -237,13 +266,14 @@ a .chip-bottom {
 }
 
 .date {
-  /*width: 35%;*/
+  text-align: right;
   font-size: 0.9em;
   padding-top: 19px;
 }
 
 .title {
-  /*width: 65%;*/
+  padding-bottom: 8px;
+  line-height: 1.4em;
 }
 
 .title > h5 {
@@ -265,101 +295,50 @@ a .chip-bottom {
 	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
 
-.card-album-title {
+.expanded .chip-album-artist {
   font-weight: normal;
   font-size: 40px;
   letter-spacing: 2px;
+  display: flex;
 }
 
-.detail .row {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-
-@media (max-width: 1200px) {
-  .chip-wrapper {
-    width: 45%;
-  }
-
-  .description {
-    margin: 50px 50px;
-  }
-
-  .detail {
-    padding-top: 200px;
-  }
-
-  .resume .detail {
-    padding-top: 135px;
-  }
-
-  .detail-small {
-    width: 100%;
-  }
-}
 
 @media (max-width: 800px) {
-  .detail,
-  .resume .detail {
+  .detail {
     text-align: left;
-    padding-top: 0;
-    padding-bottom: 10px;
-    padding-left: 60px;
+    padding-bottom: 20px;
   }
+
 }
 .complete {
   height: 100%;
 }
 
 @media only screen and (max-device-width : 1080px) {
-  body {
-    /*font-size: 3em;*/
-  }
+
   .pic-nav {
     display: none;
   }
   .title > h5 {
     font-size: 30px;
   }
-
   .chip-wrapper {
     width: 80%;
   }
   .chips-container {
-    margin-top: 18px;
+    margin: 10px;
   }
   .name {
-    /*width: 80%;*/
-    font-size: 30px;
+    font-size: 3em;
     line-height: 50px;
     padding-left: 5px;
     padding-top: 0;
   }
-  .resume .detail {
-    width: 100%;
-    padding-top: 20px;
-    padding-left: 0;
-  }
-  .detail {
-    padding-left: 15px;
-  }
   .detail-small {
     font-size: 1.3em;
-    margin-left: 5px;
-    width: 100%;
   }
   .detail-text {
     font-size: 25px;
-    padding-top: 0 !important;
-    /*text-align: left;*/
-  }
-  .detail {
-    text-align: center;
-    padding-top: 0;
-  }
-  .detail .row {
-    margin-left: -10px;
-    margin-right: -10px;
   }
   .card-album-title {
     font-size: 2em;
@@ -370,4 +349,26 @@ a .chip-bottom {
   .card {
     text-align: justify;
   }
+  .expanded .chip {
+    width: inherit;
+  }
+  .expanded .chip-bottom {
+    flex: 12;
+    padding: 10px;
+  }
+  .date {
+    text-align: left;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .chip-wrapper {
+    width: 45%;
+  }
+
+  .expanded .description {
+    margin: 50px 50px;
+  }
+
 }

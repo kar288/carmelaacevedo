@@ -13,6 +13,7 @@ from django.template import loader, Context
 from django.http import JsonResponse
 
 from .models import Greeting
+from .resume import Resume
 
 
 # Create your views here.
@@ -36,20 +37,11 @@ def index(request):
 
 def home(request):
   els = [{
-    'title': 'OpenMathMap',
-    'url': 'http://map.mathweb.org',
-    'image': 'images/openmathmap-thumbnail-bw.png',
-    'text': ['Bachelor Thesis Project:',
-      'An interactive map interface that helps user navigate through the world of math.',
-      'Conducted user studies to evaluate the system.'
-    ]
-  }, {
-    'title': 'Pricer',
-    'url': 'http://pricer.herokuapp.com',
-    'image': 'images/pricer-thumbnail.png',
-    'text': ['Class project',
-      'Guess prices of amazon items in a fun game inspired from the Price is Rigtht.',
-      'Using Django, jQuery and the Amazon API to create a web application'
+    'title': 'Resume',
+    'url': '/resumeHtml',
+    'image': '',
+    'text': ['Resume',
+      'Checkout what I\'ve been up to'
     ]
   }, {
     'title': 'Movie finder',
@@ -85,7 +77,7 @@ def resume(request):
   pdf.closed
 
 def resumeHtml(request):
-  return render(request, 'resume.html', {})
+  return render(request, 'resume.html', {'items': Resume().items})
 
 def pictures(request):
   pics = [];

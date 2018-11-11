@@ -1,47 +1,51 @@
 <script>
   Polymer('card-demo', {
     page: 0,
-    items: [
-      { album: 'Education',
+    items: [{
+        album: 'Education',
         color: '#1C2130',
-        content: [
-        {
-          main: 'University of Konstanz',
-          place: 'Konstanz, Germany',
-          date: 'October 2014 - Present',
-          description: 'MSc Information Engineering - Human Computer Interaction',
-          description2: 'Expected year of graduation: July 2016'
-        },
-        {
-          main: 'Jacobs University Bremen',
-          place: 'Bremen, Germany',
-          date: 'September 2011 - June 2014',
-          description: 'BSc Computer Science'
-        }, {
-          main: 'Carnegie Mellon University',
-          place: 'Pittsburgh, USA',
-          date: 'August 2013 - December 2013',
-          description: 'Exchange Semester (Dean\'s List)'
-        }] },
-      { album: 'Skills',
+        content: [{
+            main: 'University of Konstanz',
+            place: 'Konstanz, Germany',
+            date: 'October 2014 - Present',
+            description: 'MSc Information Engineering - Human Computer Interaction',
+            description2: 'Expected year of graduation: July 2016'
+          },
+          {
+            main: 'Jacobs University Bremen',
+            place: 'Bremen, Germany',
+            date: 'September 2011 - June 2014',
+            description: 'BSc Computer Science'
+          }, {
+            main: 'Carnegie Mellon University',
+            place: 'Pittsburgh, USA',
+            date: 'August 2013 - December 2013',
+            description: 'Exchange Semester (Dean\'s List)'
+          }
+        ]
+      },
+      {
+        album: 'Skills',
         color: '#028F76',
         content: [{
           main: 'Programming Languages',
           description: 'JavaScript, Python, HTML5, CSS, Java, C++'
-        },{
+        }, {
           main: 'Other',
           description: 'Git, Closure, Django, SQL'
         }, {
           main: 'Languages',
           description: 'Spanish, English, Portuguese, German'
-        }] },
-      { album: 'Honours and Awards',
+        }]
+      },
+      {
+        album: 'Honours and Awards',
         color: '#B3E099',
         content: [{
           main: 'Merit-Based Scholarship for tuition and semester abroad.',
           date: '2011 - 2014',
           description: 'Scholarship from Jacobs University Bremen.'
-        },{
+        }, {
           main: 'Dean\'s List',
           date: 'Fall 2013',
           description: 'Carnegie Mellon University'
@@ -53,10 +57,17 @@
           main: 'Honourable Mentions',
           date: '2007 - 2010',
           description: 'International Mathematical Olympiads'
-        }] },
-      { album: 'Professional Experience',
+        }]
+      },
+      {
+        album: 'Professional Experience',
         color: '#D14334',
         content: [{
+          main: 'Google',
+          date: 'November 2016 - Present',
+          place: 'Software Engineer',
+          description: '',
+        }, {
           main: 'Facebook',
           date: 'August 2015 - November 2015',
           place: 'Software Engineer Intern',
@@ -76,8 +87,10 @@
           date: 'June 2012 - September 2012',
           place: 'Software developing intern',
           description: 'Refactored and implemented parsers for reference compilation files such as BibTeX. Afterwards developed back-end and front-end components in PHP and JavaScript. Created self contained widgets HTML5 while gaining experience with non-relational databases and AJAX.'
-        }]},
-      { album: 'Publications',
+        }]
+      },
+      {
+        album: 'Publications',
         color: '#FFEAAD',
         content: [{
           main: 'OpenMathMap: Interaction',
@@ -89,7 +102,8 @@
           date: 'March 2014',
           place: 'C. Acevedo, T. Chitiboi, L. Linsen, H. Hahn',
           description: 'Supervised classification approach for image segmentation that operates in an object-based image representation and combines object features with boundary features.'
-        }]}
+        }]
+      }
     ],
 
     selectedAlbum: null,
@@ -103,10 +117,9 @@
       }
     }
   });
-
 </script>
 <polymer-element name="card-demo">
-{% verbatim %}
+  {% verbatim %}
   <template>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/carmela.css" rel="stylesheet">
@@ -150,99 +163,99 @@
                   <div class="row">
                     <div class="col-md-3">
                       <div class="circle angle-21">
-                  <div class="circle-center">
+                        <div class="circle-center">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      Javascript <br> HTML5 <br> CSS3
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-9">
-                Javascript <br> HTML5 <br> CSS3
-              </div>
-            </div>
-          </div>
                 <div class="col-xs-6">
                   <div class="row">
                     <div class="col-md-3">
                       <div class="circle angle-50">
-                  <div class="circle-center">
+                        <div class="circle-center">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      Python <br> Java <br> C++
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-9">
-                Python <br> Java <br> C++
+              <hr>
+              <div>
+                <h5>
+                  Other
+                </h5>
+                <div class="row">
+                  <div class="col-xs-3">
+                    Git
+                  </div>
+                  <div class="col-xs-3">
+                    Closure
+                  </div>
+                  <div class="col-xs-3">
+                    Django
+                  </div>
+                  <div class="col-xs-3">
+                    SQL
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div>
-          <h5>
-            Other
-          </h5>
-          <div class="row">
-            <div class="col-xs-3">
-              Git
-            </div>
-            <div class="col-xs-3">
-              Closure
-            </div>
-            <div class="col-xs-3">
-              Django
-            </div>
-            <div class="col-xs-3">
-              SQL
-            </div>
-          </div>
-        </div>
-        <hr>
-        <h5>
-          Languages
-        </h5>
+              <hr>
+              <h5>
+                Languages
+              </h5>
               <div class="row" style="padding:20px 0px">
-          <div class="col-xs-3">
-            English (Fluent)
-          </div>
-          <div class="col-xs-3">
-            Spanish (Fluent)
-          </div>
-          <div class="col-xs-3">
-            Portuguese (Advanced)
-          </div>
-          <div class="col-xs-3">
-            German (Intermediate)
-          </div>
-        </div>
+                <div class="col-xs-3">
+                  English (Fluent)
+                </div>
+                <div class="col-xs-3">
+                  Spanish (Fluent)
+                </div>
+                <div class="col-xs-3">
+                  Portuguese (Advanced)
+                </div>
+                <div class="col-xs-3">
+                  German (Intermediate)
+                </div>
+              </div>
             </template>
             <template if="{{selectedAlbum.album != 'Skills'}}">
-            <div class="elements" center>
-              <template repeat="{{selectedAlbum.content as element}}">
-                <div>
+              <div class="elements" center>
+                <template repeat="{{selectedAlbum.content as element}}">
                   <div>
-                    <div class="row">
-                      <div class="col-md-8 title">
-                        <h5>
-                          {{element.main}}
-                        </h5>
-                      </div>
-                      <div class="col-md-4 date">
-                      {{element.date}}
+                    <div>
+                      <div class="row">
+                        <div class="col-md-8 title">
+                          <h5>
+                            {{element.main}}
+                          </h5>
+                        </div>
+                        <div class="col-md-4 date">
+                          {{element.date}}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <template if="{{element.place}}">
-                    <div class="place">
-                    {{element.place}}
+                    <div if="{{element.place}}">
+                      <div class="place">
+                        {{element.place}}
+                      </div>
                     </div>
-                  </template>
-                  <div>
-                  {{element.description}}
+                    <div>
+                      {{element.description}}
+                    </div>
+                    <div>
+                      {{element.description2}}
+                    </div>
                   </div>
-                  <div>
-                  {{element.description2}}
-                  </div>
-                </div>
-                <hr>
-              </template>
-            </div>
+                  <hr>
+                </template>
+              </div>
             </template>
           </div>
         </div>
