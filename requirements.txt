@@ -6,7 +6,6 @@ configparser==3.5.0
 enum34==1.1.6
 first==2.0.1
 flake8==3.4.1
-GDAL==1.11.3
 idna==2.6
 mccabe==0.6.1
 pathlib==1.0.1
