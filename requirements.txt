@@ -8,7 +8,7 @@ gunicorn==19.4.5
 idna==2.0
 NetflixRouletteAPI==5.0
 oauthlib==1.0.3
-psycopg2==2.6.1
+psycopg2==2.7.6.1
 PyJWT==1.4.0
 python-openid==2.2.5
 python-rake==1.0.5
